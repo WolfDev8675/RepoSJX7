@@ -1,6 +1,6 @@
 # RepoSJX7
 Hadoop BIGDATA assignments (BSE+MAKAUT)
-Job specified on OnlineRetail file.. file is not uploadable to Git since file exceeds 25MB
+Job specified on 'OnlineRetail.txt' file.. file is not uploadable to Git since file exceeds 25MB, hence it is uploaded as a rar file *Datasets.rar*
 **Quesion set and assignment detailing**
 Retail Sales Analytic
 Overview:
