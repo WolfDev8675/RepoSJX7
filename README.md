@@ -9,14 +9,14 @@ Overview:
   *5 hrs*
 #
 Data set:
-  InvoiceNo-integer -Transaction Number
-  StockCode-character -SKU Code (Product Code)
-  Description -character -Product Description
-  Quantity -int-Quantity ordered
-  InvoiceDate-character -Transaction Data
-  UnitPrice-float-Price per unit quantity
-  CustomerID-character -Customer ID
-  Country -character -Customer location
+  *InvoiceNo-integer -Transaction Number 
+  *StockCode-character -SKU Code (Product Code)
+  *Description -character -Product Description
+  *Quantity -int-Quantity ordered
+  *InvoiceDate-character -Transaction Data
+  *UnitPrice-float-Price per unit quantity
+  *CustomerID-character -Customer ID
+  *Country -character -Customer location
 #
 *Analysis:*
 1.Revenue Aggregate By Country for top 5 countries
