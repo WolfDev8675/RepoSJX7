@@ -1,5 +1,6 @@
 // Spark code for Analysis 1: Revenue Aggregate by country
 
+//Start of Code
 //cleaning of visible debris 
 var data_raw= sc.textFile("hdfs://localhost:9000/assign1/OnlineRetail.txt")
 var data_raw_split= data_raw.map(x=>x.split("\t"))
@@ -19,3 +20,14 @@ var res_sorted= results.sortBy(_._2,false) //arrange in descending order
 sc.parallelize(res_sorted.take(5)).saveAsTextFile("hdfs://localhost:9000/assign1/spark_jobs/analysis1")
 
 //end of code 
+
+// Solution obtained 
+//kali@kali:~$ hdfs dfs -cat /assign1/spark_jobs/analysis1/part-*
+//Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+//2020-10-18 17:43:38,680 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+//(United Kingdom,7309325.0)
+//(Netherlands,285446.5)
+//(EIRE,265546.38)
+//(Germany,228866.53)
+//(France,209023.77)
+//kali@kali:~$ 
