@@ -15,6 +15,7 @@ kvp_Asgn1.take(5) //check kv maps
 var kvp_final_Asgn1=data_cleaned.map(x=> {(x(7), x(3).toInt * x(5).toFloat)}) //final kv map for calculating aggregate
 kvp_final_Asgn1.take(5) // checking multiplier value to kvp_Asgn1
 var results=kvp_final_Asgn1.reduceByKey((i,j)=>(i+j)) //Revenue 
-sc.parallelize(results.collect).saveAsTextFile("hdfs://localhost:9000/assign1/spark_jobs/analysis1")
+var res_top5= results.sortBy(_._2,false) //arrange in descending order
+sc.parallelize(results.take(5)).saveAsTextFile("hdfs://localhost:9000/assign1/spark_jobs/analysis1")
 
 //end of code 
