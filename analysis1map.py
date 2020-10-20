@@ -13,7 +13,7 @@ for line in sys.stdin:
             print('%s,%d,%f'%(components[7],int(components[3]),float(components[5])))   # key: country ; values : quantity and unit price
         else:
             continue   #ignore condition failures -> quality control
-    except Exc:
+    except Exception:
         continue    # ignore filtration failure -> quality control 
     
 # end of code 
