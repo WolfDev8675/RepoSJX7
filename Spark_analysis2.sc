@@ -25,11 +25,14 @@ var kvp_inv2ctry=inv2ctry.map(x=> {(x._1, x._3)}) //map out occurences
 var num_tran=kvp_inv2ctry.reduceByKey((a,b)=>(a+b)) // country to number of transactions :: frequency 
 var num_tran_sorted=num_tran.sortBy(_._2,false)  //sort
 var soln2=num_tran_sorted.take(5) //result2
-//process 3: average number of items
+//process 3: average number of items by country for top 5
 var kvp_qty2ctry=data_cleaned.map(x=> {(x(7), x(3).toInt)}) //quantity mapped to country 
-var kvp_tQ2ctry=qty2ctry.reduceByKey(_+_) // total quantity to each country 
-var nosCtry=tQ2ctry.count // total number of countries 
+var kvp_tQ2ctry=kvp_qty2ctry.reduceByKey(_+_) // total quantity to each country 
+var nosCtry=kvp_tQ2ctry.count // total number of countries 
 var tQ_sorted=kvp_tQ2ctry.sortBy(_._2,false)  // sort 
-var soln3_vec= {for(i <- 0 to 4) yield (tQ_sorted(i)._1,tQ_sorted(i)._2*1.0 /nosCtry)}  // calculating for the top 5 totals 
+var tQ_t5=tQ_sorted.take(5) // top 5 totals
+var soln3_vec= {for(i <- 0 to 4) yield (tQ_t5(i)._1,tQ_t5(i)._2*1.0 /nosCtry)}  // calculating for the top 5 totals 
 var soln3=soln3_vec.toArray  //result3
-//process 4: 
+//process 4: Minimum amount per customers by country for top 5 
+
+
