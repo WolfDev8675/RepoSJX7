@@ -64,3 +64,19 @@ for i in range(5):
   
 # ** end of code 
 
+##
+# operated using linux core -> hadoop streaming generates error -1000 at MAPRED jobs 
+# command tested for a modified input file of 1000 datapoints from the original OnlineRetail.txt 
+# linux core command  
+#hdfs dfs -cat /assign1/OnlRet_1K.txt | python /home/kali/KomodoIDE/Komodo_jobs/Assign1/analysis1map.py | sort| shuf  | python /home/kali/KomodoIDE/Komodo_jobs/Assign1/analysis1red.py
+# results obtained 
+#**..
+#Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+#2020-10-22 03:28:09,071 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+#United Kingdom  23099.540000
+#France  855.860000
+#Australia       358.250000
+#Netherlands     192.600000
+# Data Error:: --> Inadequate availability  
+#kali@kali:~$ 
+#**..
