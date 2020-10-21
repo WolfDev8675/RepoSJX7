@@ -10,7 +10,7 @@ for line in sys.stdin:
     components=row.split("\t")      # separating individual components 
     try:
         if ( "" not in components or int(components[3])>= 0 or float(components[5])>= 0.0 ):   # filtration -> quality control 
-            print('%s\t%d\t%f'%(components[7],int(components[3]),float(components[5])))   # key: country ; values : quantity and unit price
+            print('%s\t%f'%(components[7],int(components[3])*float(components[5])))   # key: country ; values : quantity and unit price
         else:
             continue   #ignore condition failures -> quality control
     except Exception:
