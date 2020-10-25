@@ -1,0 +1,6 @@
+create database RetailDB;
+use RetailDB;
+create table data_raw_headless (InvoiceNo string,StockCode string,Description string,Quantity int,InvoiceDate timestamp,UnitPrice float,CustomerID string,Country string) row format delimited fields terminated by '\t' lines terminated by '\n' tblproperties("skip.header.line.count"="1");
+load data inpath 'hdfs://localhost:9000/assign1/OnlineRetail.txt' into table data_raw_headless;
+
+ 
