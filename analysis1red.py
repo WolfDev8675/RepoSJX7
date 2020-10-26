@@ -65,7 +65,7 @@ for i in range(5):
 # ** end of code 
 
 ##
-# operated using linux core -> hadoop streaming generates error -1000 at MAPRED jobs 
+# operation using linux core -> 
 # command tested for a modified input file of 1000 datapoints from the original OnlineRetail.txt 
 # linux core command  
 #hdfs dfs -cat /assign1/OnlRet_1K.txt | python /home/kali/KomodoIDE/Komodo_jobs/Assign1/analysis1map.py | sort| shuf  | python /home/kali/KomodoIDE/Komodo_jobs/Assign1/analysis1red.py
@@ -78,5 +78,21 @@ for i in range(5):
 #Australia       358.250000
 #Netherlands     192.600000
 # Data Error:: --> Inadequate availability  
+#kali@kali:~$ 
+#**..
+# Operation using Hadoop MapReduce core -> 
+# command operated on complete file OnlineRetail.txt
+# hdfs operative command
+#hadoop jar /$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.0.jar -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign1.py -mapper "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign1.py" -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign1.py -reducer "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign1.py" -input /assign1/OnlineRetail.txt -output /assign1/pythonMR_jobs/analysis1pmr
+# results obtained
+#**..
+#kali@kali:~$ hdfs dfs -cat /assign1/pythonMR_jobs/analysis1pmr/part*
+#Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+#2020-10-26 21:18:02,723 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+#United Kingdom  7308391.554004
+#Netherlands     285446.340000
+#EIRE    265545.900000
+#Germany 228867.140000
+#France  209024.050000
 #kali@kali:~$ 
 #**..
