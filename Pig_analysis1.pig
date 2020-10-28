@@ -33,7 +33,7 @@ EIRE    265545.9
 Germany 228867.14
 France  209024.05
 kali@kali:~$ 
-*.
+*/
 
 
 
