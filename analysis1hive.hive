@@ -18,6 +18,10 @@ where (quantity>0 AND unitprice>=0.0 AND customerid != '');
 show tables;
 select count (stockcode) from data_cleaned where stockcode!='';
 -- result 397924
+-- cleaned of debris 
+
+-- analysis job 
+create table kv_asses1 as select (country),(quantity*unitprice) from data_cleaned;
 
 
 
