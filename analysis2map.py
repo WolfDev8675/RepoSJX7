@@ -9,11 +9,10 @@
 # start of code
 import sys 
 for line in sys.stdin:
-    row=line.strip()
-    components=row.split("\t")
+    row=line.strip()    # removeing white spaces
+    components=row.split("\t")          # separating individual components 
     try:
-        if ( "" not in components and int(components[3])>= 0 and float(components[5])>= 0.0 ):
-            
+        if ( "" not in components and int(components[3])>= 0 and float(components[5])>= 0.0 ):      # filtration -> quality control 
             # generating K,V pairs after filtering out debris in data
             print('%s\t%s\t%d\t%f\t%s'%(components[7],components[0],int(components[3]),float(components[5]),components[6]))
         else:
