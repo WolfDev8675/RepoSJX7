@@ -21,8 +21,34 @@ select count (stockcode) from data_cleaned where stockcode!='';
 -- cleaned of debris 
 
 -- analysis job 
-create table kv_asses1 as select (country),(quantity*unitprice) from data_cleaned;
+create table kv_anlysis1(country string,totalcost float);  -- table for calculation of aggregate
+insert into kv_anlysis1  select (country),(quantity*unitprice) from data_cleaned; -- population of table 
+create table analysis1Result (country string,revAggr float); -- table reveneue aggregate of all countries
+insert into analysis1Result select country,sum(totalcost) as revenue from kv_asses11 group by country order by revenue desc; --populating the table ordered 
+create table analysis1T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis1Result order by revaggr desc limit 5 -- final required result 
 
-
-
- 
+-- results obtained 
+--** HIVE shell
+--
+--hive> select * from  analysis1T5;
+--OK
+--United Kingdom  7308391.5
+--Netherlands     285446.34
+--EIRE    265545.9
+--Germany 228867.14
+--France  209024.05
+--Time taken: 0.211 seconds, Fetched: 5 row(s)
+--hive> 
+--** 
+--
+-- **HDFS CORE
+--kali@kali:~$ hdfs dfs -cat /user/hive/warehouse/retaildb.db/analysis1t5/*
+--Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+--2020-10-29 14:11:11,990 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+--United Kingdom  7308391.5
+--Netherlands     285446.34
+--EIRE    265545.9
+--Germany 228867.14
+--France  209024.05
+--kali@kali:~$ 
+--
