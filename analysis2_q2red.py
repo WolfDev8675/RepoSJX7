@@ -54,7 +54,7 @@ def maxElem(a={}):
 
 # finding top 5
 data_dict_wk=data_dict_res
-analysis2x1=[]
+analysis2x2=[]
 for i in range(5):
     t=maxElem(data_dict_wk)
     #@print t
@@ -66,7 +66,7 @@ for i in range(5):
         print (" Data Error:: --> Inadequate availability  ")
         sys.exit(1)
     
-    analysis2x1.append('%s\t%f'%(t,val))
+    analysis2x2.append('%s\t%f'%(t,val))
     print('%s\t%d'%(t,val))
 
 # end of job for analysis2 job2  
