@@ -18,8 +18,42 @@ dump ctrCln --value :: (397924)
 -- cleaned of debris in data 
 
 --analysis job 
+-- Job1
 -- Number of Customers by Country for top 5
 kvp_asgn2x1 = FOREACH data_cleaned GENERATE Country, CustomerID; -- kv map for generating number of customers
-kvp_asgn2x1_NR = DISTINCT kvp_asgn2x1 -- non repetition ... removed all repitition of data from kvp_asgn2x1
-resGrp2x1 = GROUP  kvp_asgn2x1_NR BY Country ; -- grouping  
-resGrp2x1_final = FOREACH resGrp2x1 GENERATE Country,COUNT(resGrp2x1.CustomerID) as (NumCust:int); 
+kvp_asgn2x1_NR = DISTINCT kvp_asgn2x1; -- non repetition ... removed all repitition of data from kvp_asgn2x1
+resGrp2x1 = GROUP  kvp_asgn2x1_NR BY Country ; -- grouping by country 
+resGrp2x1_final = FOREACH resGrp2x1 GENERATE group as (Country:chararray),COUNT(kvp_asgn2x1_NR.CustomerID) as (NumCust:int); --count of number of customers by country
+ordered2x1 = ORDER resGrp2x1_final BY NumCust DESC; --ordering by descending order 
+order2x1L5 = LIMIT ordered2x1 5;   -- top 5 values 
+-- 
+-- Job2
+-- Number of Transactions by Country for top 5
+kvp_asgn2x2 = FOREACH data_cleaned GENERATE Country, InvoiceNo; -- kv map for generating number of transactions
+kvp_asgn2x2_NR = DISTINCT kvp_asgn2x2; -- non repetition ... removed all repitition of data from kvp_asgn2x2
+resGrp2x2 = GROUP  kvp_asgn2x2_NR BY Country ; -- grouping by country  
+resGrp2x2_final = FOREACH resGrp2x2 GENERATE group as (Country:chararray),COUNT(kvp_asgn2x2_NR.InvoiceNo) as (NTransact:int); --count of number of transactions by country
+ordered2x2 = ORDER resGrp2x2_final BY NTransact DESC; --ordering by descending order 
+order2x2L5 = LIMIT ordered2x2 5;   -- top 5 values 
+-- 
+-- Job3
+-- Number of Average Number of Items by Country for top 5
+kvp_asgn2x3 = FOREACH data_cleaned GENERATE Country, Quantity; -- kv map for generating number of transactions
+kvp_asgn2x3_NR = DISTINCT kvp_asgn2x3; -- non repetition ... removed all repitition of data from kvp_asgn2x2
+resGrp2x3 = GROUP  kvp_asgn2x3_NR BY Country ; -- grouping by country  
+resGrp2x3_final = FOREACH resGrp2x3 GENERATE group as (Country:chararray),SUM(kvp_asgn2x3_NR.Quantity) as (TQuantity:int); --sum of number of items by country
+ordered2x3 = ORDER resGrp2x3_final BY TQuantity DESC; --ordering by descending order 
+order2x3L5x = LIMIT ordered2x3 5;   -- top 5 values total 
+nosCtry = FOREACH ordered2x3 GENERATE COUNT(ordered2x3.Country); -- total number of countries 
+order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), 1.0/nosCtry*TQuantity as (AverageNos:Float); -- final result 
+--
+--Job4
+-- Minumum Amount Spent per Customer
+kvp_asgn2x4CI = FOREACH data_cleaned GENERATE --kv map for Customer mapped to invoices 
+kvp_asgn2x4IP = --kv map for Invoices mapped to expenditures
+
+
+-- Storing the final results in respective locations pertaining to job
+STORE order2x1L5 INTO '/home/kali/Hadoop/Results/pig_results/analysis2/Job1' USING PigStorage();
+STORE order2x2L5 INTO '/home/kali/Hadoop/Results/pig_results/analysis2/Job2' USING PigStorage();
+STORE order2x3L5 INTO '/home/kali/Hadoop/Results/pig_results/analysis2/Job3' USING PigStorage();
