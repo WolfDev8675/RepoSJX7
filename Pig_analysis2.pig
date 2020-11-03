@@ -39,18 +39,20 @@ order2x2L5 = LIMIT ordered2x2 5;   -- top 5 values
 -- Job3
 -- Number of Average Number of Items by Country for top 5
 kvp_asgn2x3 = FOREACH data_cleaned GENERATE Country, Quantity; -- kv map for generating number of transactions
-kvp_asgn2x3_NR = DISTINCT kvp_asgn2x3; -- non repetition ... removed all repitition of data from kvp_asgn2x2
-resGrp2x3 = GROUP  kvp_asgn2x3_NR BY Country ; -- grouping by country  
-resGrp2x3_final = FOREACH resGrp2x3 GENERATE group as (Country:chararray),SUM(kvp_asgn2x3_NR.Quantity) as (TQuantity:int); --sum of number of items by country
+resGrp2x3 = GROUP  kvp_asgn2x3 BY Country ; -- grouping by country  
+resGrp2x3_final = FOREACH resGrp2x3 GENERATE group as (Country:chararray),SUM(kvp_asgn2x3.Quantity) as (TQuantity:int); --sum of number of items by country
 ordered2x3 = ORDER resGrp2x3_final BY TQuantity DESC; --ordering by descending order 
 order2x3L5x = LIMIT ordered2x3 5;   -- top 5 values total 
-nosCtry = FOREACH ordered2x3 GENERATE COUNT(ordered2x3.Country); -- total number of countries 
-order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), 1.0/nosCtry*TQuantity as (AverageNos:Float); -- final result 
+ctrCopy = FOREACH ordered2x3 GENERATE Country; -- creating copy of ordered2x3 for counter grouping 
+ctrGrp = GROUP ctrCopy ALL; --grouped 
+nosCtry = FOREACH ctrGrp GENERATE COUNT(ctrCopy.Country); -- total number of countries 
+order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), TQuantity*1.0/nosCtry as (AverageNos:float); -- final result 
 --
---Job4
+--Job4 Job5 Job6
 -- Minumum Amount Spent per Customer
-kvp_asgn2x4CI = FOREACH data_cleaned GENERATE --kv map for Customer mapped to invoices 
-kvp_asgn2x4IP = --kv map for Invoices mapped to expenditures
+kvp_asgn2x4CI = FOREACH data_cleaned GENERATE CustomerID,InvoiceNo;--kv map for Customer mapped to invoices ** contains duplicates 
+kvp_asgn2x4IE = FOREACH data_cleaned GENERATE InvoiceNo as (InvoiceNo:chararray),UnitPrice*Quantity as (Expend:Float);--kv map for Invoices mapped to expenditures
+resGrp2x4CI = DISTINCT kvp_asgn2x4CI; -- removing duplicates from customer-> invoice indexes
 
 
 -- Storing the final results in respective locations pertaining to job
