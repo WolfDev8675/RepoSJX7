@@ -40,4 +40,4 @@ var cust2inv=cust2inv_dup.distinct // removing duplicates
 var inv2cost=inv2cost_nr.reduceByKey(_+_) // summing up costs by invoices 
 var cust_grouped=cust2inv.groupByKey() // grouping invoices to customers 
 var nosCust=cust_grouped.count  // total number of customers
-var minCosts= 
+var minCosts=  
