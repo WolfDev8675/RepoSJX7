@@ -1,5 +1,5 @@
 //Spark code for Analysis2: 
-// Sales Metrics like NumCustomers, NumTransactions, AvgNumItems, MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer, StdDevAmtperCustomeretc. .. by country for top 5 countries 
+// Sales Metrics like NumCustomers, NumTransactions, AvgNumItems, MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer. .. by country for top 5 countries 
 
 //cleaning of visible debris 
 var data_raw= sc.textFile("hdfs://localhost:9000/assign1/OnlineRetail.txt")
