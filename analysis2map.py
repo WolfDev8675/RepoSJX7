@@ -4,7 +4,7 @@
 # **    Analysis 2:    
 # *    Mapper for calculating the results of                                                  **
 # *   Sales Metrics like NumCustomers, NumTransactions, AvgNumItems,                          **
-# *    MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer, StdDevAmtperCustomer, etc.    **
+# *    MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer.                               **
 # *     by country for top 5 countries                                                        **
 # *******
 # start of code
