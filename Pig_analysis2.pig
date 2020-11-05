@@ -1,6 +1,6 @@
 /* Analysis 2:
 Sales Metrics like NumCustomers, NumTransactions, AvgNumItems,
-MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer, StdDevAmtperCustomeretc. 
+MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer. 
 .. by country for top 5 countries  */
 
 -- start of code 
