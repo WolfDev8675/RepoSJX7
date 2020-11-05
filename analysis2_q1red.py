@@ -2,9 +2,9 @@
 #
 # *******
 # **    Analysis 2:    
-# *    Reducer for calculating the results of                                                  **
+# *    Reducer for calculating the results of                                                 **
 # *   Sales Metrics like NumCustomers, NumTransactions, AvgNumItems,                          **
-# *    MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer, StdDevAmtperCustomer, etc.    **
+# *    MinAmtperCustomer, MaxAmtperCustomer, AvgAmtperCustomer.                               **
 # *     by country for top 5 countries                                                        **
 # *******
 # **** Specific operation:  Sales Metric of Number of Customers by country for top 5 **** 
