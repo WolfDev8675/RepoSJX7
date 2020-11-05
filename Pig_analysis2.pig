@@ -53,6 +53,12 @@ order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), TQuant
 kvp_asgn2x4CI = FOREACH data_cleaned GENERATE CustomerID,InvoiceNo;--kv map for Customer mapped to invoices ** contains duplicates 
 kvp_asgn2x4IE = FOREACH data_cleaned GENERATE InvoiceNo as (InvoiceNo:chararray),UnitPrice*Quantity as (Expend:Float);--kv map for Invoices mapped to expenditures
 resGrp2x4CI = DISTINCT kvp_asgn2x4CI; -- removing duplicates from customer-> invoice indexes
+resGrp2x456IE_gp = GROUP kvp_asgn2x456IE BY InvoiceNo; -- pre grouping for calculating the sum total of an invoice bill
+resGrp2x456IE = FOREACH resGrp2x456IE_gp GENERATE group as (InvoiceNo:chararray),SUM(kvp_asgn2x456IE.Expend) as (TotalAtInv:float); -- summing to total of every invoices
+masterGrp2x456 = JOIN resGrp2x456IE BY InvoiceNo, resGrp2x456CI BY InvoiceNo; -- joining by common key -> viz, Invoice number 
+res2x4_Mins = FOREACH 
+
+
 
 
 -- Storing the final results in respective locations pertaining to job
