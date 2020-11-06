@@ -11,6 +11,7 @@ data_cleaned.count
 // cleaned data of primary debris 
 
 //analysis jobs
+
 //process 1: number of customers by countries for top 5 
 var cust2ctry_dup=data_cleaned.map(x=> {(x(7), x(6), 1)}) //customer id mapped to country::  contains duplicates
 var cust2ctry=cust2ctry_dup.distinct  //removed duplicates
@@ -18,6 +19,7 @@ var kvp_cust2ctry=cust2ctry.map(x=> {(x._1, x._3)})  // map out occurences
 var num_cust=kvp_cust2ctry.reduceByKey((a,b)=>(a+b))  // country to number of customers :: frequency
 var num_cust_sorted=num_cust.sortBy(_._2,false)    // sort   
 var soln1=num_cust_sorted.take(5) // result1
+
 //process 2: number of transactions by countries for top 5
 var inv2ctry_dup=data_cleaned.map(x=> {(x(7), x(0), 1)}) // invoice mapped to country ::  contains duplicates
 var inv2ctry=inv2ctry_dup.distinct //removed duplicates
@@ -25,6 +27,7 @@ var kvp_inv2ctry=inv2ctry.map(x=> {(x._1, x._3)}) //map out occurences
 var num_tran=kvp_inv2ctry.reduceByKey((a,b)=>(a+b)) // country to number of transactions :: frequency 
 var num_tran_sorted=num_tran.sortBy(_._2,false)  //sort
 var soln2=num_tran_sorted.take(5) //result2
+
 //process 3: average number of items by country for top 5
 var kvp_qty2ctry=data_cleaned.map(x=> {(x(7), x(3).toInt)}) //quantity mapped to country 
 var kvp_tQ2ctry=kvp_qty2ctry.reduceByKey(_+_) // total quantity to each country 
@@ -33,6 +36,7 @@ var tQ_sorted=kvp_tQ2ctry.sortBy(_._2,false)  // sort
 var tQ_t5=tQ_sorted.take(5) // top 5 totals
 var soln3_vec= {for(i <- 0 to 4) yield (tQ_t5(i)._1,tQ_t5(i)._2*1.0 /nosCtry)}  // calculating for the top 5 totals 
 var soln3=soln3_vec.toArray  //result3
+
 //process 4,5,6: Minimum, Maximum, Average amount per customers 
 var inv2cost_nr = data_cleaned.map(x=>{(x(0),x(3). toInt * x(5).toFloat)})  // invoices mapped to the cost -- non reduced 
 var inv2cust_dup=data_cleaned.map(x=>{(x(0),x(6))})  // invoices mapped to customers -- contains duplicates
@@ -44,9 +48,9 @@ var cust2cost_grp=cust2cost.groupByKey() // group to create iterable set of cost
 var minCosts=cust2cost_grp.map(x=> (x._1,x._2.min))  // minimum costs per customers
 var maxCosts=cust2cost_grp.map(x=> (x._1,x._2.max))  // maximum costs per customers
 var avgCosts=cust2cost_grp.map(x=> (x._1,x._2.sum/x._2.size))  // average costs per customers 
-var soln4=minCosts.sortBy(_._2,false) //sort descending
-var soln5=maxCosts.sortBy(_._2,false) //sort descending
-var soln6=avgCosts.sortBy(_._2,false) //sort descending
+var soln4=minCosts.sortBy(_._2,false) //sort descending   // result 4
+var soln5=maxCosts.sortBy(_._2,false) //sort descending   // result 5
+var soln6=avgCosts.sortBy(_._2,false) //sort descending   // result 6
 
 // save operations 
 sc.parallelize(soln1).saveAsTextFile("hdfs://localhost:9000/assign1/spark_jobs/analysis2/Job1")   // number of customers 
