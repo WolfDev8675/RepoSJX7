@@ -45,18 +45,18 @@ ordered2x3 = ORDER resGrp2x3_final BY TQuantity DESC; --ordering by descending o
 order2x3L5x = LIMIT ordered2x3 5;   -- top 5 values total 
 ctrCopy = FOREACH ordered2x3 GENERATE Country; -- creating copy of ordered2x3 for counter grouping 
 ctrGrp = GROUP ctrCopy ALL; --grouped 
-nosCtry = FOREACH ctrGrp GENERATE COUNT(ctrCopy.Country); -- total number of countries 
-order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), TQuantity*1.0/nosCtry as (AverageNos:float); -- final result 
+nosCtry = FOREACH ctrGrp GENERATE COUNT(ctrCopy.Country) as (value:int); -- total number of countries 
+order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), TQuantity*1.0/(nosCtry.value) as (AverageNos:float); -- final result 
 --
 --Job4 Job5 Job6
 -- Minumum Amount Spent per Customer
-kvp_asgn2x4CI = FOREACH data_cleaned GENERATE CustomerID,InvoiceNo;--kv map for Customer mapped to invoices ** contains duplicates 
-kvp_asgn2x4IE = FOREACH data_cleaned GENERATE InvoiceNo as (InvoiceNo:chararray),UnitPrice*Quantity as (Expend:Float);--kv map for Invoices mapped to expenditures
-resGrp2x4CI = DISTINCT kvp_asgn2x4CI; -- removing duplicates from customer-> invoice indexes
+kvp_asgn2x456CI = FOREACH data_cleaned GENERATE CustomerID,InvoiceNo;--kv map for Customer mapped to invoices ** contains duplicates 
+kvp_asgn2x456IE = FOREACH data_cleaned GENERATE InvoiceNo as (InvoiceNo:chararray),UnitPrice*Quantity as (Expend:Float);--kv map for Invoices mapped to expenditures
+resGrp2x456CI = DISTINCT kvp_asgn2x456CI; -- removing duplicates from customer-> invoice indexes
 resGrp2x456IE_gp = GROUP kvp_asgn2x456IE BY InvoiceNo; -- pre grouping for calculating the sum total of an invoice bill
 resGrp2x456IE = FOREACH resGrp2x456IE_gp GENERATE group as (InvoiceNo:chararray),SUM(kvp_asgn2x456IE.Expend) as (TotalAtInv:float); -- summing to total of every invoices
-masterGrp2x456 = JOIN resGrp2x456IE BY InvoiceNo, resGrp2x456CI BY InvoiceNo; -- joining by common key -> viz, Invoice number 
-res2x4_Mins = FOREACH 
+masterJoin2x456 = JOIN resGrp2x456IE BY InvoiceNo, resGrp2x456CI BY InvoiceNo; -- joining by common key -> viz, Invoice number 
+masterGrp2x456 = FOREACH masterJoin2x456 GENERATE resGrp2x456CI.CustomerID as (CustomerID:chararray),resGrp2x456IE.TotalAtInv as (TotalCost:float); -- link customers to total costs at a invoice
 
 
 
