@@ -33,7 +33,7 @@ var tQ_sorted=kvp_tQ2ctry.sortBy(_._2,false)  // sort
 var tQ_t5=tQ_sorted.take(5) // top 5 totals
 var soln3_vec= {for(i <- 0 to 4) yield (tQ_t5(i)._1,tQ_t5(i)._2*1.0 /nosCtry)}  // calculating for the top 5 totals 
 var soln3=soln3_vec.toArray  //result3
-//process 4: Minimum amount per customers by country for top 5 
+//process 4,5,6: Minimum, Maximum, Average amount per customers 
 var inv2cost_nr = data_cleaned.map(x=>{(x(0),x(3). toInt * x(5).toFloat)})  // invoices mapped to the cost -- non reduced 
 var inv2cust_dup=data_cleaned.map(x=>{(x(0),x(6))})  // invoices mapped to customers -- contains duplicates
 var inv2cust=inv2cust_dup.distinct // removing duplicates 
