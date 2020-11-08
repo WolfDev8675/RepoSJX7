@@ -52,7 +52,7 @@ resultsErosiv = resultsMIN # erosive dictionary for sort and print
 #helping function
 def maxElem(a={}):
     #function to find out maximum valued key
-    key=0 #raw initialization
+    key=a.keys()[0] #raw initialization
     val=0
     for i in a:
         if a[i] > val:
@@ -74,6 +74,7 @@ for i in range(steps):
     except Exception:
         print (" Data Error:: --> Inadequate availability  ")
         sys.exit(1)
+        
     
     print('%s\t%f'%(t,val))
 #
@@ -82,3 +83,29 @@ for i in range(steps):
 #@ are test lines for manual debugging codes
 
 # end of code 
+
+##
+# Operation using Hadoop MapReduce core -> 
+# command operated on complete file OnlineRetail.txt
+# hdfs operative command
+#hadoop jar /$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.0.jar -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign2.py -mapper "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign2.py" -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign2ex4.py -reducer "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign2ex4.py" -input /assign1/OnlineRetail.txt -output /assign1/pythonMR_jobs/analysis2pmr/Job4
+# results obtained
+#**..
+#kali@kali:~$ hdfs dfs -cat /assign1/pythonMR_jobs/analysis2pmr/Job4/part*|head -n 10
+#Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+#2020-11-08 11:20:04,268 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+#12346   77183.600000
+#15749   7837.500000
+#12357   6207.670000
+#12688   4873.810000
+#12752   4366.780000
+#18251   4314.720000
+#12536   4161.060000
+#12378   4008.620000
+#15195   3861.000000
+#12435   3850.900000
+#cat: Unable to write to output stream.
+#kali@kali:~$
+#**..
+#*** note that this job limited to 10 outputs from the head of the file systems in storage to avoid printing 4339 records cluttering the shell screen 
+# ** this restriction imposed to limit output generated a cat error from the resulting stream 
