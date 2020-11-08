@@ -21,3 +21,16 @@ show tables;
 select count (stockcode) from data_cleaned where stockcode!='';
 -- result 397924
 -- cleaned of debris 
+
+--Analysis Jobs 
+--*
+-- Job1: Number of customers by country for top 5 
+create table kvp_asses21 as select distinct (country),(customerid) from data_cleaned;   -- kv pair country to customer id
+create table analysis21result(country string,num_customers int);    -- result master table for counter 
+insert into analysis21result select country,count(customerid) as counter from kvp_asses21 group by country order by counter desc; -- counting and ordering with insertion into table 
+create table analysis21T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis21result order by num_customers desc limit 5 -- final required result with segregation and ordering
+--*
+--Job2: Number of transactions by Country for top 5
+
+
+
