@@ -31,6 +31,10 @@ insert into analysis21result select country,count(customerid) as counter from kv
 create table analysis21T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis21result order by num_customers desc limit 5 -- final required result with segregation and ordering
 --*
 --Job2: Number of transactions by Country for top 5
-
+create table kvp_asses22 as select distinct (country),(invoiceno) from data_cleaned;   -- kv pair country to invoice number
+create table analysis22result(country string,num_transact int);    -- result master table for counter 
+insert into analysis22result select country,count(invoiceno) as counter from kvp_asses22 group by country order by counter desc; -- counting and ordering with insertion into table 
+create table analysis22T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis22result order by num_transact desc limit 5 -- final required result with segregation and ordering
+--*
 
 
