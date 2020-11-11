@@ -36,5 +36,10 @@ create table analysis22result(country string,num_transact int);    -- result mas
 insert into analysis22result select country,count(invoiceno) as counter from kvp_asses22 group by country order by counter desc; -- counting and ordering with insertion into table 
 create table analysis22T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis22result order by num_transact desc limit 5 -- final required result with segregation and ordering
 --*
-
+--Job3: Average Number of items by Country for top 5
+create table kvp_asses23 as select (country),(quantity) from data_cleaned;   -- kv pair country to quantity
+create table analysis23result(country string,num_items int);    -- result master table for counter 
+insert into analysis23result select country,sum(quantity)/count(country) as total from kvp_asses23 group by country order by total desc; -- counting and ordering with insertion into table 
+create table analysis23T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis23result order by num_items desc limit 5 -- final required result with segregation and ordering
+--*
 
