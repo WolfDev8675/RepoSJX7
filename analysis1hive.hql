@@ -27,7 +27,7 @@ create table kv_anlysis1(country string,totalcost float);  -- table for calculat
 insert into kv_anlysis1  select (country),(quantity*unitprice) from data_cleaned; -- population of table 
 create table analysis1Result (country string,revAggr float); -- table reveneue aggregate of all countries
 insert into analysis1Result select country,sum(totalcost) as revenue from kv_asses11 group by country order by revenue desc; --populating the table ordered 
-create table analysis1T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis1Result order by revaggr desc limit 5 -- final required result 
+create table analysis1T5 row format delimited fields terminated by '\t' stored as textfile as select * from analysis1Result order by revaggr desc limit 5; -- final required result; 
 
 -- results obtained 
 --** HIVE shell
