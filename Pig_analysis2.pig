@@ -49,7 +49,7 @@ nosCtry = FOREACH ctrGrp GENERATE COUNT(ctrCopy.Country) as (value:int); -- tota
 order2x3L5 = FOREACH order2x3L5x GENERATE Country as (Country:chararray), TQuantity*1.0/(nosCtry.value) as (AverageNos:float); -- top 5 values **-- final result job3 
 --
 --Job4 Job5 Job6
--- Minumum Amount Spent per Customer
+-- Minimum, Maximum, Average amount per customers
 kvp_asgn2x456CI = FOREACH data_cleaned GENERATE CustomerID,InvoiceNo;--kv map for Customer mapped to invoices ** contains duplicates 
 kvp_asgn2x456IE = FOREACH data_cleaned GENERATE InvoiceNo as (InvoiceNo:chararray),UnitPrice*Quantity as (Expend:Float);--kv map for Invoices mapped to expenditures
 resGrp2x456CI = DISTINCT kvp_asgn2x456CI; -- removing duplicates from customer-> invoice indexes
