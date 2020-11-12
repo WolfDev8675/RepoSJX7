@@ -28,5 +28,29 @@ select count (stockcode) from data_cleaned where stockcode!='';
 --*
 -- Job: Basket Size 
 create table kv_asses5 as select (invoiceno),(quantity) from data_cleaned;   -- kv pair invoiceno to quantity
-create table analysis5result(invoiceno string,basket_size int);
-insert into analysis5result select invoiceno,sum(quantity) as basket from kv_asses5 group by invoiceno order by basket desc;
+create table analysis5result(invoiceno string,basket_size int); -- creating table for calculating results 
+insert into analysis5result select invoiceno,sum(quantity) as basket from kv_asses5 group by invoiceno order by basket desc; -- populating table ;
+--*;
+
+-- end of code 
+
+-- results obtained 
+--** HIVE shell
+--
+
+--hive> select * from analysis5result limit 10;
+--OK
+--581483  80995
+--541431  74215
+--556917  15049
+--563076  14730
+--572035  13392
+--567423  12572
+--578841  12540
+--552883  12266
+--563614  12196
+--562439  11848
+--Time taken: 0.155 seconds, Fetched: 10 row(s)
+--hive>
+--
+--***** note that for job the viewed results are limited to top 10 outputs to avoid printing all 18536 results ****
