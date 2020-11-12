@@ -6,7 +6,7 @@
 -- start of codes
 -- one time jobs 
 -- **## Please avoid lines here on forward if retaildb is available in 'show databases' command and contains data                   ##**
--- **## if avoiding these lines till line 23 directly jump to codes in analysis section of the code which next to this section      ##**
+-- **## if avoiding these lines till line 25 directly jump to codes in analysis section of the code which next to this section      ##**
 create database RetailDB;
 use RetailDB;
 -- table creation 
