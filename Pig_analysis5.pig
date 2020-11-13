@@ -19,4 +19,29 @@ dump ctrCln --value :: (397924)
 --analysis job 
 -- Job: Basket Size Distribution
 kv_asses5 = FOREACH data_cleaned GENERATE InvoiceNo,Quantity; -- kv pair invoiceno to quantity
-analysis5result = FOREACH kv_asses5 GENERATE InvoiceNo,SUM(Quantity);
+kv_asses5grp = GROUP kv_asses5 BY InvoiceNo;  -- grouping  
+analysis5result = FOREACH kv_asses5grp GENERATE group as (InvoiceNo:chararray),SUM(kv_asses5.Quantity) as (Basket:int);  -- analysis result 
+orderedRes5 = ORDER analysis5result BY Basket DESC; -- ordering by basket size
+STORE orderedRes5 INTO '/home/kali/Hadoop/Results/pig_results/analysis5/' USING PigStorage();   -- storing 
+
+-- end of code 
+
+/*
+** Results Obtained 
+#** 
+kali@kali:~$ cat /home/kali/Hadoop/Results/pig_results/analysis5/part* | head -n 10 
+581483  80995
+541431  74215
+556917  15049
+563076  14730
+572035  13392
+567423  12572
+578841  12540
+552883  12266
+563614  12196
+562439  11848
+kali@kali:~$ 
+
+#**
+##   ***** note that for job the viewed results are limited to top 10 outputs to avoid printing all 18536 results ****
+*/
