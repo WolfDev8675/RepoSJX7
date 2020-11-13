@@ -29,4 +29,32 @@ select count (stockcode) from data_cleaned where stockcode!='';
 -- Job: Customer Lifetime Value distribution by intervals of 1000’s
 create table kv_asses7(customerid string,totalcost float);  -- table for calculation of customer lifetime value
 insert into kv_asses7  select (customerid),sum(quantity*unitprice) as clv from data_cleaned group by customerid order by clv; -- population of table 
+create table analysis7collect(limit int,cvl float);   -- table to collect lower limit to cvl 
+insert into analysis7collect select (int(totalcost/1000))*1000,totalcost from kv_asses7;  -- populating table 
+create table analysis7result as select limit,(limit+1000),count(cvl) from analysis7collect 
+where cvl>limit and cvl<limit+1000 group by limit order by limit;  -- final result; 
+--*;
+
+-- end of code 
+
+-- results obtained 
+--** HIVE shell
+--
+
+--hive> select * from analysis7result limit 10;
+--OK
+--0       1000    2670
+--1000    2000    765
+--2000    3000    347
+--3000    4000    182
+--4000    5000    99
+--5000    6000    66
+--6000    7000    46
+--7000    8000    26
+--8000    9000    19
+--9000    10000   14
+--Time taken: 0.172 seconds, Fetched: 10 row(s)
+--hive> 
+--
+--***** note that for job the viewed results are limited to top 10 outputs to avoid printing all results max(cvl)=280206.03  ****
 
