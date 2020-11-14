@@ -1,7 +1,7 @@
 # RepoSJX7
 Hadoop BIGDATA assignments (BSE+MAKAUT)
 #
-data linked 
+data linked as 10-31-2020.csv 
 #
 Covid-19 Case Study Data Analysis using Hive, Pig and Scala RDD
 Mapper & Reducer(Python) optional
