@@ -17,7 +17,7 @@ Data defined in https://www.kaggle.com/minatverma/nse-stocks-data?select=FINAL_F
     From above output, select any 10 stocks from IT ('HCLTECH', 'NIITTECH', 'TATAELXSI','TCS', 'INFY', 'WIPRO', 'DATAMATICS','TECHM','MINDTREE' and 'OFSS') and create a table combining their data.
     Find out the Pearsons Correlation Coeffecient for every pair of stocks you have selected above. Final output should be in decreasing order of the coeffecient.
 
-4. Use the coorrelation information generated in step 3 in the following way:
+4 Use the coorrelation information generated in step 3 in the following way:
     a. Assume you have Rs10 lakh to invest 
     b. Assume you have to invest in six stocks on the first working day of January of the next year.
     c. By using logic/simulation/etc. Identify the stocks that you will invest in, such that at the end of the year:
