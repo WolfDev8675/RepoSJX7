@@ -22,7 +22,7 @@ dump ctrCln --value :: (397924)
 kv_asses7 = FOREACH data_cleaned GENERATE CustomerID as (CustomerID:chararray), UnitPrice*Quantity as (TotalCost:float); -- for calculating costs 
 kv_asses7grp = GROUP kv_asses7 BY CustomerID;
 asses7collect = FOREACH kv_asses7grp GENERATE group as (CustomerID:chararray),SUM(kv_asses7.TotalCost) as (CLV:float);
-asses7res = FOREACH asses7collect GENERATE ROUND(CLV/1000)*1000 as (LoValue:int),CLV;
+asses7res = FOREACH asses7collect GENERATE ROUND(CLV)/1000*1000 as (LoValue:int),CLV;
 asses7res_grp = GROUP asses7res BY LoValue;
 asses7final = FOREACH asses7res_grp GENERATE group as (LoValue:int),(group + 1000) as (HiValue:int),COUNT(asses7res.CLV) as (Frequency:int);
 order7res = ORDER asses7final BY LoValue;
@@ -34,16 +34,16 @@ STORE order7res INTO '/home/kali/Hadoop/Results/pig_results/analysis7/' USING Pi
 ** Results Obtained 
 #** 
 kali@kali:~$ cat /home/kali/Hadoop/Results/pig_results/analysis7/part* | head -n 10
-0       1000    1762
-1000    2000    1383
-2000    3000    490
-3000    4000    238
-4000    5000    152
-5000    6000    75
-6000    7000    51
-7000    8000    40
-8000    9000    22
-9000    10000   15
+0       1000    2671
+1000    2000    765
+2000    3000    347
+3000    4000    182
+4000    5000    99
+5000    6000    66
+6000    7000    46
+7000    8000    26
+8000    9000    19
+9000    10000   14
 kali@kali:~$ 
 
 
