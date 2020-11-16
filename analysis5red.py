@@ -31,8 +31,37 @@ for elem in data_list:
     except Exception:
         print (" Input Data Error ... -> Dictionary not generated or In-accessable data list ")
        
-sorted_dc= sorted(data_dict.items(),key = lambda kv:(kv[1],kv[0]))
+sorted_dc= sorted(data_dict.items(),key = lambda kv:(kv[1],kv[0]),reverse=True)
 for unit in sorted_dc:
     print('%s\t%d'%unit) 
+#
 
-#end of code 
+# ** end of code 
+
+##
+# Operation using Hadoop MapReduce core -> 
+# command operated on complete file OnlineRetail.txt
+# hdfs operative command
+#hadoop jar /$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.0.jar -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign5.py -mapper "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/MapAsign5.py" -file /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign5.py -reducer "python /home/kali/KomodoIDE/Komodo_jobs/Assign1/RedAsign5.py" -input /assign1/OnlineRetail.txt -output /assign1/pythonMR_jobs/analysis5pmr
+# results obtained
+#**..
+#kali@kali:~$ hdfs dfs -cat /assign1/pythonMR_jobs/analysis5pmr/part* |head -n 10
+#Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+#2020-11-16 10:50:11,714 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+#581483  80995
+#541431  74215
+#556917  15049
+#563076  14730
+#572035  13392
+#567423  12572
+#578841  12540
+#552883  12266
+#563614  12196
+#562439  11848
+#cat: Unable to write to output stream.
+#kali@kali:~$ 
+
+#***** note that for job the viewed results are limited to top 10 outputs to avoid printing all 18536 results ****
+# ** this restriction imposed to limit output generated a cat error from the resulting stream 
+
+
