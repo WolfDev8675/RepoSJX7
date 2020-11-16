@@ -12,7 +12,7 @@ for line in sys.stdin:
     components=row.split("\t")      # separating individual components 
     try:
         if ( "" not in components and int(components[3])>= 0 and float(components[5])>= 0.0 ):   # filtration -> quality control 
-            print('%s\t%f'%(components[6],int(components[3])*float(components[5])))   # key: invoice ; values : quantity
+            print('%s\t%f'%(components[6],int(components[3])*float(components[5])))   # key: customerid ; values : totalquantity
         else:
             continue   #ignore condition failures -> quality control
     except Exception:
