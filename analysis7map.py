@@ -1,10 +1,10 @@
 #!usr/bin/python
 #
 #   Analysis 7: 
-# ** Customer Lifetime Value distribution by intervals of 1000’s (Customer Life time Value = total spend by customer in his/her tenure with the company) *
+# ** Customer Lifetime Value distribution by intervals of 1000's (Customer Life time Value = total spend by customer in his/her tenure with the company) *
 # * (In this question, we would like to calculate how many customers with CLV between 1-1000, 1000-2000 etc.). *
-# * Please note that we don’t want calculate bins manually and it required to create bins dynamically. **
-
+# * Please note that we don't want calculate bins manually and it required to create bins dynamically. **
+#
 #  start of code
 import sys   
 for line in sys.stdin:      
