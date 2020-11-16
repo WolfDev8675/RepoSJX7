@@ -30,4 +30,9 @@ for elem in data_list:
         
     except Exception:
         print (" Input Data Error ... -> Dictionary not generated or In-accessable data list ")
-        
+       
+sorted_dc= sorted(data_dict.items(),key = lambda kv:(kv[1],kv[0]))
+for unit in sorted_dc:
+    print('%s\t%d'%unit) 
+
+#end of code 
