@@ -31,10 +31,10 @@ create table hourlyhits(dayhr string,invoice string); -- segregation table schem
 insert into hourlyhits select concat(to_date(from_unixtime(timeval)),'->',hour(from_unixtime(timeval))), invoiceno from kv_asses41; -- filling
 create table soln41 as select dayhr,count(invoice) from hourlyhits group by dayhr order by dayhr; -- final result ;
 
---Job3: TotalCosts monthly 
+--Job2: TotalCosts monthly 
 create table kv_asses42(timeval bigint, totalcost float); -- creating schema kv pair timestamp to cost 
 insert into kv_asses42 select (unix_timestamp(invoicedate,'yyyy-MM-dd HH:mm')),(quantity*unitprice) from data_cleaned; -- populating table 
-create table hourlycosts(dayhr int,costs float); -- segregation table schema 
+create table hourlycosts(dayhr string,costs float); -- segregation table schema 
 insert into hourlycosts select concat(to_date(from_unixtime(timeval)),'->',hour(from_unixtime(timeval))), totalcost from kv_asses42; -- filling 
 create table soln42 as select dayhr,sum(costs) from hourlycosts group by dayhr order by dayhr; -- final result;
 
@@ -47,7 +47,36 @@ create table soln42 as select dayhr,sum(costs) from hourlycosts group by dayhr o
 --
 
 -- Number of visits per hour
---
+--hive> select * from soln41 limit 10; 
+--OK
+--2010-12-01->10  11
+--2010-12-01->11  12
+-2010-12-01->12  22
+--2010-12-01->13  12
+--2010-12-01->14  8
+--2010-12-01->15  14
+--2010-12-01->16  17
+--2010-12-01->17  4
+--2010-12-01->8   6
+--2010-12-01->9   16
+--Time taken: 0.142 seconds, Fetched: 10 row(s)
+hive> 
+
 
 --Total costs per hour 
---
+--hive> select * from soln42 limit 10; 
+--OK
+--2010-12-01->10  5235.810002326965
+--2010-12-01->11  4234.159994512796
+--2010-12-01->12  7447.920057356358
+--2010-12-01->13  5063.539980441332
+--2010-12-01->14  2831.219994932413
+--2010-12-01->15  3587.3099961280823
+--2010-12-01->16  8623.14000633359
+--2010-12-01->17  613.190004825592
+--2010-12-01->8   1383.8100109100342
+--2010-12-01->9   7356.389957070351
+--Time taken: 0.174 seconds, Fetched: 10 row(s)
+--hive> 
+
+--*******
