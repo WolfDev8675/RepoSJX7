@@ -1,4 +1,4 @@
-//Spark code for Analysis3: 
+//Spark code for Analysis4: 
 // **Hourly sales activity like numvisits, totalamount per hour of day..
 //cleaning of visible debris 
 var data_raw= sc.textFile("hdfs://localhost:9000/assign1/OnlineRetail.txt")
