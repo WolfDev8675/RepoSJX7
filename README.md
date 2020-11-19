@@ -3,7 +3,7 @@ Hadoop BIGDATA assignments (BSE+MAKAUT)
 #
 data linked as 10-31-2020.csv 
 #
-Covid-19 Case Study Data Analysis using Hive, Pig and Scala RDD
+Covid-19 Case Study Data Analysis using Hive, Pig and Scala RDD , 
 Mapper & Reducer(Python) optional
 1. Find the country with rising cases
 2. Find the active case of top 5 country
