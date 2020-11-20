@@ -11,3 +11,6 @@ Mapper & Reducer(Python) optional
 4. In india find out the states where the death is highest
 5. Find out the Avg confirmed Avg death Avg active case month wise for India
 6. Find out the avg confirmed avg death avg active case month wise for India for state WestBengal
+#
+all solutions are coded using the covid_19_data.csv 
+
