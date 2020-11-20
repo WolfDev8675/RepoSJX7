@@ -31,7 +31,6 @@ insert into preset1 select country, sum(recovered), sum(active) from data_collec
 create table analysis1 as select country from preset1 where t_act>t_rec;
 -- end of codes
 
-
 -- Results obtained 
 --** HIVE shell
 --
@@ -47,7 +46,7 @@ create table analysis1 as select country from preset1 where t_act>t_rec;
 --Botswana
 --Burma
 --Cape Verde
--Time taken: 0.243 seconds, Fetched: 10 row(s)
+--Time taken: 0.243 seconds, Fetched: 10 row(s)
 --hive> 
 
 -- *** results limited to 10 results to limit cluttering screen from 68 countries***
