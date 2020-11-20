@@ -17,3 +17,4 @@ TOTTRDQTY int,TOTTRDVAL float,TIMESTAMPs string,TOTALTRADES int,ISIN string)
 row format delimited fields terminated by ',' lines terminated by '\n' tblproperties("skip.header.line.count"="1");
 load data inpath 'hdfs://localhost:9000/user/hive/warehouse/FINAL_FROM_DF.csv' into table data_raw_headless;
 -- find number of datapoints
+select count(*) from data_raw_headless where isin!='';
