@@ -36,4 +36,12 @@ create table analysis6 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) f
 -- Results obtained 
 --** HIVE shell
 --
---
+--hive> select * from analysis6;
+--OK
+--6-2020  11390.589707927676      352.105702364395        4755.609179415856
+--7-2020  28480.81834532374       712.8381294964029       9836.422661870503
+--8-2020  74345.86924493554       1430.3637200736648      18982.435543278083
+--9-2020  133410.62976190477      2217.347619047619       26609.489285714284
+--Time taken: 0.234 seconds, Fetched: 4 row(s)
+--hive> 
+--****
