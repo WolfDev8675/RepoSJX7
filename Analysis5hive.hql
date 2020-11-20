@@ -33,3 +33,11 @@ create table preset52(mmyyyy string,confirmed int,deaths int,active int);
 insert into preset52 select concat(cast(month(from_unixtime(timeval)) as string),'-',cast(year(from_unixtime(timeval)) as string)),confirmed,deaths,active from preset51;
 create table analysis5 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) from preset52 group by mmyyyy;
 -- results final ;
+hive> select * from analysis5;
+OK
+6-2020  11390.589707927676      352.105702364395        4755.609179415856
+7-2020  28480.81834532374       712.8381294964029       9836.422661870503
+8-2020  74345.86924493554       1430.3637200736648      18982.435543278083
+9-2020  133410.62976190477      2217.347619047619       26609.489285714284
+Time taken: 0.183 seconds, Fetched: 4 row(s)
+hive> 
