@@ -35,11 +35,12 @@ create table analysis2 as select * from preset2 order by t_act desc limit 5;
 --** HIVE shell
 --
 --hive> select * from analysis2 ;
-OK
-US      361485183
-Brazil  60868651
-India   60501744
-UK      40370420
-Russia  29711685
-Time taken: 0.222 seconds, Fetched: 5 row(s)
-hive> 
+--OK
+--US      361485183
+--Brazil  60868651
+--India   60501744
+--UK      40370420
+--Russia  29711685
+--Time taken: 0.222 seconds, Fetched: 5 row(s)
+--hive> 
+-- *****
