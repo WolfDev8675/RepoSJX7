@@ -22,3 +22,6 @@ select count(*) from data_raw_headless where isin!='';
 
 -- analysis jobs 
 --
+create table pre_coll2 as select * from data_raw_headless where series=='EQ';
+create table spc_coll2 (symbol string,timeval bigint,w_field float);
+insert into spc_coll2 select symbol,unix_timestamp(timestamps,'yyyy-MM-dd'),close from pre_coll2;
