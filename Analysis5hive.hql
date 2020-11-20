@@ -28,6 +28,6 @@ select count(sno) from data_collect where country !='';
 create table preset51 (timeval bigint,country string,confirmed int,deaths int,active int);
 insert into preset51 select (unix_timestamp(lastupdate,'dd/MM/yyyy HH:mm')),country,confirmed,deaths,active from data_collect where country=='India' AND province!='';
 create table preset52(mmyyyy string,confirmed int,deaths int,active int);
-insert into preset52 select concat(month(from_unixtime(timeval)),'-',year(from_unixtime(timeval))),confirmed,deaths,active from preset51 where timeval!=NULL;
-insert into analysis5 select mmyyyy,avg(confirmed),avg(deaths),avg(active) from preset52 group by mmyyyy;
+insert into preset52 select concat(month(from_unixtime(timeval)),'-',year(from_unixtime(timeval))),confirmed,deaths,active from preset51;
+create table analysis5 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) from preset52 group by mmyyyy;
 -- results final 
