@@ -1,9 +1,9 @@
 
 -- Analysis 1: 
 --  Use the given csv file as input data and implement following transformations: 
--- Filter Rows on specified criteria "Symbol equals GEOMETRIC" 
--- Select specific columns from those available: SYMBOL, OPEN, HIGH, LOW and CLOSE which meets above criteria 
--- Generate count of the number of rows from above result
+-- a. Filter Rows on specified criteria "Symbol equals GEOMETRIC" 
+-- b. Select specific columns from those available: SYMBOL, OPEN, HIGH, LOW and CLOSE which meets above criteria 
+-- c. Generate count of the number of rows from above result
 
 -- start of codes
 -- one time jobs 
@@ -18,3 +18,10 @@ row format delimited fields terminated by ',' lines terminated by '\n' tblproper
 load data inpath 'hdfs://localhost:9000/user/hive/warehouse/FINAL_FROM_DF.csv' into table data_raw_headless;
 -- find number of datapoints
 select count(*) from data_raw_headless where isin!='';
+-- result 846404
+
+-- analysis jobs 
+--
+create table anlysjob1a as select * from data_raw_headless where symbol=='GEOMETRIC';
+create table anlysjob1b as select * symbol,open,high,low,close from anlysjob1a;
+select count(*) from anlysjob1b 
