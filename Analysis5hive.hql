@@ -25,9 +25,11 @@ select count(sno) from data_collect where country !='';
 
 -- analysis jobs 
 -- creating preset collection
+-- analysis jobs 
+-- creating preset collection
 create table preset51 (timeval bigint,country string,confirmed int,deaths int,active int);
-insert into preset51 select (unix_timestamp(lastupdate,'dd/MM/yyyy HH:mm')),country,confirmed,deaths,active from data_collect where country=='India' AND province!='';
+insert into preset51 select (unix_timestamp(lastupdate,'yyyy-MM-dd HH:mm:ss')),country,confirmed,deaths,active from data_collect where country=='India' AND province!='';
 create table preset52(mmyyyy string,confirmed int,deaths int,active int);
-insert into preset52 select concat(month(from_unixtime(timeval)),'-',year(from_unixtime(timeval))),confirmed,deaths,active from preset51;
+insert into preset52 select concat(cast(month(from_unixtime(timeval)) as string),'-',cast(year(from_unixtime(timeval)) as string)),confirmed,deaths,active from preset51;
 create table analysis5 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) from preset52 group by mmyyyy;
--- results final 
+-- results final ;
