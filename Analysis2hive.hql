@@ -25,4 +25,5 @@ select count(*) from data_raw_headless where isin!='';
 create table pre_coll2 as select * from data_raw_headless where series=='EQ';
 create table spc_coll2 (symbol string,timeval bigint,w_field float);
 insert into spc_coll2 select symbol,unix_timestamp(timestamps,'yyyy-MM-dd'),close from pre_coll2;
-create table finalcoll2 as select symbol,year(from_unixtime(timeval)) as year,w_field from spc_coll2;
+create table finalcoll2 (symbol string,year int,w_field float);
+insert into finalcoll2 select symbol,year(from_unixtime(timeval)) as year,w_field from spc_coll2;
