@@ -1,4 +1,4 @@
- -- Analysis 1: 
+-- Analysis 1: 
 -- Find the country with rising cases 
 
 -- start of codes
