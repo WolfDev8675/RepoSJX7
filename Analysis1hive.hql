@@ -23,5 +23,13 @@ select count(*) from data_raw_headless where isin!='';
 -- analysis jobs 
 --
 create table anlysjob1a as select * from data_raw_headless where symbol=='GEOMETRIC';
-create table anlysjob1b as select * symbol,open,high,low,close from anlysjob1a;
+create table anlysjob1b as select symbol,open,high,low,close from anlysjob1a;
 select count(*) from anlysjob1b 
+
+
+-- obtained result 
+--hive> select count(*) from anlysjob1b ;--
+--OK
+--295
+--Time taken: 0.441 seconds, Fetched: 1 row(s)
+--hive> 
