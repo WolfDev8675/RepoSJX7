@@ -1,4 +1,3 @@
-
 -- Analysis 1: 
 --  Use the given csv file as input data and implement following transformations: 
 -- a. Filter Rows on specified criteria "Symbol equals GEOMETRIC" 
