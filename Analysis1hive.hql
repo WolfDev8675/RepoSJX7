@@ -27,7 +27,10 @@ select count(sno) from data_collect where country !='';
 -- creating preset collection
 create table preset1 (country string, t_rec int, t_act int);
 insert into preset1 select country, sum(recovered), sum(active) from data_collect group by country;
+-- results final 
 create table analysis1 as select country from preset1 where t_act>t_rec;
+-- end of codes
+
 
 -- Results obtained 
 --** HIVE shell
