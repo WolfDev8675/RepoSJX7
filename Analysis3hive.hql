@@ -36,7 +36,9 @@ create table it3right as select symbol,close from anlysjob3b;
 create table crosscoll3 (sym1 string,sym2 string,val1 float,val2 float);
 insert into crosscoll3 select it3left.symbol, it3right.symbol, it3left.close,it3right.close from it3left cross join it3right 
 where it3left.symbol < it3right.symbol;
-
+create table anlysjob3(sym1 string,sym2 string,rho float);
+insert into anlysjob3 select sym1,sym2,(avg(val1*val2)-(avg(val1)*avg(val2)))/(stddev_pop(val1)*stddev_pop(val2)) as rho from crosscoll3 
+group by sym1,sym2 order by rho;
 
 
 -- obtained result 
