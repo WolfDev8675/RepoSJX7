@@ -23,8 +23,8 @@ select count(*) from data_raw_headless where isin!='';
 
 -- analysis jobs 
 --
-create table preset21 as select * from data_raw_headless where year(from_unixtime(unix_timestamp(timestamps,'yyyy-MM-dd')))== 2017;
-
+create table preset31 as select * from data_raw_headless where year(from_unixtime(unix_timestamp(timestamps,'yyyy-MM-dd')))== 2017;
+create table anlysjob3a as select * from preset31 where tottrdval>=300000;
 
 
 -- obtained result 
