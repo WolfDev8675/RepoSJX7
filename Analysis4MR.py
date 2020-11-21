@@ -4,14 +4,15 @@
 #  Use the coorrelation information generated in step 3 in the following way:
 # a. Assume you have Rs10 lakh to invest 
 # b. Assume you have to invest in six stocks on the first working day of January of the next year. 
-# c. By using logic/simulation/etc. Identify the stocks that you will invest in, such that at the end of the year: At least your overall capital (Rs 10 lakh) is protected.
+# c. By using logic/simulation/etc. Identify the stocks that you will invest in,
+#       such that at the end of the year: At least your overall capital (Rs 10 lakh) is protected.
 
 import pandas as pd
 
 df = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",sep='\t')
 df.columns = ['SYMBOL','MIN','MAX','AVG','STDEV','YEAR']
 
-dfcor = pd.read_csv(r"C:\Users\Asus\Desktop\q2_3_3.csv",sep='\t',header=None)
+dfcor = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",sep='\t',header=None)
 
 l = []
 lrate = []
@@ -30,7 +31,7 @@ dfcor[dfcor['%GROWTH'] > 50].sort_values('%GROWTH')['SYMBOL1'].unique()
 #This list is in ascending order of GROWTH
 
 dfcor[dfcor['%GROWTH'] > 50]
-dfnse = pd.read_csv(r"C:\Users\Asus\Desktop\all.csv",
+dfnse = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",
                     usecols=[0,1,2,3,4,5,6,7,8,9,10])
 
 #LIST OF STOCKS THAT I WILL BUY
