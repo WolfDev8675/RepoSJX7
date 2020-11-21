@@ -8,7 +8,7 @@
 
 import pandas as pd
 
-df = pd.read_csv(r"C:\Users\Asus\Desktop\q2_2.csv",sep='\t')
+df = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",sep='\t')
 df.columns = ['SYMBOL','MIN','MAX','AVG','STDEV','YEAR']
 
 dfcor = pd.read_csv(r"C:\Users\Asus\Desktop\q2_3_3.csv",sep='\t',header=None)
