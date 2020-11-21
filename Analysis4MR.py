@@ -1,3 +1,11 @@
+#!usr/bin/python
+
+# Analysis4:
+#  Use the coorrelation information generated in step 3 in the following way:
+# a. Assume you have Rs10 lakh to invest 
+# b. Assume you have to invest in six stocks on the first working day of January of the next year. 
+# c. By using logic/simulation/etc. Identify the stocks that you will invest in, such that at the end of the year: At least your overall capital (Rs 10 lakh) is protected.
+
 import pandas as pd
 
 df = pd.read_csv(r"C:\Users\Asus\Desktop\q2_2.csv",sep='\t')
