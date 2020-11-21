@@ -9,6 +9,7 @@
 -- start of codes
 -- one time jobs 
 -- **## Please avoid lines here on forward if nsestocksdb is available in 'show databases' command and contains data                   ##**
+-- ** and jump to the section of analysis **
 create database nsestocksdb;
 use nsestocksdb;
 --create dataset
