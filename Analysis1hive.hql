@@ -6,13 +6,13 @@
 
 -- start of codes
 -- one time jobs 
--- **## Please avoid lines here on forward if sars_covid19db is available in 'show databases' command and contains data                   ##**
+-- **## Please avoid lines here on forward if nsestocksdb is available in 'show databases' command and contains data                   ##**
 create database nsestocksdb;
 use nsestocksdb;
 --create dataset
 create table data_raw_headless 
 (SYMBOL string,SERIES string,OPEN float,HIGH float,LOW float,CLOSE float,LAST float,PREVCLOSE float,
-TOTTRDQTY int,TOTTRDVAL float,TIMESTAMPs string,TOTALTRADES int,ISIN string) 
+TOTTRDQTY int,TOTTRDVAL float,TIMESTAMPS string,TOTALTRADES int,ISIN string) 
 row format delimited fields terminated by ',' lines terminated by '\n' tblproperties("skip.header.line.count"="1");
 load data inpath 'hdfs://localhost:9000/user/hive/warehouse/FINAL_FROM_DF.csv' into table data_raw_headless;
 -- find number of datapoints
