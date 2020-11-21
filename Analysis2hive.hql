@@ -7,7 +7,7 @@
 
 -- start of codes
 -- one time jobs 
--- **## Please avoid lines here on forward if sars_covid19db is available in 'show databases' command and contains data                   ##**
+-- **## Please avoid lines here on forward if nsestocksdb is available in 'show databases' command and contains data                   ##**
 create database nsestocksdb;
 use nsestocksdb;
 --create dataset
