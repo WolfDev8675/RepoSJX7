@@ -25,6 +25,18 @@ select count(*) from data_raw_headless where isin!='';
 --
 create table preset31 as select * from data_raw_headless where year(from_unixtime(unix_timestamp(timestamps,'yyyy-MM-dd')))== 2017;
 create table anlysjob3a as select * from preset31 where tottrdval>=300000;
+-- first 25 entries
+select * from anlysjob3a limit 25;
+--10 IT stocks 
+create table anlysjob3b as select * from anlysjob3a 
+where symbol =='HCLTECH' OR symbol == 'NIITTECH' OR symbol == 'TATAELXSI' OR symbol == 'TCS' OR symbol == 'INFY' OR symbol == 'WIPRO'
+OR symbol == 'DATAMATICS' OR symbol == 'TECHM' OR symbol == 'MINDTREE' OR symbol == 'OFSS';
+create table it3left as select symbol,close from anlysjob3b;
+create table it3right as select symbol,close from anlysjob3b;
+create table crosscoll3 (sym1 string,sym2 string,val1 float,val2 float);
+insert into crosscoll3 select it3left.symbol, it3right.symbol, it3left.close,it3right.close from it3left cross join it3right 
+where it3left.symbol < it3right.symbol;
+
 
 
 -- obtained result 
