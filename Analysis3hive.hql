@@ -43,3 +43,20 @@ group by sym1,sym2 order by rho;
 
 -- obtained result 
 --
+--hive> select * from anlysjob3 limit 10;
+--OK
+--HCLTECH MINDTREE        -4.0863554E-12
+--INFY    MINDTREE        -3.1017053E-12
+--OFSS    TECHM   -1.9736463E-12
+--HCLTECH TCS     -1.6861728E-12
+--MINDTREE        TECHM   -1.6802858E-12
+--MINDTREE        OFSS    -1.341522E-12
+--OFSS    TCS     -1.2186455E-12
+--NIITTECH        OFSS    -1.1032365E-12
+--HCLTECH NIITTECH        -8.699117E-13
+--DATAMATICS      OFSS    -7.88762E-13
+--Time taken: 0.311 seconds, Fetched: 10 row(s)
+--hive> 
+--
+
+--*** output restricted to 10 results out of 45 rows.***
