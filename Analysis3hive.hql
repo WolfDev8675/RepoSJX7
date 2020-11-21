@@ -8,9 +8,9 @@
 
 -- start of codes
 -- one time jobs 
--- **## Please avoid lines here on forward if sars_covid19db is available in 'show databases' command and contains data                   ##**
+-- **## Please avoid lines here on forward if nsestocksdb is available in 'show databases' command and contains data                   ##**
 create database nsestocksdb;
-use sars_nsestocksdb;
+use nsestocksdb;
 --create dataset
 create table data_raw_headless 
 (SYMBOL string,SERIES string,OPEN float,HIGH float,LOW float,CLOSE float,LAST float,PREVCLOSE float,
