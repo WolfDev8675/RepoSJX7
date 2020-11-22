@@ -8,4 +8,5 @@ var data_headless=data_raw_split.mapPartitionsWithIndex { (idx, iter) => if (idx
 data_headless.count
 var data_cleaned=data_headless.filter{x=> if((x(3)!=""))true else false}
 data_cleaned.count
-var data_final=data_cleaned.map(x=>{x,x(5)-x(6)-x(7)})
+var data_final=data_cleaned.map(x=>{(x(0),x(1),x(2),x(3),x(4),x(5).toFloat,x(6).toFloat,x(7).toFloat,x(5).toFloat-x(6).toFloat-x(7).toFloat)})
+//final data prepared 
