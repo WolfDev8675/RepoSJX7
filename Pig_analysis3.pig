@@ -14,7 +14,7 @@ data_collect = FILTER data_raw BY (OPEN>=0); --cleaning with condition (collect 
 rawGrp = GROUP data_raw ALL; --checker group 
 cltGrp = GROUP data_collect ALL; --checker group 
 ctrrw = FOREACH rawGrp GENERATE COUNT(data_raw);  -- counter value (846405)
-ctrclt = FOREACH clnGrp GENERATE COUNT(data_collect); -- counter value (846404)
+ctrclt = FOREACH cltGrp GENERATE COUNT(data_collect); -- counter value (846404)
 dump ctrrw --trigger calculation
 dump ctrclt --trigger calculation
 
