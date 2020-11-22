@@ -7,9 +7,8 @@ Select any year for which data is available:
 --> Final output should be in decreasing order of the coeffecient */
 
 -- start of code 
-
 --raw data load with defined schema 
-data_raw= LOAD '/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv' USING PigStorage(',') as (SYMBOL:chararray,SERIES:chararray,OPEN:float,HIGH:float,LOW:float,CLOSE:float,LAST:float,PREVCLOSE:float,TOTTRDQTY:int,TOTTRDVAL:float,TIMESTAMPS:Datetime,TOTALTRADES:int,ISIN:chararray);
+data_raw= LOAD 'hdfs://localhost:9000/user/hive/warehouse/FINAL_FROM_DF.csv' USING PigStorage(',') as (SYMBOL:chararray,SERIES:chararray,OPEN:float,HIGH:float,LOW:float,CLOSE:float,LAST:float,PREVCLOSE:float,TOTTRDQTY:int,TOTTRDVAL:float,TIMESTAMPS:Datetime,TOTALTRADES:int,ISIN:chararray);
 data_collect = FILTER data_raw BY (OPEN>=0); --cleaning with condition (collect = headless)
 rawGrp = GROUP data_raw ALL; --checker group 
 cltGrp = GROUP data_collect ALL; --checker group 
