@@ -31,8 +31,7 @@ dfcor[dfcor['%GROWTH'] > 50].sort_values('%GROWTH')['SYMBOL1'].unique()
 #This list is in ascending order of GROWTH
 
 dfcor[dfcor['%GROWTH'] > 50]
-dfnse = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",
-                    usecols=[0,1,2,3,4,5,6,7,8,9,10])
+dfnse = pd.read_csv(r"/home/kali/Hadoop/Local_Datasets/FINAL_FROM_DF.csv",usecols=[0,1,2,3,4,5,6,7,8,9,10])
 
 #LIST OF STOCKS THAT I WILL BUY
 lbuy = ['MINDTREE','TCS','INFY','OFSS','TECHM' , 'HCLTECH']
@@ -41,11 +40,8 @@ lbuy2014JAN = []
 lbuy2014DEC = []
 
 for i in lbuy:
-    jan2014 = int(dfnse[(dfnse['SYMBOL']==i) & 
-                        (dfnse['TIMESTAMP'] == '01-JAN-2014')]['CLOSE'])
-    
-    dec2014 = int(dfnse[(dfnse['SYMBOL']==i) & 
-                        (dfnse['TIMESTAMP'] == '01-DEC-2014')]['CLOSE'])
+    jan2014 = int(dfnse[(dfnse['SYMBOL']==i) & (dfnse['TIMESTAMP'] == '01-JAN-2014')]['CLOSE'])
+    dec2014 = int(dfnse[(dfnse['SYMBOL']==i) & (dfnse['TIMESTAMP'] == '01-DEC-2014')]['CLOSE'])
     lbuy2014JAN.append(jan2014)
     lbuy2014DEC.append(dec2014)
 
