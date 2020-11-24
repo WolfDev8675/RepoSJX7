@@ -62,6 +62,6 @@ analysis3.saveAsTextFile("hdfs://localhost:9000/assign3/spark_jobs/analysis3")
 //(Uttar Pradesh,(9752356,3604910))
 //(Uttarakhand,(865723,403726))
 //(West Bengal,(7619412,1878543))
-kali@kali:~$ 
+//kali@kali:~$ 
 //
 // result is given as (state,(recovered,active))
