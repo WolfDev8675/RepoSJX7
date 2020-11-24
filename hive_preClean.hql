@@ -22,7 +22,12 @@ select count(sno) from data_collect where country !='';
 -- value 107749
 -- cleaned data in data_collect
 
+-- date corrected 
+create table data_collect_s (sno int,lastupdate string,province string,country string,confirmed int,deaths int,recovered int,active int);
+insert into data_collect_s select sno,from_unixtime(unix_timestamp(lastupdate,'yyyy-MM-dd HH:mm:ss')),province,country,confirmed,deaths,recovered,(confirmed-(deaths+recovered)) from data_collect 
+where confirmed!=(deaths+recovered);
+
 -- directing storage 
-insert overwrite directory '/assign3/clean_data' row format delimited fields terminated by '\t' lines terminated by '\n' select * from data_collect;
+insert overwrite directory '/assign3/clean_data' row format delimited fields terminated by '\t' lines terminated by '\n' select * from data_collect_s;
 
 -- cleaned data stored in hdfs://localhost:9000/assign3/clean_data/* 
