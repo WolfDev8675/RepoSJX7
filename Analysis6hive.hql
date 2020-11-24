@@ -26,9 +26,9 @@ select count(sno) from data_collect where country !='';
 -- analysis jobs 
 -- creating preset collection leaving out reports where no province is specified.
 create table preset61 (timeval bigint,country string,confirmed int,deaths int,active int);
-insert into preset61 select (unix_timestamp(lastupdate,'yyyy-MM-dd HH:mm:ss')),country,confirmed,deaths,active from data_collect where country=='India' AND province=='WestBengal';
+insert into preset61 select (unix_timestamp(lastupdate,'yyyy-MM-dd HH:mm:ss')),country,confirmed,deaths,active from data_collect where country=='India' AND province=='West Bengal';
 create table preset62(mmyyyy string,confirmed int,deaths int,active int);
-insert into preset62 select concat(cast(month(from_unixtime(timeval)) as string),'-',cast(year(from_unixtime(timeval)) as string)),confirmed,deaths,active from preset51;
+insert into preset62 select concat(cast(month(from_unixtime(timeval)) as string),'-',cast(year(from_unixtime(timeval)) as string)),confirmed,deaths,active from preset61;
 -- results final 
 create table analysis6 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) from preset62 group by mmyyyy;
 --end of codes
@@ -38,10 +38,11 @@ create table analysis6 as select mmyyyy,avg(confirmed),avg(deaths),avg(active) f
 --
 --hive> select * from analysis6;
 --OK
---6-2020  11390.589707927676      352.105702364395        4755.609179415856
---7-2020  28480.81834532374       712.8381294964029       9836.422661870503
---8-2020  74345.86924493554       1430.3637200736648      18982.435543278083
---9-2020  133410.62976190477      2217.347619047619       26609.489285714284
---Time taken: 0.234 seconds, Fetched: 4 row(s)
+--6-2020  13323.25        536.2   5242.15
+--7-2020  37955.41935483871       1035.0  12953.129032258064
+--8-2020  114114.96774193548      2372.8064516129034      25670.677419354837
+--9-2020  196917.5        3847.75 24015.083333333332
+--Time taken: 0.162 seconds, Fetched: 4 row(s)
 --hive> 
+--
 --****
