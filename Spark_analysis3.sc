@@ -11,9 +11,9 @@ data_cleaned.count // should hold value 107749 as is equal to as that in hive
 
 // data scheme: SNo, Last Update, Province, Country, Confirmed, Deaths, Recovered, Active
 //analysis job
-var precoll3=data_cleaned.filter(x=>{x(3)=="India" && x(2) !=""}).map(x=>(x(2),x(6).toInt,x(7).toInt))
-var recByState=precoll3.map(x=>(x._1,x._2))
-var actByState=precoll3.map(x=>(x._1,x._3))
+var precoll3=data_cleaned.filter(x=>{x(3)=="India" && x(2) !=""}).map(x=>(x(2),x(6).toInt,x(7).toInt)) // filter out requirements
+var recByState=precoll3.map(x=>(x._1,x._2))  // state -> recovered
+var actByState=precoll3.map(x=>(x._1,x._3))  // state -> active 
 var analysis3=((recByState.reduceByKey(_+_)).join(actByState.reduceByKey(_+_))).sortBy[String]({x=>x._1})   //reduce,join, sort 
 
 // save
