@@ -18,8 +18,8 @@ data_collect= FOREACH data_cleaned GENERATE SNo,LastUpdate,Province,Country,Conf
 -- cleaned of debris in data 
 
 --analysis jobs
-preset1= FOREACH data_collect GENERATE Country,Recovered,Active;
-preset1Grp = GROUP preset1 BY Country;
+preset1= FOREACH data_collect GENERATE Country,Recovered,Active; -- primary assemble
+preset1Grp = GROUP preset1 BY Country;    -- grouping
 analysis1coll = FOREACH preset1Grp GENERATE group as (Country:chararray),SUM(preset1.Recovered) as (T_rec:int),SUM(preset1.Active) as (T_act:int); --calculated
 analysis1fx= FILTER analysis1coll BY (T_rec < T_act); -- filterd but unordered 
 analysis1uo= FOREACH analysis1UO GENERATE Country;  --collect answers unordered
@@ -41,3 +41,4 @@ Burma
 Cape Verde
 kali@kali:~$ 
  */
+ -- *** results limited to 10 results to limit cluttering screen from 68 countries***
