@@ -16,7 +16,7 @@ select count(SNo) from data_raw_headless where country!='';
 -- value 116805
 -- generating usable data
 create table data_collect (sno int,lastupdate string,province string,country string,confirmed int,deaths int,recovered int,active int);
-insert into data_collect select sno,lastupdate,province,country,confirmed,deaths,recovered,(confirmed-(deaths+recovered)) data_raw_headless 
+insert into data_collect select sno,lastupdate,province,country,confirmed,deaths,recovered,(confirmed-(deaths+recovered)) from data_raw_headless 
 where confirmed!=(deaths+recovered);
 -- finding number of datapoints
 select count(sno) from data_collect where country !='';
