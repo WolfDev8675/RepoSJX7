@@ -13,6 +13,7 @@ ctrCln= FOREACH ctrClnG GENERATE COUNT(data_cleaned.SNo); -- generating count cl
 -- dumping to trigger results' calculation
 dump ctrRaw --value :: (116805)
 dump ctrCln --value :: (107749)
+-- collect final clean collection 
 data_collect= FOREACH data_cleaned GENERATE SNo,LastUpdate,Province,Country,Confirmed,Deaths,Recovered,(Confirmed-(Deaths+Recovered)) as (Active:int);
 -- cleaned of debris in data 
 
