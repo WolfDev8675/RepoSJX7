@@ -20,9 +20,9 @@ data_collect= FOREACH data_cleaned GENERATE SNo,LastUpdate,Province,Country,Conf
 --analysis jobs
 preset51 = FOREACH data_collect GENERATE LastUpdate,Country,Province,Confirmed,Deaths,Active; -- assemble 1
 preset51fx = FILTER preset51 BY (Country == 'India' AND Province != ''); -- filtered
-preset52 = FOREACH preset51fx GENERATE CONCAT((chararray)GetMonth(LastUpdate),'-',(chararray)GetYear(LastUpdate)) as (mmyyyy:chararray),Confirmed,Deaths,Active;
-preset52Gpr = GROUP preset52 BY mmyyyy;
-analysis5 = FOREACH preset52Gpr GENERATE group,AVG(preset52.Confirmed),AVG(preset52.Deaths),AVG(preset52.Active);
+preset52 = FOREACH preset51fx GENERATE CONCAT((chararray)GetMonth(LastUpdate),'-',(chararray)GetYear(LastUpdate)) as (mmyyyy:chararray),Confirmed,Deaths,Active; --final assemble
+preset52Gpr = GROUP preset52 BY mmyyyy;  --month-year grouping
+analysis5 = FOREACH preset52Gpr GENERATE group,AVG(preset52.Confirmed),AVG(preset52.Deaths),AVG(preset52.Active); --calculate 
 STORE analysis5 INTO '/home/kali/Hadoop/Results/pig_results3/analysis5/' USING PigStorage();  -- storage 
 
 
