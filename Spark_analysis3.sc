@@ -39,8 +39,8 @@ var gpsx_L=cross.map(x=>(x._1,x._2)).groupByKey  // iterable left  -> x
 var gpsx_R=cross.map(x=>(x._1,x._3)).groupByKey  // iterable right -> y
 var gpsx_C=cross.map(x=>(x._1,x._4)).groupByKey  // iterable center -> (x*y)
 var joinback=gpsx_L.join(gpsx_R).join(gpsx_C)  // join back grouped iterables
-var analysis3=joinback.map{case(w, ((x, y), z))=> (w,(mean(z)-mean(x)*mean(y))/(stdDev(x)*stdDev(y)))}.sortBy(_._2,false)  // final operation
-analysis3.saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/analysis3")  //store 
+var analysis3b_f=joinback.map{case(w, ((x, y), z))=> (w,(mean(z)-mean(x)*mean(y))/(stdDev(x)*stdDev(y)))}.sortBy(_._2,false)  // final operation
+analysis3b_f.saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/analysis3/Job2")  //store 
 
 // end of code 
 
