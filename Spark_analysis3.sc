@@ -45,5 +45,22 @@ analysis3b_f.saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/analysis3/
 // end of code 
 
 //Result obtained :
+//kali@kali:~$ hdfs dfs -cat /assign2/spark_jobs/analysis3/Job2/part* | head -n 10
+//Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+//2020-11-27 01:29:20,040 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+//(HCLTECH , OFSS,0.060179274588645304)
+//(HCLTECH , INFY,0.03636273681709574)
+//(HCLTECH , MINDTREE,0.03605078081500838)
+//(HCLTECH , TCS,0.03148815953621653)
+//(MINDTREE , OFSS,0.027856217844901495)
+//(HCLTECH , NIITTECH,0.020602642393445326)
+//(HCLTECH , TECHM,0.017544870699555067)
+//(MINDTREE , TCS,0.01698240987202918)
+//(MINDTREE , NIITTECH,0.009471649548329374)
+//(MINDTREE , TECHM,0.008152816287473285)
+//cat: Unable to write to output stream.
+//cat: Unable to write to output stream.
+//cat: Unable to write to output stream.
+//kali@kali:~$ 
 //
 
