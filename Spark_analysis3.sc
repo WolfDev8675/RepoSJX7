@@ -16,6 +16,15 @@ data_headless.count // count confirm by 846404
 
 //visible debris not noted ->  no additional filters imposed
 
+//operative methods 
+import Numeric.Implicits._
+def mean[T: Numeric](xs: Iterable[T]): Double = xs.sum.toDouble / xs.size      //mean
+def variance[T: Numeric](xs: Iterable[T]): Double = {
+  val avg = mean(xs)                                //variance
+  xs.map(_.toDouble).map(a => math.pow(a - avg, 2)).sum / xs.size
+}
+def stdDev[T: Numeric](xs: Iterable[T]): Double = math.sqrt(variance(xs))         //standard deviation
+
 //analysis job 
 // 
 var preset31=data_headless.filter{x=> if(x(10).substring(0,4).toInt == 2017) true else false}   // prefilter by year = 2017
@@ -26,4 +35,15 @@ var anlysjob3b=anlysjob3a.filter{x=> if(x(0) =="HCLTECH" || x(0) == "NIITTECH" |
 var it3left=anlysjob3b.map(x=>(x(0),x(5).toFloat))
 var it3right=anlysjob3b.map(x=>(x(0),x(5).toFloat))
 var cross=it3left.cartesian(it3right).map{case((a, b), (c, d))=>(a,c,b,d)}.filter{x=>(x._1 < x._2)}.map{case((a,b,c,d))=>(a+" , "+b ,c,d,c*d)} 
-var gpsx=cross.groupBy(_._1)
+var gpsx_L=cross.map(x=>(x._1,x._2)).groupByKey  // iterable left  -> x
+var gpsx_R=cross.map(x=>(x._1,x._3)).groupByKey  // iterable right -> y
+var gpsx_C=cross.map(x=>(x._1,x._4)).groupByKey  // iterable center -> (x*y)
+var joinback=gpsx_L.join(gpsx_R).join(gpsx_C)  // join back grouped iterables
+var analysis3=joinback.map{case(w, ((x, y), z))=> (w,(mean(z)-mean(x)*mean(y))/(stdDev(x)*stdDev(y)))}.sortBy(_._2,false)  // final operation
+analysis3.saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/analysis3")  //store 
+
+// end of code 
+
+//Result obtained :
+//
+
