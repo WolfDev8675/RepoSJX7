@@ -25,5 +25,5 @@ sc.parallelize(res1x).saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/a
 var anlysjob3b=anlysjob3a.filter{x=> if(x(0) =="HCLTECH" || x(0) == "NIITTECH" || x(0) == "TATAELXSI" || x(0) == "TCS" || x(0) == "INFY" || x(0) == "WIPRO" || x(0) == "DATAMATICS" || x(0) == "TECHM" || x(0) == "MINDTREE" || x(0) == "OFSS") true else false}
 var it3left=anlysjob3b.map(x=>(x(0),x(5).toFloat))
 var it3right=anlysjob3b.map(x=>(x(0),x(5).toFloat))
-var cross=it3left.cartesian(it3right)
-
+var cross=it3left.cartesian(it3right).map{case((a, b), (c, d))=>(a,c,b,d)}.filter{x=>(x._1 < x._2)}.map{case((a,b,c,d))=>(a+" , "+b ,c,d,c*d)} 
+var gpsx=cross.groupBy(_._1)
