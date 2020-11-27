@@ -41,3 +41,20 @@ arng_grp = GROUP arranged BY sym1n2;  -- grouping
 anlysjob3_ = FOREACH arng_grp GENERATE group,(AVG(arranged.val12)-(AVG(arranged.val1)*AVG(arranged.val2)))/(SQRT(SUM(arranged.val1p2)/COUNT(arranged.val1p2) - AVG(arranged.val1)*AVG(arranged.val1))*SQRT(SUM(arranged.val2p2)/COUNT(arranged.val2p2) - AVG(arranged.val2)*AVG(arranged.val2))) as (rho:float);   
 anlysjob3 = ORDER anlysjob3_ BY rho;
 STORE anlysjob3 INTO '/home/kali/Hadoop/Results/pig_results2/analysis3/b/' USING PigStorage();  -- store cycle 2
+
+/*
+Results obtained
+kali@kali:~$ cat /home/kali/Hadoop/Results/pig_results2/analysis3/b/part*
+(HCLTECH , OFSS,0.060179274588645304)
+(HCLTECH , INFY,0.03636273681709574)
+(HCLTECH , MINDTREE,0.03605078081500838)
+(HCLTECH , TCS,0.03148815953621653)
+(MINDTREE , OFSS,0.027856217844901495)
+(HCLTECH , NIITTECH,0.020602642393445326)
+(HCLTECH , TECHM,0.017544870699555067)
+(MINDTREE , TCS,0.01698240987202918)
+(MINDTREE , NIITTECH,0.009471649548329374)
+(MINDTREE , TECHM,0.008152816287473285)
+kali@kali:~$ 
+
+*/
