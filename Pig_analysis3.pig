@@ -34,9 +34,9 @@ it3left = FOREACH anlysjob3b GENERATE SYMBOL,CLOSE; -- left joiner
 it3right = FOREACH anlysjob3b GENERATE SYMBOL,CLOSE; -- right joiner
 crosscoll3 = FILTER (CROSS it3left,it3right) BY  it3left.SYMBOL < it3right.SYMBOL;  --cross collection with filtration by inequal symbol criteria 
 -- arrangement as per requirement 
-arranged = FOREACH crosscoll3 GENERATE it3left.SYMBOL as (sym1:chararray),it3right.SYMBOL as (sym2:chararray),it3left.CLOSE as (val1:float),it3right.CLOSE as (val2:float),
+arranged = FOREACH crosscoll3 GENERATE CONCAT(it3left.SYMBOL ,'  ,  ',it3right.SYMBOL) as (sym1n2:chararray),it3left.CLOSE as (val1:float),it3right.CLOSE as (val2:float),
 it3left.CLOSE*it3left.CLOSE as (val1p2:float),it3right.CLOSE*it3right.CLOSE as (val2p2:float),it3left.CLOSE*it3right.CLOSE as (val12:float);
-arng_grp = GROUP arranged BY (sym1,sym2);  -- grouping 
+arng_grp = GROUP arranged BY sym1n2;  -- grouping 
 -- final solution 
 anlysjob3_ = FOREACH arng_grp GENERATE group,(AVG(arranged.val12)-(AVG(arranged.val1)*AVG(arranged.val2)))/(SQRT(SUM(arranged.val1p2)/COUNT(arranged.val1p2) - AVG(arranged.val1)*AVG(arranged.val1))*SQRT(SUM(arranged.val2p2)/COUNT(arranged.val2p2) - AVG(arranged.val2)*AVG(arranged.val2))) as (rho:float);   
 anlysjob3 = ORDER anlysjob3_ BY rho;
