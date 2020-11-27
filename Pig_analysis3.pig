@@ -24,7 +24,7 @@ dump ctrclt --trigger calculation
 --analysis job
 -- selected year 2017 
 precoll3 = FILTER data_collect BY GetYear(TIMESTAMPS)==2017;  -- filter by selected year 
-anlysjob3a = FILTER precoll3 BY TOTTRDVAL>=300000;   -- filter by specified criteria 
+anlysjob3a = FILTER precoll3 BY TOTTRDQTY>=300000;   -- filter by specified criteria 
 f25_anlysjob3a = LIMIT anlysjob3a 25;  --  test variable to get first 25 entries in 'anlysjob3a' 
 STORE f25_anlysjob3a INTO '/home/kali/Hadoop/Results/pig_results2/analysis3/a/' USING PigStorage();  -- store cycle 1
 dump f25_anlysjob3a;  -- dumped to release values 
