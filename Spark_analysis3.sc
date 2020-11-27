@@ -15,6 +15,7 @@ var data_headless=data_split.mapPartitionsWithIndex { (idx, iter) => if (idx == 
 data_headless.count // count confirm by 846404
 
 //visible debris not noted ->  no additional filters imposed
+//Data Scheme: SYMBOL	SERIES	OPEN	HIGH	LOW	CLOSE	LAST	PREVCLOSE	TOTTRDQTY	TOTTRDVAL	TIMESTAMP	TOTALTRADES	ISIN
 
 //operative methods 
 import Numeric.Implicits._
