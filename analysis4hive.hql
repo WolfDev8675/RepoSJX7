@@ -51,7 +51,7 @@ create table soln42 as select dayhr,sum(costs) from hourlycosts group by dayhr o
 --OK
 --2010-12-01->10  11
 --2010-12-01->11  12
--2010-12-01->12  22
+--2010-12-01->12  22
 --2010-12-01->13  12
 --2010-12-01->14  8
 --2010-12-01->15  14
@@ -60,7 +60,7 @@ create table soln42 as select dayhr,sum(costs) from hourlycosts group by dayhr o
 --2010-12-01->8   6
 --2010-12-01->9   16
 --Time taken: 0.142 seconds, Fetched: 10 row(s)
-hive> 
+--hive> 
 
 
 --Total costs per hour 
