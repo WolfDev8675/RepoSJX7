@@ -5,6 +5,7 @@ Files for the assigments in collection and operations in various HADOOP APIs spe
 #
 Assignment1: Online Retail data 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign1
+https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_onlineRetail.pdf
 # 
 Assignment2: Stock Market data 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign2
