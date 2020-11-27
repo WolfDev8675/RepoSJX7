@@ -11,10 +11,10 @@ https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_onlineRetail.pdf
 Assignment2: Stock Market data 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign2
 *->
-
+https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_nseStocks.pdf
 #
 Assignment3: SARS Covid-19 data
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign3
 *->
-
+https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_sarsCovid19.pdf
 #
