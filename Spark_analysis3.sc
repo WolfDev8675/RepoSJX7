@@ -29,7 +29,7 @@ def stdDev[T: Numeric](xs: Iterable[T]): Double = math.sqrt(variance(xs))       
 //analysis job 
 // 
 var preset31=data_headless.filter{x=> if(x(10).substring(0,4).toInt == 2017) true else false}   // prefilter by year = 2017
-var anlysjob3a=preset31.filter{x=> if(x(9).toFloat>=300000) true else false}    // filter by tottdrval>=300000
+var anlysjob3a=preset31.filter{x=> if(x(8).toFloat>=300000) true else false}    // filter by tottdrval>=300000
 var res1x=anlysjob3a.take(25)  //submit as in question 
 sc.parallelize(res1x).saveAsTextFile("hdfs://localhost:9000/assign2/spark_jobs/analysis3/Job1")
 var anlysjob3b=anlysjob3a.filter{x=> if(x(0) =="HCLTECH" || x(0) == "NIITTECH" || x(0) == "TATAELXSI" || x(0) == "TCS" || x(0) == "INFY" || x(0) == "WIPRO" || x(0) == "DATAMATICS" || x(0) == "TECHM" || x(0) == "MINDTREE" || x(0) == "OFSS") true else false}
