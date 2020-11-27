@@ -25,7 +25,7 @@ select count(*) from data_raw_headless where isin!='';
 -- analysis jobs 
 --
 create table preset31 as select * from data_raw_headless where year(from_unixtime(unix_timestamp(timestamps,'yyyy-MM-dd')))== 2017;
-create table anlysjob3a as select * from preset31 where tottrdval>=300000;
+create table anlysjob3a as select * from preset31 where tottrdqty>=300000;
 -- first 25 entries
 select * from anlysjob3a limit 25;
 --10 IT stocks 
