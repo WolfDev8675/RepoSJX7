@@ -10,7 +10,7 @@ X variables: Count, Recency, Quantity, Price, Country
 Y variable: IF(Count > 2,1,0)
 
 Problem Statement: 
-Find out the probability of buying a specific stock on 15-April-2011 for a Customer. If the probability is greater than 0.7, then we email the Customer. 
+Find out the probability of buying a specific stock on 15-April-2011 for a Customer. If the probability is greater than 0.8, then we email the Customer. 
 Workaround:
 Build the Logistics Regression model on data of 4147 Customers. Freeze the coefficients. 
 Use those coefficients to predict Y for remaining 1777 Customers. 
