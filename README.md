@@ -19,3 +19,5 @@ Performance Metrics of the Model.
 Based on recency, who are the hot prospects. (out of 1777 Customers)
 Based on probability, create 5 group of prospects who are to be targeted with Group 1 should consists of highest probability prospects. (On 1777 Customers)
 
+** Documentation of completed project
+https://github.com/WolfDev8675/RepoSJX7/blob/Assign2_1/logistic_project_doc.pdf 
