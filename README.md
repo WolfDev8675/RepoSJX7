@@ -1,6 +1,7 @@
-# RepoSJX7
+# RepoSJX7 : branch main2
 Data Analytics assignments (BSE+MAKAUT)
 #
+Parent branch for Assign2_1 and Assign2_2
 Files for the assigments in collection and operations in Excel(MS Office), Python, Scala 
 #
 Assignment1: Email Marketing Project 
