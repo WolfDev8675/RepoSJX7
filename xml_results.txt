@@ -1,0 +1,421 @@
+Results as obtained from file9_xml.py
+output from line22 onwards till 28
+******************
+
+id *** 129016
+name *** Squirrel Feeder
+description *** Thesis: "The amount of nuts taken by squirrels from a squirrel feeder correlates with upcoming winter weather conditions significantly."
+latitude *** 53.6722459
+longitude *** 10.2503598
+field1 *** Nut count
+field2 *** Temperature
+field3 *** Consumption speed
+field8 *** MinMax
+created-at *** 2016-06-28T13:46:29Z
+updated-at *** 2018-07-13T10:53:20Z
+elevation *** 47 m
+last-entry-id *** 85517
+feeds ***
+
+feed >>>
+created-at ^^ 2020-07-22T08:49:08Z
+entry-id ^^ 85418
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-22T16:06:12Z
+entry-id ^^ 85419
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T04:44:32Z
+entry-id ^^ 85420
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T06:58:48Z
+entry-id ^^ 85421
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T07:48:02Z
+entry-id ^^ 85422
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T08:02:53Z
+entry-id ^^ 85423
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T09:11:22Z
+entry-id ^^ 85424
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T09:33:39Z
+entry-id ^^ 85425
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T11:09:02Z
+entry-id ^^ 85426
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T13:43:48Z
+entry-id ^^ 85427
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-23T16:52:51Z
+entry-id ^^ 85428
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-24T06:40:43Z
+entry-id ^^ 85429
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-24T11:46:52Z
+entry-id ^^ 85430
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-24T12:05:42Z
+entry-id ^^ 85431
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-24T14:01:36Z
+entry-id ^^ 85432
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-25T06:24:16Z
+entry-id ^^ 85433
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-25T09:37:47Z
+entry-id ^^ 85434
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-25T14:58:30Z
+entry-id ^^ 85435
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T05:15:51Z
+entry-id ^^ 85436
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T06:29:56Z
+entry-id ^^ 85437
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T07:41:12Z
+entry-id ^^ 85438
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T08:27:57Z
+entry-id ^^ 85439
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T08:54:10Z
+entry-id ^^ 85440
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T10:07:45Z
+entry-id ^^ 85441
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-26T14:48:03Z
+entry-id ^^ 85442
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T04:22:06Z
+entry-id ^^ 85443
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T04:38:47Z
+entry-id ^^ 85444
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T05:25:49Z
+entry-id ^^ 85445
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T06:40:19Z
+entry-id ^^ 85446
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T09:40:30Z
+entry-id ^^ 85447
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T16:04:37Z
+entry-id ^^ 85448
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T16:32:01Z
+entry-id ^^ 85449
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-27T17:36:49Z
+entry-id ^^ 85450
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-28T03:58:23Z
+entry-id ^^ 85451
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-28T11:20:11Z
+entry-id ^^ 85452
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-28T11:41:29Z
+entry-id ^^ 85453
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-28T16:21:59Z
+entry-id ^^ 85454
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-28T18:25:02Z
+entry-id ^^ 85455
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T04:59:09Z
+entry-id ^^ 85456
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T05:30:55Z
+entry-id ^^ 85457
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T06:00:54Z
+entry-id ^^ 85458
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T06:29:59Z
+entry-id ^^ 85459
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T10:32:41Z
+entry-id ^^ 85460
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T11:17:47Z
+entry-id ^^ 85461
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T11:57:14Z
+entry-id ^^ 85462
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T12:31:36Z
+entry-id ^^ 85463
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T16:01:11Z
+entry-id ^^ 85464
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T16:49:36Z
+entry-id ^^ 85465
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-29T17:16:43Z
+entry-id ^^ 85466
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-30T08:05:11Z
+entry-id ^^ 85467
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-30T09:00:01Z
+entry-id ^^ 85468
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-07-30T09:37:12Z
+entry-id ^^ 85469
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-02T09:28:19Z
+entry-id ^^ 85470
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-02T16:57:22Z
+entry-id ^^ 85471
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-02T17:08:10Z
+entry-id ^^ 85472
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-02T17:35:01Z
+entry-id ^^ 85473
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T04:38:27Z
+entry-id ^^ 85474
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T07:30:41Z
+entry-id ^^ 85475
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T07:47:15Z
+entry-id ^^ 85476
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T09:15:51Z
+entry-id ^^ 85477
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T10:55:25Z
+entry-id ^^ 85478
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T15:43:11Z
+entry-id ^^ 85479
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T16:53:44Z
+entry-id ^^ 85480
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T17:11:15Z
+entry-id ^^ 85481
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-03T17:55:51Z
+entry-id ^^ 85482
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T06:08:47Z
+entry-id ^^ 85483
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T07:04:26Z
+entry-id ^^ 85484
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T10:03:43Z
+entry-id ^^ 85485
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T12:20:10Z
+entry-id ^^ 85486
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T13:36:19Z
+entry-id ^^ 85487
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T13:47:27Z
+entry-id ^^ 85488
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T14:41:50Z
+entry-id ^^ 85489
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T17:28:07Z
+entry-id ^^ 85490
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-04T18:11:44Z
+entry-id ^^ 85491
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T04:53:03Z
+entry-id ^^ 85492
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T09:42:42Z
+entry-id ^^ 85493
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T10:11:34Z
+entry-id ^^ 85494
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T11:16:15Z
+entry-id ^^ 85495
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T11:33:57Z
+entry-id ^^ 85496
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T11:42:44Z
+entry-id ^^ 85497
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T17:30:39Z
+entry-id ^^ 85498
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-05T20:54:26Z
+entry-id ^^ 85499
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-06T05:34:20Z
+entry-id ^^ 85500
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-06T11:15:47Z
+entry-id ^^ 85501
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-06T12:26:21Z
+entry-id ^^ 85502
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-06T17:30:50Z
+entry-id ^^ 85503
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-07T13:54:09Z
+entry-id ^^ 85504
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-07T14:02:29Z
+entry-id ^^ 85505
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-07T17:30:46Z
+entry-id ^^ 85506
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T05:00:51Z
+entry-id ^^ 85507
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T05:15:41Z
+entry-id ^^ 85508
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T05:31:28Z
+entry-id ^^ 85509
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T05:39:55Z
+entry-id ^^ 85510
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T06:07:01Z
+entry-id ^^ 85511
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-08T06:56:38Z
+entry-id ^^ 85512
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-09T08:37:04Z
+entry-id ^^ 85513
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-09T14:49:13Z
+entry-id ^^ 85514
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-09T15:06:46Z
+entry-id ^^ 85515
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-09T16:39:02Z
+entry-id ^^ 85516
+field2 ^^ 0.0
+feed >>>
+created-at ^^ 2020-08-09T18:21:02Z
+entry-id ^^ 85517
+field2 ^^ 0.0
+Press any key to continue . . .
+*******

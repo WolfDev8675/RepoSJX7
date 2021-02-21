@@ -1,0 +1,35 @@
+Results as obtained from file9_xml.py
+output from line32 onwards
+******************
+
+id *** 129016
+name *** Squirrel Feeder
+description *** Thesis: "The amount of nuts taken by squirrels from a squirrel feeder correlates with upcoming winter weather conditions significantly."
+latitude *** 53.6722459
+longitude *** 10.2503598
+field1 *** Nut count
+field2 *** Temperature
+field3 *** Consumption speed
+field8 *** MinMax
+created-at *** 2016-06-28T13:46:29Z
+updated-at *** 2018-07-13T10:53:20Z
+elevation *** 47 m
+last-entry-id *** 85517
+feeds ***
+
+************************ *************************
+              created-at entry-id field1
+0   2020-07-22T08:49:08Z    85418     17
+1   2020-07-22T16:06:12Z    85419     10
+2   2020-07-23T04:44:32Z    85420     16
+3   2020-07-23T06:58:48Z    85421      1
+4   2020-07-23T07:48:02Z    85422      6
+..                   ...      ...    ...
+95  2020-08-09T08:37:04Z    85513      6
+96  2020-08-09T14:49:13Z    85514      7
+97  2020-08-09T15:06:46Z    85515      5
+98  2020-08-09T16:39:02Z    85516      4
+99  2020-08-09T18:21:02Z    85517      9
+
+[100 rows x 3 columns]
+Press any key to continue . . .
