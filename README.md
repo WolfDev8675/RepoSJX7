@@ -1,4 +1,4 @@
-# RepoSJX7
+# RepoSJX7 : branch Assign2_1 
 Project 1: Email Marketing / Retail Propensity Modelling
 
 Data Set: OnlineRetail as received from Kaggle
