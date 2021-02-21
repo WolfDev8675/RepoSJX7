@@ -6,7 +6,7 @@ Files for the assigments in collection and operations in Excel(MS Office), Pytho
 Assignment1: Email Marketing Project 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign2_1
 *->
-https://github.com/WolfDev8675/RepoSJX7/blob/Assign2_1/logistic_project_doc.pdf
+https://github.com/WolfDev8675/RepoSJX7/blob/main2/logistic_project_doc.pdf
 # 
 Assignment2: Time Series Project 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign2_2
