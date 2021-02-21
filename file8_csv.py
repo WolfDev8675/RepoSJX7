@@ -1,6 +1,6 @@
 #!usr/bin/python
 
-''' test file for checking web access of data and unzipping files '''
+''' test file for checking web access of data and unzipping files in addition to reading of csv files to pandas.dataframe object '''
 # start of code
 
 # imports 
@@ -19,6 +19,9 @@ with ZF("F:\BSE_2\GlobalLandTemperatures.zip") as zip_extract:
 
 dFrame=pd.read_csv(complete_path)
 print(dFrame)
+
+# end of code
+
 
 #output 
 """ 
@@ -39,3 +42,5 @@ print(dFrame)
 [239177 rows x 7 columns]
 Press any key to continue . . .
 """
+
+#***********
