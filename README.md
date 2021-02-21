@@ -1,4 +1,4 @@
-# RepoSJX7
+# RepoSJX7 : branch Assign2_2
 Project 2: Time Series Modelling of Bank Stock Price Pair
 
 Data Set: Last two years daily trade data of HDFCBANK and ICICIBANK. Data can be obtained from 
