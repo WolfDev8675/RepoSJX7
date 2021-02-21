@@ -1,6 +1,7 @@
-# RepoSJX7
+# RepoSJX7 : branch main1
 Hadoop BIGDATA assignments (BSE+MAKAUT)
 #
+Parent branch to Assign1_1,Assign1_2,Assign1_3
 Files for the assigments in collection and operations in various HADOOP APIs specifically Python MAPRED, HIVE, HBASE, PIG, SPARK(scala) 
 #
 Assignment1: Online Retail data 
