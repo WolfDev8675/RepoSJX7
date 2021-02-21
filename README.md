@@ -1,20 +1,7 @@
 # RepoSJX7
-Hadoop BIGDATA assignments (BSE+MAKAUT)
+DataScience assignments (BSE+MAKAUT)
 #
-Files for the assigments in collection and operations in various HADOOP APIs specifically Python MAPRED, HIVE, HBASE, PIG, SPARK(scala) 
-#
-Assignment1: Online Retail data 
-https://github.com/WolfDev8675/RepoSJX7/tree/Assign1
-*->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_onlineRetail.pdf
-# 
-Assignment2: Stock Market data 
-https://github.com/WolfDev8675/RepoSJX7/tree/Assign2
-*->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_nseStocks.pdf
-#
-Assignment3: SARS Covid-19 data
-https://github.com/WolfDev8675/RepoSJX7/tree/Assign3
-*->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_sarsCovid19.pdf
+Repository head containing branches and files for various projects and tasks given during the life cycle of the course
+** Post Graduate Diploma in Data Science from BSE in collaboration with MAKAUT 
+
 #
