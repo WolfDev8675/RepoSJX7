@@ -26,7 +26,7 @@ file_root=xml_file.getroot()
 #        print(gen1.tag,">>>")
 #        for gen2 in gen1: 
 #            print(gen2.tag,"^^",gen2.text)
-# #results in xml_results1.txt
+# 
 
 
 # framing up with assimilation 
@@ -46,5 +46,7 @@ data_body= pd.DataFrame(data_colec)
 print(" ".center(50,'*'))
 print(data_body)
 
+#results in lines 22-28 xml_results1.txt
+#results of lines 32-47 in xml_results2.txt
 
 #end of code 
