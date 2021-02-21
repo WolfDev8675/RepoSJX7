@@ -16,4 +16,4 @@ json_results.txt;
 xml_results1.txt;
 xml_results2.txt;
 # 
-initialized:21-20-2020 submitted: <pending>
+initialized:21-20-2020 submitted: /pending
