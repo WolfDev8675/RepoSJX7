@@ -6,7 +6,7 @@
 # file source https://thingspeak.com/channels/129016
 
 #imports
-from file7_webScr import *
+from file_webScrUL3 import *
 import json
 import pandas as pd
 
@@ -21,6 +21,7 @@ with open(file_path) as f_jsn:
     data=json.loads(f_jsn.read())
 
 # print(data)
+# results in json_results.txt
 
 # info of location
 data_info=data["channel"]
@@ -31,3 +32,4 @@ data_body= pd.DataFrame(data["feeds"])
 print(" ".center(50,'*'))
 print(data_body)
 
+# all outputs in json_results.txt
