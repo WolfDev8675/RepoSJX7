@@ -6,15 +6,15 @@ Files for the assigments in collection and operations in various HADOOP APIs spe
 Assignment1: Online Retail data 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign1_1
 *->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_onlineRetail.pdf
+https://github.com/WolfDev8675/RepoSJX7/blob/main1/Project_onlineRetail.pdf
 # 
 Assignment2: Stock Market data 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign1_2
 *->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_nseStocks.pdf
+https://github.com/WolfDev8675/RepoSJX7/blob/main1/Project_nseStocks.pdf
 #
 Assignment3: SARS Covid-19 data
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign1_3
 *->
-https://github.com/WolfDev8675/RepoSJX7/blob/main/Project_sarsCovid19.pdf
+https://github.com/WolfDev8675/RepoSJX7/blob/main1/Project_sarsCovid19.pdf
 #
