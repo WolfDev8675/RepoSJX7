@@ -1,4 +1,4 @@
-Results as obtained from file9_xml.py
+Results as obtained from file_xml_rd_wr.py
 output from line32 onwards
 ******************
 
