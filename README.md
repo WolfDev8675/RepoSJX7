@@ -25,5 +25,4 @@ Performance Metrics of the ARIMA Model i.e RMSE.
 Number of Contracts required to set up the trade
 Mean reversion speed. 
 
-#
 ** Documentation of completed project https://github.com/WolfDev8675/RepoSJX7/blob/Assign2_2/timeSeries_project_doc.pdf
