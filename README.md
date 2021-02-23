@@ -12,4 +12,4 @@ https://github.com/WolfDev8675/RepoSJX7/blob/main2/logistic_project_doc.pdf
 Assignment2: Time Series Project 
 https://github.com/WolfDev8675/RepoSJX7/tree/Assign2_2
 *->
-https://github.com/WolfDev8675/RepoSJX7/blob/
+https://github.com/WolfDev8675/RepoSJX7/blob/Assign2_2/timeSeries_project_doc.pdf
