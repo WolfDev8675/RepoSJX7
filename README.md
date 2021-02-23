@@ -20,9 +20,9 @@ Secondly once we have identified the speed of mean reversion, trade is to be set
 Number of Contract * Lot Size * FutureContract_Price_StockA = Number of Contract * Lot Size * FutureContract_Price_StockB
 In the above Lot Size and FutureContract_Price are to be obtained from NSE site. Solve for Number of Contract. 
 Expected Output:
-Identify the values of p,d and q
-Performance Metrics of the ARIMA Model i.e RMSE. 
-Number of Contracts required to set up the trade
-Mean reversion speed. 
+- Identify the values of p,d and q
+- Performance Metrics of the ARIMA Model i.e RMSE. 
+- Number of Contracts required to set up the trade
+- Mean reversion speed. 
 
 ** Documentation of completed project https://github.com/WolfDev8675/RepoSJX7/blob/Assign2_2/timeSeries_project_doc.pdf
