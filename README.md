@@ -2,8 +2,8 @@
 Project 2: Time Series Modelling of Bank Stock Price Pair
 
 Data Set: Last two years daily trade data of HDFCBANK and ICICIBANK. Data can be obtained from 
-https://www.nseindia.com/get-quotes/equity?symbol=HDFCBANK
-https://www.nseindia.com/get-quotes/equity?symbol=ICICIBANK
+- https://www.nseindia.com/get-quotes/equity?symbol=HDFCBANK
+- https://www.nseindia.com/get-quotes/equity?symbol=ICICIBANK
 
 Data Length: 273 trading days data consisting of LTP and Close price
 Fields to be considered: LTP and Close Price.
