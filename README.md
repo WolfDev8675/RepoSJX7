@@ -24,7 +24,7 @@ Solutions in:
 >briefed: 21-20-2020; initialized: 23-02-2020; submitted: >pending
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out the following from the data set.
-> - 1. What is the size of the dataset? (row x column)
-> - 2. Data type of each of the columns and number of non-null values of each column.
-> - 3. How many outliers are there for each numerical column and what are their values?
-> - 4. Draw boxplot for each numerical column.
+> 1. What is the size of the dataset? (row x column)
+> 2. Data type of each of the columns and number of non-null values of each column.
+> 3. How many outliers are there for each numerical column and what are their values?
+> 4. Draw boxplot for each numerical column.
