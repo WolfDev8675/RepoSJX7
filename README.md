@@ -4,7 +4,7 @@ __Data Preparation and Cleaning assignments (BSE+MAKAUT)__
 Files for the assigments in collection and coded in language of python.
 
 Contains files for miscellaneoous tasks as was shared 
->initialized: 20-02-2020 submitted:21-20-2020 
+>briefed: 20-02-2020 \n initialized: 20-02-2020 \n submitted:21-20-2020 
 - file_csv_rd.py
 - file_json_rd_wr.py
 - file_webScrRq.py
