@@ -11,6 +11,7 @@ Contains files for miscellaneoous tasks as was shared
 > - Extensible Markup Language 
 > - JavaScript Object Notation
 > either by web scrapping or by obtaining from local path (code using python language *preffered*)
+
 Solutions in:
 - file_csv_rd.py
 - file_json_rd_wr.py
