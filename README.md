@@ -10,9 +10,9 @@ Contains files for miscellaneoous tasks as was shared
 > - Comma Separated Values
 > - Extensible Markup Language 
 > - JavaScript Object Notation
-> either by web scrapping or by obtaining from local path (code using python language *preffered*)
+> either by web scrapping or by obtaining from local path (code using python language *preffered*) 
 
-Solutions in:
+Solutions in folder Task1/ containing files 
 - file_csv_rd.py
 - file_json_rd_wr.py
 - file_webScrRq.py
@@ -28,4 +28,7 @@ Solutions in:
 > 1. What is the size of the dataset? (row x column)
 > 2. Data type of each of the columns and number of non-null values of each column.
 > 3. How many outliers are there for each numerical column and what are their values?
-> 4. Draw boxplot for each numerical column.
+> 4. Draw boxplot for each numerical column. 
+
+Solutions in folder Task2/ containing files 
+- 
