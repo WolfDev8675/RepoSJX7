@@ -102,3 +102,5 @@ plotter.subplot(axR,axC,(pos,16))
 c_mer.boxplot(column=col_list)
 #final show 
 plotter.show()
+
+#..End of codes 
