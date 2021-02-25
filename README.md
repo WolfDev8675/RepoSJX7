@@ -13,16 +13,16 @@ Contains files for miscellaneoous tasks as was shared
 > either by web scrapping or by obtaining from local path (code using python language *preffered*) 
 
 Solutions in folder Task1/ containing files 
-- file_csv_rd.py
-- file_json_rd_wr.py
-- file_webScrRq.py
-- file_webScrUL3.py 
-- file_xml_rd_wr.py
-- json_results.txt
-- xml_results1.txt 
-- xml_results2.txt
+- file_csv_rd.py      ( read from csv)
+- file_json_rd_wr.py  ( read from json)
+- file_webScrRq.py    ( Webscrapping using Requests library)
+- file_webScrUL3.py   ( Webscrapping using UrlLib3 library)
+- file_xml_rd_wr.py   ( read from xml file)
+- json_results.txt    ( results of json)
+- xml_results1.txt    ( results of xml 1)
+- xml_results2.txt    ( results of xml 2)
 # 
->briefed: 21-20-2020; initialized: 23-02-2020; submitted: >pending
+>briefed: 21-20-2020; initialized: 23-02-2020; submitted: 26-02-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out the following from the data set.
 > 1. What is the size of the dataset? (row x column)
@@ -31,4 +31,8 @@ Solutions in folder Task1/ containing files
 > 4. Draw boxplot for each numerical column. 
 
 Solutions in folder Task2/ containing files 
-- <* Pending *>
+- qs.txt              ( question )
+- Workfile_task2.py   ( python task file )
+- Results_task2.txt   ( results )
+- _BoxPlots_of_all_numerical_data_.png   (plot saved as image of PNG type)
+- data//              (folder of data and question)
