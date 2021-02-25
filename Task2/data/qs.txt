@@ -1,5 +1,5 @@
 Question: Code to operate on two data files provided 
- files kept localy at path: F:\BSE_2\VS_Reg_BSE\Task2 
+ files kept localy at path: data\\ 
  Read car data.csv and car condition.csv. Merge them together (files already provided).
   Find out the following from the data set.
    then perform the following tasks..
