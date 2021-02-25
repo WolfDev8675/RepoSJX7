@@ -1,7 +1,7 @@
 #!usr/bin/python
 #
 #Question: Code to operate on two data files provided 
-# files kept localy at path: F:\BSE_2\VS_Reg_BSE\Task2 
+# files kept localy at path: data\\ 
 # Read car data.csv and car condition.csv. Merge them together (files already provided).
 #  Find out the following from the data set.
 #   then perform the following tasks..
@@ -35,15 +35,16 @@ print("\n\n")
 
 try:
     # Dataframes 
+    print(" Data Found ")
     cdcsv=PD.read_csv(rootpath+file1name)  # car data
     cccsv=PD.read_csv(rootpath+file2name)  # car condition
     print("Car data \n",cdcsv); print("Car condition \n",cccsv) 
     # previous knowledge of datasets: both have 'car id' column 
     c_mer=cccsv.merge(cdcsv,left_on='car id',right_on='car id')
     print(c_mer)
- except:
+except:
     print(" Fatal Error : Datasets not found    ......       Closing code ")
-    quit()
+    raise SystemExit
 
 # 1. Size of dataset 
 print(" Question 1: ")
@@ -70,7 +71,7 @@ for col in c_mer.columns:
         col_list.append(col) # append positives
 
 # 3. Data type of each of the columns and number of non-null values of each column
-print(" Question 3: );print(" Searching and Printing Outliers in numerical columns ")
+print(" Question 3: "); print(" Searching and Printing Outliers in numerical columns ")
 #Quartiles
 for col in col_list:
     sort_col=sorted(c_mer[col].tolist())  #sorted values
@@ -97,7 +98,7 @@ for col in col_list:
 print("\n\n")
 
 # 4. Draw boxplot for each numerical column
-print(" Question 4: Box Plots)
+print(" Question 4: Box Plots")
 # axis and position of subplots separate plots for each
 axR=4;axC=4;pos=1;
 plotter.figure(figsize=(13,7.5)).canvas.set_window_title(" BoxPlots of all numerical data ")
@@ -112,3 +113,4 @@ c_mer.boxplot(column=col_list)
 plotter.show()
 
 #..End of codes 
+
