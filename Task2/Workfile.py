@@ -20,7 +20,7 @@ import matplotlib.pyplot as plotter
 
 # data file access
 rootpath=input("Please input the Path containg the Data ")
-if rootpath=="" : rootpath="F:\BSE_2\VS_Reg_BSE\Task2\\"
+if rootpath=="" : rootpath="Task2\\data"
 file1name="car data.csv"
 file2name="car condition.csv"
 
