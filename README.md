@@ -31,4 +31,4 @@ Solutions in folder Task1/ containing files
 > 4. Draw boxplot for each numerical column. 
 
 Solutions in folder Task2/ containing files 
-- 
+- d
