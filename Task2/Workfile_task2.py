@@ -20,24 +20,30 @@ import matplotlib.pyplot as plotter
 
 # data file access
 rootpath=input("Please input the Path containg the Data ")
-if rootpath=="" : rootpath="Task2\\data\\"
+if rootpath=="" : rootpath="data\\"
 file1name="car data.csv"
 file2name="car condition.csv"
-
-# Question 
-with open(rootpath+"qs.txt") as qs:
-    print(qs.read())
-
+try:
+    # Question 
+    with open(rootpath+"qs.txt") as qs:
+        print(qs.read())
+except:
+    print(" Question not found ")
+    
 # Alignment marker 
 print("\n\n")
 
-# Dataframes 
-cdcsv=PD.read_csv(rootpath+file1name)  # car data
-cccsv=PD.read_csv(rootpath+file2name)  # car condition
-print("Car data \n",cdcsv); print("Car condition \n",cccsv) 
-# previous knowledge of datasets: both have 'car id' column 
-c_mer=cccsv.merge(cdcsv,left_on='car id',right_on='car id')
-print(c_mer)
+try:
+    # Dataframes 
+    cdcsv=PD.read_csv(rootpath+file1name)  # car data
+    cccsv=PD.read_csv(rootpath+file2name)  # car condition
+    print("Car data \n",cdcsv); print("Car condition \n",cccsv) 
+    # previous knowledge of datasets: both have 'car id' column 
+    c_mer=cccsv.merge(cdcsv,left_on='car id',right_on='car id')
+    print(c_mer)
+ except:
+    print(" Fatal Error : Datasets not found    ......       Closing code ")
+    quit()
 
 # 1. Size of dataset 
 print(" Question 1: ")
@@ -50,6 +56,7 @@ print("\n\n")
 
 # 2. Data type of each of the columns and number of non-null values of each column
 # print(c_mer.dtypes) # .. not required as info does all the job
+print(" Question 2: \n Data type of each of the columns and number of non-null values of each column")
 # info on the 
 c_mer.info()
 
@@ -63,7 +70,7 @@ for col in c_mer.columns:
         col_list.append(col) # append positives
 
 # 3. Data type of each of the columns and number of non-null values of each column
-print(" Searching and Printing Outliers in numerical columns ")
+print(" Question 3: );print(" Searching and Printing Outliers in numerical columns ")
 #Quartiles
 for col in col_list:
     sort_col=sorted(c_mer[col].tolist())  #sorted values
@@ -90,6 +97,7 @@ for col in col_list:
 print("\n\n")
 
 # 4. Draw boxplot for each numerical column
+print(" Question 4: Box Plots)
 # axis and position of subplots separate plots for each
 axR=4;axC=4;pos=1;
 plotter.figure(figsize=(13,7.5)).canvas.set_window_title(" BoxPlots of all numerical data ")
