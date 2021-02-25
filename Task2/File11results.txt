@@ -1,0 +1,108 @@
+Please input the Path containg the Data
+Question: Code to operate on two data files provided
+ files kept localy at path: F:\BSE_2\VS_Reg_BSE\Task2
+ Read car data.csv and car condition.csv. Merge them together (files already provided).
+  Find out the following from the data set.
+   then perform the following tasks..
+ 1. What is the size of the dataset? (row x column)
+ 2. Data type of each of the columns and number of non-null values of each column.
+ 3. How many outliers are there for each numerical column and what are their values?
+ 4. Draw boxplot for each numerical column.
+
+
+
+Car data
+      car id   mpg  ...  model year                   car name
+0         1  18.0  ...          70  chevrolet chevelle malibu
+1         2  15.0  ...          70          buick skylark 320
+2         3  18.0  ...          70         plymouth satellite
+3         4  16.0  ...          70              amc rebel sst
+4         5  17.0  ...          70                ford torino
+..      ...   ...  ...         ...                        ...
+393     394  27.0  ...          82            ford mustang gl
+394     395  44.0  ...          82                  vw pickup
+395     396  32.0  ...          82              dodge rampage
+396     397  28.0  ...          82                ford ranger
+397     398  31.0  ...          82                 chevy s-10
+
+[398 rows x 9 columns]
+Car condition
+      car id  origin  Condition
+0         1       1       good
+1         2       1       good
+2         3       1       good
+3         4       1       good
+4         5       1       good
+..      ...     ...        ...
+393     394       1        NaN
+394     395       2  excellent
+395     396       1  excellent
+396     397       1  excellent
+397     398       1  excellent
+
+[398 rows x 3 columns]
+     car id  origin  ... model year                   car name
+0         1       1  ...         70  chevrolet chevelle malibu
+1         2       1  ...         70          buick skylark 320
+2         3       1  ...         70         plymouth satellite
+3         4       1  ...         70              amc rebel sst
+4         5       1  ...         70                ford torino
+..      ...     ...  ...        ...                        ...
+393     394       1  ...         82            ford mustang gl
+394     395       2  ...         82                  vw pickup
+395     396       1  ...         82              dodge rampage
+396     397       1  ...         82                ford ranger
+397     398       1  ...         82                 chevy s-10
+
+[398 rows x 11 columns]
+ Question 1:
+ Size of dataset (merged) : 4378
+ Rows           : 398
+ Columns        : 11
+
+
+
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 398 entries, 0 to 397
+Data columns (total 11 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   car id        398 non-null    int64
+ 1   origin        398 non-null    int64
+ 2   Condition     381 non-null    object
+ 3   mpg           398 non-null    float64
+ 4   cylinders     398 non-null    int64
+ 5   displacement  398 non-null    float64
+ 6   horsepower    398 non-null    object
+ 7   weight        398 non-null    int64
+ 8   acceleration  398 non-null    float64
+ 9   model year    398 non-null    int64
+ 10  car name      398 non-null    object
+dtypes: float64(3), int64(5), object(3)
+memory usage: 37.3+ KB
+
+
+
+ Searching and Printing Outliers in numerical columns
+ Outliers in Column :  car id
+ No outliers found
+ Outliers in Column :  origin
+ No outliers found
+ Outliers in Column :  mpg
+  46.6
+         1  outliers found
+ Outliers in Column :  cylinders
+ No outliers found
+ Outliers in Column :  displacement
+ No outliers found
+ Outliers in Column :  weight
+ No outliers found
+ Outliers in Column :  acceleration
+  8.0 , 8.5 , 8.5 , 22.1 , 22.2 , 22.2 , 23.5 , 23.7 , 24.6 , 24.8
+         10  outliers found
+ Outliers in Column :  model year
+ No outliers found
+
+
+
+Press any key to continue . . .
