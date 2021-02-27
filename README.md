@@ -10,7 +10,8 @@ Contains files for miscellaneoous tasks as was shared
 > - Comma Separated Values
 > - Extensible Markup Language 
 > - JavaScript Object Notation
-> either by web scrapping or by obtaining from local path (code using python language *preffered*) 
+> 
+> obtained either by web scrapping or by obtaining from local path (code using python language *preffered*) 
 
 Solutions in folder Task1/ containing files 
 - file_csv_rd.py      ( read from csv)
