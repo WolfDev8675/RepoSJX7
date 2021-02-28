@@ -22,7 +22,6 @@ Solutions in folder Task1/ containing files
 - json_results.txt    ( results of json)
 - xml_results1.txt    ( results of xml 1)
 - xml_results2.txt    ( results of xml 2)
-# 
 >briefed: 21-20-2020; initialized: 23-02-2020; submitted: 26-02-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out the following from the data set.
@@ -37,3 +36,9 @@ Solutions in folder Task2/ containing files
 - Results_task2.txt   ( results )
 - _BoxPlots_of_all_numerical_data_.png   (plot saved as image of PNG type)
 - data//              (folder of data and question)
+>briefed: 28-02-2021; initialized: pending; submitted: pending
+>
+>__Question:__ pending (issue: remove incomplete or broken values)
+>
+Solutions in folder Task3/ containing files
+- pending 
