@@ -38,7 +38,12 @@ Solutions in folder Task2/ containing files
 - data//              (folder of data and question)
 >briefed: 28-02-2021; initialized: pending; submitted: pending
 >
->__Question:__ pending (issue: remove incomplete or broken values)
->
+>__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
+> 1. How many null values were there in the dataset for each column?
+> 2. If number of null values are less than 3, delete rows containing null values.
+> 3. Else, fill null values of numerical columns with mean/median.
+> 4. Fill categorical columns with mode.
+> 5. Apply KNN Imputation technique to fill up null values.
+ 
 Solutions in folder Task3/ containing files
 - pending 
