@@ -36,7 +36,7 @@ Solutions in folder Task2/ containing files
 - Results_task2.txt   ( results )
 - _BoxPlots_of_all_numerical_data_.png   (plot saved as image of PNG type)
 - data//              (folder of data and question)
->briefed: 28-02-2021; initialized: pending; submitted: pending
+>briefed: 28-02-2021; initialized: 04-03-2021; submitted: pending
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
 > 1. How many null values were there in the dataset for each column?
@@ -46,4 +46,5 @@ Solutions in folder Task2/ containing files
 > 5. Apply KNN Imputation technique to fill up null values.
  
 Solutions in folder Task3/ containing files
-- pending 
+- qsc.txt    ( question )
+- data//     ( folder of data and question )
