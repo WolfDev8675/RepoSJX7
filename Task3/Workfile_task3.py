@@ -88,4 +88,7 @@ for infos in null_info:
     if null_info[infos] < 3 and null_info[infos] !=0 :
         # number of NULLs is less than three but has NULL is confirmed 
         del_list=dbx1[dbx1[infos].isnull].index.toList()  # indices for removal of rows
-        dbx1.drop(axis=0,index=del_list,inplace=True)
+        dbx1.drop(axis=0,index=del_list,inplace=True) # removing records
+    elif null_info[infos] != 0:
+        # all other NULL hits 
+        if 
