@@ -91,4 +91,9 @@ for infos in null_info:
         dbx1.drop(axis=0,index=del_list,inplace=True) # removing records
     elif null_info[infos] != 0:
         # all other NULL hits 
-        if 
+        if type(dbx1[infos].dtype) is PD.CategoricalDType:
+            exchange_null=dbx1[infos].mode().tolist()[0] # question 4 directive 
+        elif type(dbx1[infos].dtype) is NP.dtype:
+            exchange_null=dbx1[infos].median()  # question 3 directive
+        else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute
+        
