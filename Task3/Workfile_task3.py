@@ -96,10 +96,11 @@ for infos in null_info:
         elif type(dbx1[infos].dtype) is NP.dtype:
             exchange_null=dbx1[infos].median()  # question 3 directive
         else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case)
-        change_list=dbx1[dbx1[infos].isnull].index.toList() # index list of changes 
+        change_list=dbx1[dbx1[infos].isnull].index.tolist() # index list of changes 
         for idx in change_list: dbx1.loc[idx,infos]= exchange_null # registering changes
     else: pass     # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case) 
 # end of for loop
+
 # printing proof 
 print(dbx1.info())
 print("NULL information \n")
