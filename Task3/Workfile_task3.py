@@ -95,5 +95,28 @@ for infos in null_info:
             exchange_null=dbx1[infos].mode().tolist()[0] # question 4 directive 
         elif type(dbx1[infos].dtype) is NP.dtype:
             exchange_null=dbx1[infos].median()  # question 3 directive
-        else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute
-        
+        else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case)
+        change_list=dbx1[dbx1[infos].isnull].index.toList() # index list of changes 
+        for idx in change_list: dbx1.loc[idx,infos]= exchange_null # registering changes
+    else: pass     # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case) 
+# end of for loop
+# printing proof 
+print(dbx1.info())
+print("NULL information \n")
+print(dbx1.isnull().sum())
+print("\n Original data ")
+print(c_mer_moded.info())
+print("NULL information \n")
+print(c_mer_moded.isnull().sum())
+#..
+# Alignment marker 
+print("\n\n")
+
+# Question 5:  Apply KNN Imputation technique to fill up null values.
+
+
+
+
+
+
+
