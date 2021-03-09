@@ -110,6 +110,7 @@ for infos in null_info:
 # end of for loop
 #..
 # printing proof 
+print("\n Edited Data ")
 print(dbx1.info())
 print("NULL information \n")
 print(dbx1.isnull().sum())
@@ -136,6 +137,7 @@ dbx2[nan_cols]=knnIR.transform(dbx2[nan_cols]) # finalising imputation task
 #..
 
 # printing proof 
+print("\n Edited Data (KNN Imputer)")
 print(dbx2.info())
 print("NULL information \n")
 print(dbx2.isnull().sum())
