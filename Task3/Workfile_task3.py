@@ -21,7 +21,7 @@ import copy as CP
 from sklearn.impute import KNNImputer as KNI
 
 # data file access
-rootpath=input("Please input the Path containg the Data ")
+rootpath=input("Please input the Path containing the Data ")
 if rootpath=="" : rootpath="data\\"
 file1name="car data.csv"
 file2name="car condition.csv"
@@ -79,7 +79,11 @@ print("\n\n")
 # * If number of null values are less than 3, delete rows containing null values.
 # * Else, fill null values of numerical columns with mean/median. (taking median)
 # * Fill categorical columns with mode.
-
+qtx=""" #Questions 2,3,4:
+ * If number of null values are less than 3, delete rows containing null values.
+ * Else, fill null values of numerical columns with mean/median. (taking median)
+ * Fill categorical columns with mode. """
+print(qtx)
 # creating copy 
 dbx1=CP.deepcopy(c_mer_moded) 
 # operations
@@ -87,20 +91,24 @@ for infos in null_info:
     # NB. null_info contains info of columns where there is no null 
     if null_info[infos] < 3 and null_info[infos] !=0 :
         # number of NULLs is less than three but has NULL is confirmed 
-        del_list=dbx1[dbx1[infos].isnull].index.toList()  # indices for removal of rows
+        del_list=dbx1[dbx1[infos].isnull()].index.tolist()  # indices for removal of rows
         dbx1.drop(axis=0,index=del_list,inplace=True) # removing records
     elif null_info[infos] != 0:
-        # all other NULL hits 
-        if type(dbx1[infos].dtype) is PD.CategoricalDType:
-            exchange_null=dbx1[infos].mode().tolist()[0] # question 4 directive 
+        # all other NULL hits
+        hit=0
+        if type(dbx1[infos].dtype) is PD.CategoricalDtype:
+            exchange_null=dbx1[infos].mode().tolist()[0] # question 4 directive
+            hit=1
         elif type(dbx1[infos].dtype) is NP.dtype:
             exchange_null=dbx1[infos].median()  # question 3 directive
+            hit=1
         else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case)
-        change_list=dbx1[dbx1[infos].isnull].index.tolist() # index list of changes 
-        for idx in change_list: dbx1.loc[idx,infos]= exchange_null # registering changes
+        if (hit):
+            change_list=dbx1[dbx1[infos].isnull()].index.tolist() # index list of changes
+            for idx in change_list: dbx1.loc[idx,infos]= exchange_null # registering changes
     else: pass     # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case) 
 # end of for loop
-
+#..
 # printing proof 
 print(dbx1.info())
 print("NULL information \n")
@@ -113,11 +121,29 @@ print(c_mer_moded.isnull().sum())
 # Alignment marker 
 print("\n\n")
 
+#..
 # Question 5:  Apply KNN Imputation technique to fill up null values.
+dbx2=CP.deepcopy(c_mer_moded) # Secondary copy for KNN task (Question 5)
+# Generating the Imputer Logic Object
+knnIR=KNI(n_neighbors=5,weights='uniform',metric='nan_euclidean')
+nan_cols=[]   # empty list to collect NANs or NULLs containing column names
+for cols in null_info:
+    if(null_info[cols]):
+        nan_cols.append(cols)  # appending column names
+knnIR.fit(dbx2[nan_cols])  #fitting
+dbx2[nan_cols]=knnIR.transform(dbx2[nan_cols]) # finalising imputation task
+# end of inputer section KNN
+#..
 
+# printing proof 
+print(dbx2.info())
+print("NULL information \n")
+print(dbx2.isnull().sum())
+print("\n Original data ")
+print(c_mer_moded.info())
+print("NULL information \n")
+print(c_mer_moded.isnull().sum())
+#..
 
-
-
-
-
-
+##end of codes
+#.. 
