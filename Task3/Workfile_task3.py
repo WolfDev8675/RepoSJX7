@@ -124,6 +124,7 @@ print("\n\n")
 
 #..
 # Question 5:  Apply KNN Imputation technique to fill up null values.
+print(" Question 5:  Apply KNN Imputation technique to fill up null values.")
 dbx2=CP.deepcopy(c_mer_moded) # Secondary copy for KNN task (Question 5)
 # Generating the Imputer Logic Object
 knnIR=KNI(n_neighbors=5,weights='uniform',metric='nan_euclidean')
