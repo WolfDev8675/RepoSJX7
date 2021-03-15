@@ -51,4 +51,5 @@ Solutions in folder Task3/ containing files
 - qsc.txt    ( question )
 - Workfile_task3.py
 - analytics.py
+- Results_task3.txt   ( results )
 - data//     ( folder of data and question )
