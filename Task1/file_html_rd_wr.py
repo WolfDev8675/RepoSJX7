@@ -28,18 +28,39 @@ with open(filepath) as f_htm:
 
 # initialize primary stages 
 column_list=["Name","Platforms","VR","Release","Reviews","Discount","Price"]
-colData=dict.fromkeys(column_list,[])
+dataByIndex=[] 
 
 # HTML Tree Generation
 plants=HT.fromstring(data) 
 counter=1 #primary value 
-try:
-    colData["Name"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div/div[3]/a["+str(counter)+"]/div[2]/div[1]/span")[0].text_content())
-    colData["Platforms"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[1]/p/span[1]")[0].text_content())
-    colData["VR"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a[1]/div[2]/div[1]/p/span[2]")[0].text_content())
-    colData["Release"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a[3]/div[2]/div[2]")[0].text_content())
-    colData["Reviews"].append(str(list(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[3]/span")[0].values())[0]).split()[1])
-    colData["Discount"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[1]/span")[0].text_content().strip())
-    colData["Price"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[2]")[0].text_content().strip())
-except:
-    pass 
+
+#Extraction
+while(counter):
+    try:
+        Name=plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div/div[3]/a["+str(counter)+"]/div[2]/div[1]/span")[0].text_content()
+        span=1          #presetting values
+        Platforms=[]
+        while span:     # single to multiple platforms all embedded in a single paragraph with the VR information
+            try:
+                a_platform=str(list(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[1]/p/span["+str(span)+"]")[0].values())[0]).split()[1]
+                span+=1
+                Platforms.append(a_platform)
+            except: break # end of platforms 
+        VR=plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[1]/p/span["+str(span)+"]")[0].text_content()
+        Release=plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[2]")[0].text_content()
+        Reviews=str(list(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[3]/span")[0].values())[0]).split()[1]
+        Discount=plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[1]")[0].text_content().strip()
+        if Discount: pass # available discounts (- discount %)
+        else: Discount=0
+        Price=plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[2]")[0].text_content().strip()
+        counter+=1
+        dataByIndex.append((Name,Platforms,VR,Release,Reviews,Discount,Price))
+    except: break
+
+#..
+PD.set_option('display.max_columns', None) # momentary set for session to show all columns
+#..
+# Generating DataFrame
+tabular=PD.DataFrame(dataByIndex,columns=column_list)
+# printing DataFrame
+print(tabular) 
