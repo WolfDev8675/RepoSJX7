@@ -42,4 +42,4 @@ try:
     colData["Discount"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div[2]/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[1]/span")[0].text_content().strip())
     colData["Price"].append(plants.xpath("/html/body/div[1]/div[7]/div[4]/form/div[1]/div/div[1]/div[3]/div/div[3]/a["+str(counter)+"]/div[2]/div[4]/div[2]")[0].text_content().strip())
 except:
-    pass
+    pass 

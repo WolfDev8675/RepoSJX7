@@ -220,4 +220,4 @@ car name         0
 origin           0
 Condition       17
 dtype: int64
-Press any key to continue . . .
+Press any key to continue . . . 
