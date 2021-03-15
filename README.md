@@ -15,10 +15,12 @@ Contains files for miscellaneoous tasks as was shared
 
 Solutions in folder Task1/ containing files 
 - file_csv_rd.py      ( read from csv)
+- file_xlsx_rd.py     ( read from xls)
 - file_json_rd_wr.py  ( read from json)
 - file_webScrRq.py    ( Webscrapping using Requests library)
 - file_webScrUL3.py   ( Webscrapping using UrlLib3 library)
 - file_xml_rd_wr.py   ( read from xml file)
+- file_html_rd_wr.py  ( read from html file)
 - json_results.txt    ( results of json)
 - xml_results1.txt    ( results of xml 1)
 - xml_results2.txt    ( results of xml 2)
