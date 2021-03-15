@@ -24,6 +24,7 @@ Solutions in folder Task1/ containing files
 - json_results.txt    ( results of json)
 - xml_results1.txt    ( results of xml 1)
 - xml_results2.txt    ( results of xml 2)
+- html_results.txt    ( results of html )
 >briefed: 21-20-2020; initialized: 23-02-2020; submitted: 26-02-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out the following from the data set.
