@@ -132,10 +132,42 @@ nan_cols=[]   # empty list to collect NANs or NULLs containing column names
 for cols in null_info:
     if(null_info[cols]):
         nan_cols.append(cols)  # appending column names
+nonIntNULLS=[]
+for cols in nan_cols:
+    if(ALS.numericStrength(dbx2[cols])<50 and ALS.variety(dbx2[cols],95)[2]=='categorized'): nonIntNULLS.append(cols) # only categorised can be in this error section
+    elif(ALS.numericStrength(dbx2[cols])>50):pass
+    else: nan_cols.remove(cols)    # supposed to be object(string miscellaneous) type hence not to be considered 
+
+mapsOfChanges=dict.fromkeys(nonIntNULLS,{}) 
+for a_col in nonIntNULLS:
+    #Quintuple-Step Process
+    #1: Pre Conversion Tag Listing
+    pr_ctl=ALS.variety(dbx2[a_col],95)[0]
+    #2: Conversion
+    dbx2[a_col]=dbx2[a_col].cat.codes  
+    dbx2=ALS.reset_columnData(dbx2,{a_col:'category'})
+    #3: Post Conversion Tag Listing
+    po_ctl=ALS.variety(dbx2[a_col],95)[0]
+    #4: Map index by population to Change register
+    for key in po_ctl: 
+        contents=list(pr_ctl.items())
+        for i in range(len(contents)):
+            if(po_ctl[key]==contents[i][1]):
+                mapsOfChanges[a_col][key]=contents[i][0]
+    #5: Return Nulls
+    ret_idxs=dbx2[dbx2[a_col] == -1 ].index.tolist() #since catgorical coding changed NULLS to (-1) 
+    for idx in ret_idxs: dbx2.loc[idx,a_col]= NP.nan
+
 knnIR.fit(dbx2[nan_cols])  #fitting
 dbx2[nan_cols]=knnIR.transform(dbx2[nan_cols]) # finalising imputation task
 # end of inputer section KNN
 #..
+
+# Returning Mapping (Only for Categorical values)
+for keys in mapsOfChanges:
+    dbx2[keys]=round(dbx2[keys]) # correcting non categorized Decimals 
+    dbx2[keys].map(mapsOfChanges[keys])
+    dbx2=ALS.reset_columnData(dbx2,{keys:'category'})
 
 # printing proof 
 print("\n Edited Data (KNN Imputer)")

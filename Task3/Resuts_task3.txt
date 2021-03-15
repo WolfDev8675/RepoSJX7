@@ -1,0 +1,223 @@
+Please input the Path containing the Data e:\Source\Repos\WolfDev8675\RepoSJX7\Task3\data\\
+Question:
+Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
+1. How many null values were there in the dataset for each column?
+2. If number of null values are less than 3, delete rows containing null values.
+3. Else, fill null values of numerical columns with mean/median.
+4. Fill categorical columns with mode.
+5. Apply KNN Imputation technique to fill up null values.
+**
+
+
+
+
+
+Car data
+      car id   mpg  ...  model year                   car name
+0         1  18.0  ...          70  chevrolet chevelle malibu
+1         2  15.0  ...          70          buick skylark 320
+2         3  18.0  ...          70         plymouth satellite
+3         4  16.0  ...          70              amc rebel sst
+4         5  17.0  ...          70                ford torino
+..      ...   ...  ...         ...                        ...
+393     394  27.0  ...          82            ford mustang gl
+394     395  44.0  ...          82                  vw pickup
+395     396  32.0  ...          82              dodge rampage
+396     397  28.0  ...          82                ford ranger
+397     398  31.0  ...          82                 chevy s-10
+
+[398 rows x 9 columns]
+Car condition
+      car id  origin  Condition
+0         1       1       good
+1         2       1       good
+2         3       1       good
+3         4       1       good
+4         5       1       good
+..      ...     ...        ...
+393     394       1        NaN
+394     395       2  excellent
+395     396       1  excellent
+396     397       1  excellent
+397     398       1  excellent
+
+[398 rows x 3 columns]
+     car id   mpg  cylinders  ...                   car name origin  Condition
+0         1  18.0          8  ...  chevrolet chevelle malibu      1       good
+1         2  15.0          8  ...          buick skylark 320      1       good
+2         3  18.0          8  ...         plymouth satellite      1       good
+3         4  16.0          8  ...              amc rebel sst      1       good
+4         5  17.0          8  ...                ford torino      1       good
+..      ...   ...        ...  ...                        ...    ...        ...
+393     394  27.0          4  ...            ford mustang gl      1        NaN
+394     395  44.0          4  ...                  vw pickup      2  excellent
+395     396  32.0          4  ...              dodge rampage      1  excellent
+396     397  28.0          4  ...                ford ranger      1  excellent
+397     398  31.0          4  ...                 chevy s-10      1  excellent
+
+[398 rows x 11 columns]
+ Question 1: How many null values were there in the dataset for each column :
+       columns         NULLs
+       car id           0
+        mpg             0
+     cylinders          0
+    displacement        0
+     horsepower         6
+       weight           0
+    acceleration        0
+     model year         0
+      car name          0
+       origin           0
+     Condition          17
+
+
+
+ #Questions 2,3,4:
+ * If number of null values are less than 3, delete rows containing null values.
+ * Else, fill null values of numerical columns with mean/median. (taking median)
+ * Fill categorical columns with mode.
+
+ Edited Data
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 398 entries, 0 to 397
+Data columns (total 11 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   car id        398 non-null    int64
+ 1   mpg           398 non-null    float64
+ 2   cylinders     398 non-null    category
+ 3   displacement  398 non-null    float64
+ 4   horsepower    398 non-null    float64
+ 5   weight        398 non-null    int64
+ 6   acceleration  398 non-null    float64
+ 7   model year    398 non-null    category
+ 8   car name      398 non-null    object
+ 9   origin        398 non-null    category
+ 10  Condition     398 non-null    category
+dtypes: category(4), float64(4), int64(2), object(1)
+memory usage: 43.7+ KB
+None
+NULL information
+
+car id          0
+mpg             0
+cylinders       0
+displacement    0
+horsepower      0
+weight          0
+acceleration    0
+model year      0
+car name        0
+origin          0
+Condition       0
+dtype: int64
+
+ Original data
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 398 entries, 0 to 397
+Data columns (total 11 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   car id        398 non-null    int64
+ 1   mpg           398 non-null    float64
+ 2   cylinders     398 non-null    category
+ 3   displacement  398 non-null    float64
+ 4   horsepower    392 non-null    float64
+ 5   weight        398 non-null    int64
+ 6   acceleration  398 non-null    float64
+ 7   model year    398 non-null    category
+ 8   car name      398 non-null    object
+ 9   origin        398 non-null    category
+ 10  Condition     381 non-null    category
+dtypes: category(4), float64(4), int64(2), object(1)
+memory usage: 43.7+ KB
+None
+NULL information
+
+car id           0
+mpg              0
+cylinders        0
+displacement     0
+horsepower       6
+weight           0
+acceleration     0
+model year       0
+car name         0
+origin           0
+Condition       17
+dtype: int64
+
+
+
+ Question 5:  Apply KNN Imputation technique to fill up null values.
+
+ Edited Data (KNN Imputer)
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 398 entries, 0 to 397
+Data columns (total 11 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   car id        398 non-null    int64
+ 1   mpg           398 non-null    float64
+ 2   cylinders     398 non-null    category
+ 3   displacement  398 non-null    float64
+ 4   horsepower    398 non-null    float64
+ 5   weight        398 non-null    int64
+ 6   acceleration  398 non-null    float64
+ 7   model year    398 non-null    category
+ 8   car name      398 non-null    object
+ 9   origin        398 non-null    category
+ 10  Condition     398 non-null    category
+dtypes: category(4), float64(4), int64(2), object(1)
+memory usage: 43.7+ KB
+None
+NULL information
+
+car id          0
+mpg             0
+cylinders       0
+displacement    0
+horsepower      0
+weight          0
+acceleration    0
+model year      0
+car name        0
+origin          0
+Condition       0
+dtype: int64
+
+ Original data
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 398 entries, 0 to 397
+Data columns (total 11 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   car id        398 non-null    int64
+ 1   mpg           398 non-null    float64
+ 2   cylinders     398 non-null    category
+ 3   displacement  398 non-null    float64
+ 4   horsepower    392 non-null    float64
+ 5   weight        398 non-null    int64
+ 6   acceleration  398 non-null    float64
+ 7   model year    398 non-null    category
+ 8   car name      398 non-null    object
+ 9   origin        398 non-null    category
+ 10  Condition     381 non-null    category
+dtypes: category(4), float64(4), int64(2), object(1)
+memory usage: 43.7+ KB
+None
+NULL information
+
+car id           0
+mpg              0
+cylinders        0
+displacement     0
+horsepower       6
+weight           0
+acceleration     0
+model year       0
+car name         0
+origin           0
+Condition       17
+dtype: int64
+Press any key to continue . . .
