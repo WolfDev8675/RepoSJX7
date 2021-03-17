@@ -8,7 +8,9 @@ Contains files for miscellaneoous tasks as was shared
 >
 >__Question:__ Extract/Read data from file of all of the three types:
 > - Comma Separated Values
+> - Microsoft Excel extension files
 > - Extensible Markup Language 
+> - Hyper-Text Markup Language
 > - JavaScript Object Notation
 > 
 > obtained either by web scrapping or by obtaining from local path (code using python language *preffered*) 
