@@ -59,8 +59,8 @@ Solutions in folder Task3/ containing files
 >briefed: 07-03-2021; initialized: 14-03-2021; submitted: 18-03-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
->		1. Group data by origin
->		2. Group data by car condition.
+> 1. Group data by origin
+> 2. Group data by car condition.
 
 Solutions in folder Task4/ containing files
 - qscx.txt		( question )
@@ -72,9 +72,9 @@ Solutions in folder Task4/ containing files
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together
 >		(files already provided). Find out following from the data set.
->		1. Apply dummy encoding.
->		2. Do same functionality using one-hot encoding.
->		3. Apply level encoding
+> 1. Apply dummy encoding.
+> 2. Do same functionality using one-hot encoding.
+> 3. Apply level encoding
 
 Solutions in folder Task5/ containing files 
 - <empty>
@@ -82,10 +82,10 @@ Solutions in folder Task5/ containing files
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together
 >		(files already provided). And complete following tasks.
->		1. Plot bar chart, box-plot, violin plot, line plot.
->		2. Build correlation matrix.
->		3. Show distribution of data.
->		4. Describe different statistics of data
+> 1. Plot bar chart, box-plot, violin plot, line plot.
+> 2. Build correlation matrix.
+> 3. Show distribution of data.
+> 4. Describe different statistics of data
 
 Solutions in folder Task6/ containing files 
 - <empty>
