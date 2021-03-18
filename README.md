@@ -39,7 +39,7 @@ Solutions in folder Task2/ containing files
 - Results_task2.txt   ( results )
 - _BoxPlots_of_all_numerical_data_.png   (plot saved as image of PNG type)
 - data//              (folder of data and question)
->briefed: 28-02-2021; initialized: 04-03-2021; submitted: pending
+>briefed: 28-02-2021; initialized: 04-03-2021; submitted: 16-03-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
 > 1. How many null values were there in the dataset for each column?
@@ -50,7 +50,29 @@ Solutions in folder Task2/ containing files
  
 Solutions in folder Task3/ containing files
 - qsc.txt    ( question )
-- Workfile_task3.py
-- analytics.py
+- Workfile_task3.py   (taskfile)
+- analytics.py		  (functional modifiers package)
 - Results_task3.txt   ( results )
 - data//     ( folder of data and question )
+>briefed: 07-03-2021; initialized: 14-03-2021; submitted: 18-03-2021
+>
+>__Question:__ Read car data.csv and car condition.csv. Merge them together (files already provided). Find out following from the data set.
+>		1. Group data by origin
+>		2. Group data by car condition.
+
+Solutions in folder Task4/ containing files
+- qscx.txt		( question )
+- Workfile_task4.py	  (taskfile)
+- analytics.py		  (functional modifiers package)
+- Results_task4.txt   ( results )
+- data//     ( folder of data and question )
+>briefed: 07-03-2021; initialized: 14-03-2021; submitted: pending
+>
+>__Question:__ Read car data.csv and car condition.csv. Merge them together
+>		(files already provided). Find out following from the data set.
+>		1. Apply dummy encoding.
+>		2. Do same functionality using one-hot encoding.
+>		3. Apply level encoding
+
+Solutions in folder Task5/ containing files 
+- <empty>

@@ -1,0 +1,7 @@
+Question: 
+ ... Read car data.csv and car condition.csv. merge them together (files already provided). 
+       Find out following from the data set.
+   1. Group data by origin
+   2. Group data by car condition.
+** 
+

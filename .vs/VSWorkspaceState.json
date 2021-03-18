@@ -4,7 +4,8 @@
     "\\Task1",
     "\\Task2",
     "\\Task3",
-    "\\Task3\\data"
+    "\\Task3\\data",
+    "\\Task3\\__pycache__"
   ],
   "SelectedNode": "\\Task3\\Workfile_task3.py",
   "PreviewInSolutionExplorer": false
