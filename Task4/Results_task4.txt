@@ -1,0 +1,194 @@
+Please input the Path containing the Data e:\Source\Repos\WolfDev8675\RepoSJX7\Task4\data\\
+Question:
+ ... Read car data.csv and car condition.csv. merge them together (files already provided).
+       Find out following from the data set.
+   1. Group data by origin
+   2. Group data by car condition.
+**
+
+
+
+
+
+Car data
+      car id   mpg  ...  model year                   car name
+0         1  18.0  ...          70  chevrolet chevelle malibu
+1         2  15.0  ...          70          buick skylark 320
+2         3  18.0  ...          70         plymouth satellite
+3         4  16.0  ...          70              amc rebel sst
+4         5  17.0  ...          70                ford torino
+..      ...   ...  ...         ...                        ...
+393     394  27.0  ...          82            ford mustang gl
+394     395  44.0  ...          82                  vw pickup
+395     396  32.0  ...          82              dodge rampage
+396     397  28.0  ...          82                ford ranger
+397     398  31.0  ...          82                 chevy s-10
+
+[398 rows x 9 columns]
+Car condition
+      car id  origin  Condition
+0         1       1       good
+1         2       1       good
+2         3       1       good
+3         4       1       good
+4         5       1       good
+..      ...     ...        ...
+393     394       1        NaN
+394     395       2  excellent
+395     396       1  excellent
+396     397       1  excellent
+397     398       1  excellent
+
+[398 rows x 3 columns]
+     car id   mpg  cylinders  ...                   car name origin  Condition
+0         1  18.0          8  ...  chevrolet chevelle malibu      1       good
+1         2  15.0          8  ...          buick skylark 320      1       good
+2         3  18.0          8  ...         plymouth satellite      1       good
+3         4  16.0          8  ...              amc rebel sst      1       good
+4         5  17.0          8  ...                ford torino      1       good
+..      ...   ...        ...  ...                        ...    ...        ...
+393     394  27.0          4  ...            ford mustang gl      1        NaN
+394     395  44.0          4  ...                  vw pickup      2  excellent
+395     396  32.0          4  ...              dodge rampage      1  excellent
+396     397  28.0          4  ...                ford ranger      1  excellent
+397     398  31.0          4  ...                 chevy s-10      1  excellent
+
+[398 rows x 11 columns]
+ TASK 1: Group data by origin ....
+1  ::
+      car id   mpg cylinders  ...                   car name  origin  Condition
+0         1  18.0         8  ...  chevrolet chevelle malibu       1       good
+1         2  15.0         8  ...          buick skylark 320       1       good
+2         3  18.0         8  ...         plymouth satellite       1       good
+3         4  16.0         8  ...              amc rebel sst       1       good
+4         5  17.0         8  ...                ford torino       1       good
+..      ...   ...       ...  ...                        ...     ...        ...
+392     393  27.0         4  ...           chevrolet camaro       1        NaN
+393     394  27.0         4  ...            ford mustang gl       1        NaN
+395     396  32.0         4  ...              dodge rampage       1  excellent
+396     397  28.0         4  ...                ford ranger       1  excellent
+397     398  31.0         4  ...                 chevy s-10       1  excellent
+
+[249 rows x 11 columns]
+
+2  ::
+      car id   mpg cylinders  ...                      car name  origin  Condition
+19       20  26.0         4  ...  volkswagen 1131 deluxe sedan       2  excellent
+20       21  25.0         4  ...                   peugeot 504       2       good
+21       22  24.0         4  ...                   audi 100 ls       2       good
+22       23  25.0         4  ...                      saab 99e       2       good
+23       24  26.0         4  ...                      bmw 2002       2  excellent
+..      ...   ...       ...  ...                           ...     ...        ...
+354     355  34.5         4  ...                   renault 18i       2  excellent
+359     360  28.1         4  ...     peugeot 505s turbo diesel       2  excellent
+360     361  30.7         6  ...                  volvo diesel       2  excellent
+375     376  36.0         4  ...           volkswagen rabbit l       2  excellent
+394     395  44.0         4  ...                     vw pickup       2  excellent
+
+[70 rows x 11 columns]
+
+3  ::
+      car id   mpg cylinders  ...               car name  origin  Condition
+14       15  24.0         4  ...  toyota corona mark ii       3       good
+18       19  27.0         4  ...           datsun pl510       3        NaN
+29       30  27.0         4  ...           datsun pl510       3        NaN
+31       32  25.0         4  ...          toyota corona       3       good
+53       54  31.0         4  ...    toyota corolla 1200       3  excellent
+..      ...   ...       ...  ...                    ...     ...        ...
+382     383  34.0         4  ...         toyota corolla       3  excellent
+383     384  38.0         4  ...            honda civic       3  excellent
+384     385  32.0         4  ...     honda civic (auto)       3  excellent
+385     386  38.0         4  ...          datsun 310 gx       3  excellent
+390     391  32.0         4  ...       toyota celica gt       3  excellent
+
+[79 rows x 11 columns]
+
+ TASK 2: Group data by car condition ....
+     car id   mpg cylinders  ...                      car name  origin  Condition
+19       20  26.0         4  ...  volkswagen 1131 deluxe sedan       2  excellent
+23       24  26.0         4  ...                      bmw 2002       2  excellent
+30       31  28.0         4  ...           chevrolet vega 2300       1  excellent
+50       51  28.0         4  ...                     opel 1900       2  excellent
+51       52  30.0         4  ...                   peugeot 304       2  excellent
+..      ...   ...       ...  ...                           ...     ...        ...
+391     392  36.0         4  ...             dodge charger 2.2       1  excellent
+394     395  44.0         4  ...                     vw pickup       2  excellent
+395     396  32.0         4  ...                 dodge rampage       1  excellent
+396     397  28.0         4  ...                   ford ranger       1  excellent
+397     398  31.0         4  ...                    chevy s-10       1  excellent
+
+[135 rows x 11 columns]
+     car id   mpg cylinders  ...                   car name  origin  Condition
+0         1  18.0         8  ...  chevrolet chevelle malibu       1       good
+1         2  15.0         8  ...          buick skylark 320       1       good
+2         3  18.0         8  ...         plymouth satellite       1       good
+3         4  16.0         8  ...              amc rebel sst       1       good
+4         5  17.0         8  ...                ford torino       1       good
+..      ...   ...       ...  ...                        ...     ...        ...
+366     367  17.6         6  ...     chrysler lebaron salon       1       good
+373     374  24.0         4  ...       ford fairmont futura       1       good
+374     375  23.0         4  ...             amc concord dl       1       good
+386     387  25.0         6  ...      buick century limited       1       good
+389     390  22.0         6  ...             ford granada l       1       good
+
+[193 rows x 11 columns]
+     car id   mpg cylinders  ...                          car name  origin  Condition
+6         7  14.0         8  ...                  chevrolet impala       1       poor
+7         8  14.0         8  ...                 plymouth fury iii       1       poor
+8         9  14.0         8  ...                  pontiac catalina       1       poor
+11       12  14.0         8  ...                plymouth 'cuda 340       1       poor
+13       14  14.0         8  ...           buick estate wagon (sw)       1       poor
+25       26  10.0         8  ...                         ford f250       1       poor
+26       27  10.0         8  ...                         chevy c20       1       poor
+27       28  11.0         8  ...                        dodge d200       1       poor
+28       29   9.0         8  ...                          hi 1200d       1       poor
+38       39  14.0         8  ...                  chevrolet impala       1       poor
+39       40  14.0         8  ...         pontiac catalina brougham       1       poor
+40       41  14.0         8  ...                  ford galaxie 500       1       poor
+41       42  14.0         8  ...                 plymouth fury iii       1       poor
+42       43  12.0         8  ...                 dodge monaco (sw)       1       poor
+43       44  13.0         8  ...          ford country squire (sw)       1       poor
+44       45  13.0         8  ...               pontiac safari (sw)       1       poor
+62       63  13.0         8  ...                  chevrolet impala       1       poor
+63       64  14.0         8  ...                  pontiac catalina       1       poor
+65       66  14.0         8  ...                  ford galaxie 500       1       poor
+67       68  11.0         8  ...                   mercury marquis       1       poor
+68       69  13.0         8  ...              buick lesabre custom       1       poor
+69       70  12.0         8  ...        oldsmobile delta 88 royale       1       poor
+70       71  13.0         8  ...            chrysler newport royal       1       poor
+73       74  13.0         8  ...  chevrolet chevelle concours (sw)       1       poor
+74       75  13.0         8  ...             ford gran torino (sw)       1       poor
+75       76  14.0         8  ...    plymouth satellite custom (sw)       1       poor
+85       86  13.0         8  ...                 buick century 350       1       poor
+86       87  14.0         8  ...                       amc matador       1       poor
+87       88  13.0         8  ...                  chevrolet malibu       1       poor
+88       89  14.0         8  ...                  ford gran torino       1       poor
+90       91  12.0         8  ...          mercury marquis brougham       1       poor
+91       92  13.0         8  ...         chevrolet caprice classic       1       poor
+92       93  13.0         8  ...                          ford ltd       1       poor
+93       94  14.0         8  ...          plymouth fury gran sedan       1       poor
+94       95  13.0         8  ...      chrysler new yorker brougham       1       poor
+95       96  12.0         8  ...          buick electra 225 custom       1       poor
+96       97  13.0         8  ...           amc ambassador brougham       1       poor
+103     104  11.0         8  ...                  chevrolet impala       1       poor
+104     105  12.0         8  ...                      ford country       1       poor
+105     106  13.0         8  ...            plymouth custom suburb       1       poor
+106     107  12.0         8  ...          oldsmobile vista cruiser       1       poor
+124     125  11.0         8  ...                  oldsmobile omega       1       poor
+137     138  13.0         8  ...          buick century luxus (sw)       1       poor
+138     139  14.0         8  ...         dodge coronet custom (sw)       1       poor
+139     140  14.0         8  ...             ford gran torino (sw)       1       poor
+140     141  14.0         8  ...                  amc matador (sw)       1       poor
+159     160  14.0         8  ...                          ford ltd       1       poor
+166     167  13.0         8  ...                   ford mustang ii       1       poor
+190     191  14.5         8  ...                  ford gran torino       1       poor
+208     209  13.0         8  ...        plymouth volare premier v8       1       poor
+213     214  13.0         8  ...                         chevy c10       1       poor
+214     215  13.0         8  ...                         ford f108       1       poor
+215     216  13.0         8  ...                        dodge d100       1       poor
+
+[53 rows x 11 columns]
+Empty DataFrame
+Columns: []
+Index: []
+Press any key to continue . . .
