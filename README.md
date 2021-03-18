@@ -78,3 +78,14 @@ Solutions in folder Task4/ containing files
 
 Solutions in folder Task5/ containing files 
 - <empty>
+>>briefed: 07-03-2021; initialized: 14-03-2021; submitted: pending
+>
+>__Question:__ Read car data.csv and car condition.csv. Merge them together
+>		(files already provided). And complete following tasks.
+>		1. Plot bar chart, box-plot, violin plot, line plot.
+>		2. Build correlation matrix.
+>		3. Show distribution of data.
+>		4. Describe different statistics of data
+
+Solutions in folder Task6/ containing files 
+- <empty>
