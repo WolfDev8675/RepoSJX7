@@ -64,14 +64,15 @@ PD.set_option('display.max_columns', None) # momentary set for session to show a
 # primary setup completed 
 
 #.**  Operations ** 
+#./ Setting primaries
+cat_columns=[]
+for column in typer1:
+    if(typer1[column] is 'category'): cat_columns.append(column)
 
 # 1. Apply dummy encoding.
 print(" 1. Operation by applying Dummy Encoding ")
-#./ Setting primaries
-cat_columns=[]
+#./ Individual Copy
 data4OP1=CP.deepcopy(c_mer_moded)
-for column in typer1:
-    if(typer1[column] is 'category'): cat_columns.append(column)
 #./ Getting Dummies
 dummy=PD.get_dummies(data4OP1[cat_columns])
 #./ Fixing Dummies to Original
@@ -81,4 +82,7 @@ print(finalOP1)
 
 # 2. Do same functionality using one-hot encoding.
 print(" 2. Operation by applying One-Hot Encoding ")
-#./ Setting primaries
+#./ Individual Copy
+data4OP2=CP.deepcopy(c_mer_moded)
+#./ Getting Encoder 
+encoder=pass
