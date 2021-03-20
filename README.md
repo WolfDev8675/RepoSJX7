@@ -77,7 +77,10 @@ Solutions in folder Task4/ containing files
 > 3. Apply level encoding
 
 Solutions in folder Task5/ containing files 
-- <empty>
+- qsxc.txt		( question )
+- Workfile_task5.py	  (taskfile)
+- analytics.py		  (functional modifiers package)
+- data//     ( folder of data and question )
 >>briefed: 07-03-2021; initialized: 14-03-2021; submitted: pending
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together
@@ -88,4 +91,7 @@ Solutions in folder Task5/ containing files
 > 4. Describe different statistics of data
 
 Solutions in folder Task6/ containing files 
-- <empty>
+- qsxd.txt		( question )
+- Workfile_task6.py	  (taskfile)
+- analytics.py		  (functional modifiers package)
+- data//     ( folder of data and question )
