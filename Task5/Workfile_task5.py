@@ -24,7 +24,7 @@ file1name="car data.csv"
 file2name="car condition.csv"
 try:
     # Question 
-    with open(rootpath+"qscx.txt") as qsc:
+    with open(rootpath+"qsxc.txt") as qsc:
         print(qsc.read())
 except:
     print(" Question not found ")
@@ -85,6 +85,6 @@ print(" 2. Operation by applying One-Hot Encoding ")
 #./ Individual Copy
 data4OP2=CP.deepcopy(c_mer_moded)
 #./ Getting Encoder 
-encoder=OHE(handle_unknown='error',drop ='first')
-encoded=encoder.fit_transform(data4OP2[cat_columns])
+encoder=OHE(handle_unknown='error',drop ='first')#,categories=cat_columns)
+encoded=encoder.fit_transform(data4OP2[cat_columns]).toarray()
 print(encoded)
