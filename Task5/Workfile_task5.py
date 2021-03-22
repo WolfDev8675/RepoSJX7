@@ -85,4 +85,6 @@ print(" 2. Operation by applying One-Hot Encoding ")
 #./ Individual Copy
 data4OP2=CP.deepcopy(c_mer_moded)
 #./ Getting Encoder 
-encoder=pass
+encoder=OHE(handle_unknown='error',drop ='first')
+encoded=encoder.fit_transform(data4OP2[cat_columns])
+print(encoded)
