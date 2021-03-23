@@ -1,0 +1,194 @@
+Please input the Path containing the Data e:\Source\Repos\WolfDev8675\RepoSJX7\Task5\data\\
+Question:
+ ... Read car data.csv and car condition.csv. Merge them together
+                (files already provided). Find out following from the data set.
+                1. Apply dummy encoding.
+                2. Do same functionality using one-hot encoding.
+                3. Apply label encoding
+**
+
+
+
+
+
+Car data
+      car id   mpg  ...  model year                   car name
+0         1  18.0  ...          70  chevrolet chevelle malibu
+1         2  15.0  ...          70          buick skylark 320
+2         3  18.0  ...          70         plymouth satellite
+3         4  16.0  ...          70              amc rebel sst
+4         5  17.0  ...          70                ford torino
+..      ...   ...  ...         ...                        ...
+393     394  27.0  ...          82            ford mustang gl
+394     395  44.0  ...          82                  vw pickup
+395     396  32.0  ...          82              dodge rampage
+396     397  28.0  ...          82                ford ranger
+397     398  31.0  ...          82                 chevy s-10
+
+[398 rows x 9 columns]
+Car condition
+      car id  origin  Condition
+0         1       1       good
+1         2       1       good
+2         3       1       good
+3         4       1       good
+4         5       1       good
+..      ...     ...        ...
+393     394       1        NaN
+394     395       2  excellent
+395     396       1  excellent
+396     397       1  excellent
+397     398       1  excellent
+
+[398 rows x 3 columns]
+     car id   mpg  cylinders  ...                   car name origin  Condition
+0         1  18.0          8  ...  chevrolet chevelle malibu      1       good
+1         2  15.0          8  ...          buick skylark 320      1       good
+2         3  18.0          8  ...         plymouth satellite      1       good
+3         4  16.0          8  ...              amc rebel sst      1       good
+4         5  17.0          8  ...                ford torino      1       good
+..      ...   ...        ...  ...                        ...    ...        ...
+393     394  27.0          4  ...            ford mustang gl      1        NaN
+394     395  44.0          4  ...                  vw pickup      2  excellent
+395     396  32.0          4  ...              dodge rampage      1  excellent
+396     397  28.0          4  ...                ford ranger      1  excellent
+397     398  31.0          4  ...                 chevy s-10      1  excellent
+
+[398 rows x 11 columns]
+ 1. Operation by applying Dummy Encoding
+     car id   mpg cylinders  displacement  horsepower  weight  acceleration  \
+0         1  18.0         8         307.0       130.0    3504          12.0
+1         2  15.0         8         350.0       165.0    3693          11.5
+2         3  18.0         8         318.0       150.0    3436          11.0
+3         4  16.0         8         304.0       150.0    3433          12.0
+4         5  17.0         8         302.0       140.0    3449          10.5
+..      ...   ...       ...           ...         ...     ...           ...
+393     394  27.0         4         140.0        86.0    2790          15.6
+394     395  44.0         4          97.0        52.0    2130          24.6
+395     396  32.0         4         135.0        84.0    2295          11.6
+396     397  28.0         4         120.0        79.0    2625          18.6
+397     398  31.0         4         119.0        82.0    2720          19.4
+
+    model year                   car name origin  Condition  cylinders_3  \
+0           70  chevrolet chevelle malibu      1       good            0
+1           70          buick skylark 320      1       good            0
+2           70         plymouth satellite      1       good            0
+3           70              amc rebel sst      1       good            0
+4           70                ford torino      1       good            0
+..         ...                        ...    ...        ...          ...
+393         82            ford mustang gl      1        NaN            0
+394         82                  vw pickup      2  excellent            0
+395         82              dodge rampage      1  excellent            0
+396         82                ford ranger      1  excellent            0
+397         82                 chevy s-10      1  excellent            0
+
+     cylinders_4  cylinders_5  cylinders_6  cylinders_8  model year_70  \
+0              0            0            0            1              1
+1              0            0            0            1              1
+2              0            0            0            1              1
+3              0            0            0            1              1
+4              0            0            0            1              1
+..           ...          ...          ...          ...            ...
+393            1            0            0            0              0
+394            1            0            0            0              0
+395            1            0            0            0              0
+396            1            0            0            0              0
+397            1            0            0            0              0
+
+     model year_71  model year_72  model year_73  model year_74  \
+0                0              0              0              0
+1                0              0              0              0
+2                0              0              0              0
+3                0              0              0              0
+4                0              0              0              0
+..             ...            ...            ...            ...
+393              0              0              0              0
+394              0              0              0              0
+395              0              0              0              0
+396              0              0              0              0
+397              0              0              0              0
+
+     model year_75  model year_76  model year_77  model year_78  \
+0                0              0              0              0
+1                0              0              0              0
+2                0              0              0              0
+3                0              0              0              0
+4                0              0              0              0
+..             ...            ...            ...            ...
+393              0              0              0              0
+394              0              0              0              0
+395              0              0              0              0
+396              0              0              0              0
+397              0              0              0              0
+
+     model year_79  model year_80  model year_81  model year_82  origin_1  \
+0                0              0              0              0         1
+1                0              0              0              0         1
+2                0              0              0              0         1
+3                0              0              0              0         1
+4                0              0              0              0         1
+..             ...            ...            ...            ...       ...
+393              0              0              0              1         1
+394              0              0              0              1         0
+395              0              0              0              1         1
+396              0              0              0              1         1
+397              0              0              0              1         1
+
+     origin_2  origin_3  Condition_excellent  Condition_good  Condition_poor
+0           0         0                    0               1               0
+1           0         0                    0               1               0
+2           0         0                    0               1               0
+3           0         0                    0               1               0
+4           0         0                    0               1               0
+..        ...       ...                  ...             ...             ...
+393         0         0                    0               0               0
+394         1         0                    1               0               0
+395         0         0                    1               0               0
+396         0         0                    1               0               0
+397         0         0                    1               0               0
+
+[398 rows x 35 columns]
+ 2. Operation by applying One-Hot Encoding
+      0    1    2    3    4    5    6    7    8    9    10   11   12   13  \
+0    0.0  0.0  0.0  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+1    0.0  0.0  0.0  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+2    0.0  0.0  0.0  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+3    0.0  0.0  0.0  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+4    0.0  0.0  0.0  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+..   ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...
+393  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+394  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+395  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+396  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+397  1.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+
+      14   15   16   17   18   19   20
+0    0.0  0.0  0.0  0.0  1.0  0.0  0.0
+1    0.0  0.0  0.0  0.0  1.0  0.0  0.0
+2    0.0  0.0  0.0  0.0  1.0  0.0  0.0
+3    0.0  0.0  0.0  0.0  1.0  0.0  0.0
+4    0.0  0.0  0.0  0.0  1.0  0.0  0.0
+..   ...  ...  ...  ...  ...  ...  ...
+393  0.0  1.0  0.0  0.0  0.0  0.0  1.0
+394  0.0  1.0  1.0  0.0  0.0  0.0  0.0
+395  0.0  1.0  0.0  0.0  0.0  0.0  0.0
+396  0.0  1.0  0.0  0.0  0.0  0.0  0.0
+397  0.0  1.0  0.0  0.0  0.0  0.0  0.0
+
+[398 rows x 21 columns]
+ 3.  Apply label encoding
+     cylinders  model year  origin  Condition
+0            4           0       0          1
+1            4           0       0          1
+2            4           0       0          1
+3            4           0       0          1
+4            4           0       0          1
+..         ...         ...     ...        ...
+393          1          12       0          3
+394          1          12       1          0
+395          1          12       0          0
+396          1          12       0          0
+397          1          12       0          0
+
+[398 rows x 4 columns]
+Press any key to continue . . .

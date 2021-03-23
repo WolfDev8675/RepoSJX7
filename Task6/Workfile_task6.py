@@ -61,3 +61,13 @@ for element in typer0:
 
 # finalizing changes 
 c_mer_moded=ALS.reset_columnData(c_mer,typer1)
+
+
+#   1. Plot bar chart, box-plot, violin plot, line plot.
+#   2. Build correlation matrix.
+#   3. Show distribution of data.
+
+
+#   4. Describe different statistics of data
+print(" 4. Describe different statistics of data ")
+print(c_mer_moded.describe())

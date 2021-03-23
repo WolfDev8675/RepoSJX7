@@ -106,4 +106,14 @@ def reset_columnData(dFrame=None,typing=None):
     return WorkerDFrame #return changes
 # end of function 
 
+def detectPrimary(dFrame=None):
+    """ Function detectPrimary:
+        operative: detectPrimary(Pandas.DataFrame)
+        returns: column name with all unique non repeating characters/numbers
+        The function is to detect the column which can be used as the Unique key
+        to the dataframe """
+
+
+# end of function
+
 # end of codes

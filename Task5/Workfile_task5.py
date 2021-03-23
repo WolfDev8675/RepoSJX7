@@ -5,7 +5,7 @@
 #   (files already provided). Find out following from the data set.
 #   1. Apply dummy encoding.
 #   2. Do same functionality using one-hot encoding.
-#   3. Apply level encoding
+#   3. Apply label encoding
 #..
 
 # Start of code 
@@ -16,6 +16,7 @@ import pandas as PD
 import analytics as ALS
 import copy as CP
 from sklearn.preprocessing import OneHotEncoder as OHE
+from sklearn.preprocessing import LabelEncoder as LEn
 
 # data file access
 rootpath=input("Please input the Path containing the Data ")
@@ -85,6 +86,27 @@ print(" 2. Operation by applying One-Hot Encoding ")
 #./ Individual Copy
 data4OP2=CP.deepcopy(c_mer_moded)
 #./ Getting Encoder 
-encoder=OHE(handle_unknown='error',drop ='first')#,categories=cat_columns)
-encoded=encoder.fit_transform(data4OP2[cat_columns]).toarray()
-print(encoded)
+oh_encoder=OHE(handle_unknown='error',drop ='first')
+#./ Operating Encoder
+oh_encoded=oh_encoder.fit_transform(data4OP2[cat_columns]).toarray()
+#./ Fixing result to DataFrame
+finalOP2=PD.DataFrame(oh_encoded)
+#./ Printing  
+print(finalOP2)
+
+# 3.  Apply label encoding
+print(" 3.  Apply label encoding ")
+#./ Individual Copy
+data4OP3=CP.deepcopy(c_mer_moded)
+#./ Getting Encoder 
+le_encoder=LEn()
+#./ Operating Encoder
+le_encoded={}
+for counter in range(len(cat_columns)):
+    le_encoded[cat_columns[counter]]=le_encoder.fit_transform(data4OP3[cat_columns[counter]])
+#./ Fixing result to DataFrame
+finalOP3=PD.DataFrame.from_dict(le_encoded)
+#./ Printing  
+print(finalOP3)
+
+# End of code .........
