@@ -68,7 +68,7 @@ Solutions in folder Task4/ containing files
 - analytics.py		  (functional modifiers package)
 - Results_task4.txt   ( results )
 - data//     ( folder of data and question )
->briefed: 07-03-2021; initialized: 14-03-2021; submitted: pending
+>briefed: 07-03-2021; initialized: 14-03-2021; submitted: 18-03-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together
 >		(files already provided). Find out following from the data set.
@@ -81,7 +81,7 @@ Solutions in folder Task5/ containing files
 - Workfile_task5.py	  (taskfile)
 - analytics.py		  (functional modifiers package)
 - data//     ( folder of data and question )
->>briefed: 07-03-2021; initialized: 14-03-2021; submitted: pending
+>>briefed: 07-03-2021; initialized: 14-03-2021; submitted: 18-03-2021
 >
 >__Question:__ Read car data.csv and car condition.csv. Merge them together
 >		(files already provided). And complete following tasks.
@@ -94,4 +94,28 @@ Solutions in folder Task6/ containing files
 - qsxd.txt		( question )
 - Workfile_task6.py	  (taskfile)
 - analytics.py		  (functional modifiers package)
+- _Bar_Plots_.png	(figure window of plots saved as PNG image)
+- _Box_Plots_.png	(figure window of plots saved as PNG image)
+- _Violin_Plots_.png	(figure window of plots saved as PNG image)
+- _Line_Plots_.png	 (figure window of plots saved as PNG image)
+- _Overall_Distribution_.png	(figure window of plots saved as PNG image)
 - data//     ( folder of data and question )
+>>briefed: 25-03-2021; initialized: 27-03-2021; submitted: pending
+>
+>__Question:__ Use the IMDB Movie Dataset and perform the following steps :-
+>
+> 1. Plot budget Vs Revenue with filter option.
+> 2. Show duration and different genre of the movie.
+> 3. Distribution of movie duration
+> 4. Relation between Facebook like and IMDB rating.
+> 5. Correlation matrix between various data points.
+> 6. Genre budget changing with time?
+> 7. Most revenue fetching category of movie.
+> 8. Relation between FB rating and movie rating.
+> 9. Distribution of IMDB rating on different genre.
+> 10.Show everything in a dashboard.
+
+Solutions in folder Task7/ containing files
+- Quest.txt  (question)
+- <jobs pending>
+- data// (folder for data and question)

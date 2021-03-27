@@ -1,0 +1,13 @@
+Question: 
+Use the IMDB Movie Dataset and perform the following steps :-
+
+1. Plot budget Vs Revenue with filter option.
+2. Show duration and different genre of the movie.
+3. Distribution of movie duration
+4. Relation between Facebook like and IMDB rating.
+5. Correlation matrix between various data points.
+6. Genre budget changing with time?
+7. Most revenue fetching category of movie.
+8. Relation between FB rating and movie rating.
+9. Distribution of IMDB rating on different genre.
+10.Show everything in a dashboard.

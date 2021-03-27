@@ -44,7 +44,6 @@ try:
     print(c_mer)
 except:
     print(" Fatal Error : Datasets not found    ......       Closing code ")
-
     raise SystemExit
 
 #.. 
