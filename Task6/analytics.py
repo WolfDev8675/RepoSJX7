@@ -106,14 +106,26 @@ def reset_columnData(dFrame=None,typing=None):
     return WorkerDFrame #return changes
 # end of function 
 
-def detectPrimary(dFrame=None):
+def detectKeys(dFrame=None):
     """ Function detectPrimary:
-        operative: detectPrimary(Pandas.DataFrame)
-        returns: column name with all unique non repeating characters/numbers
-        The function is to detect the column which can be used as the Unique key
-        to the dataframe """
-
-
+        operative: detectKeys(Pandas.DataFrame)
+        returns: column name/s with all unique non repeating characters/numbers {type: List(python native list datatype)}
+        The function is to detect the column/s which can be used as the Unique key
+        to the dataframe 
+        Methodology: Any column, if it has all values unique to itself,
+        viz., different values for each rows/indexes provided that 
+        none of the values have repeated themselves. In all, every value of these columns 
+        could be used to uniquely identify an entry or a row in a dataframe """
+    
+    # initializing primitives
+    allColumns=dFrame.columns.to_list()
+    keyable=[]
+    # searching Keyable columns 
+    for a_column in allColumns:
+        tempColl=dFrame[a_column]
+        if tempColl.to_list() == list(set(tempColl)): 
+            keyable.append(a_column)
+    return keyable
 # end of function
 
 # end of codes

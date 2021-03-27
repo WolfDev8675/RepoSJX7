@@ -1,0 +1,96 @@
+Please input the Path containing the Data e:\Source\Repos\WolfDev8675\RepoSJX7\Task6\data\\
+Question:
+ ...Read car data.csv and car condition.csv. Merge them together
+                (files already provided). And complete following tasks.
+                1. Plot bar chart, box-plot, violin plot, line plot.
+                2. Build correlation matrix.
+                3. Show distribution of data.
+                4. Describe different statistics of data
+**
+
+
+
+
+
+Car data
+      car id   mpg  ...  model year                   car name
+0         1  18.0  ...          70  chevrolet chevelle malibu
+1         2  15.0  ...          70          buick skylark 320
+2         3  18.0  ...          70         plymouth satellite
+3         4  16.0  ...          70              amc rebel sst
+4         5  17.0  ...          70                ford torino
+..      ...   ...  ...         ...                        ...
+393     394  27.0  ...          82            ford mustang gl
+394     395  44.0  ...          82                  vw pickup
+395     396  32.0  ...          82              dodge rampage
+396     397  28.0  ...          82                ford ranger
+397     398  31.0  ...          82                 chevy s-10
+
+[398 rows x 9 columns]
+Car condition
+      car id  origin  Condition
+0         1       1       good
+1         2       1       good
+2         3       1       good
+3         4       1       good
+4         5       1       good
+..      ...     ...        ...
+393     394       1        NaN
+394     395       2  excellent
+395     396       1  excellent
+396     397       1  excellent
+397     398       1  excellent
+
+[398 rows x 3 columns]
+     car id   mpg  cylinders  ...                   car name origin  Condition
+0         1  18.0          8  ...  chevrolet chevelle malibu      1       good
+1         2  15.0          8  ...          buick skylark 320      1       good
+2         3  18.0          8  ...         plymouth satellite      1       good
+3         4  16.0          8  ...              amc rebel sst      1       good
+4         5  17.0          8  ...                ford torino      1       good
+..      ...   ...        ...  ...                        ...    ...        ...
+393     394  27.0          4  ...            ford mustang gl      1        NaN
+394     395  44.0          4  ...                  vw pickup      2  excellent
+395     396  32.0          4  ...              dodge rampage      1  excellent
+396     397  28.0          4  ...                ford ranger      1  excellent
+397     398  31.0          4  ...                 chevy s-10      1  excellent
+
+[398 rows x 11 columns]
+ 1. Plot bar chart, box-plot, violin plot, line plot
+
+ Bar plots
+ Plot generated on the figure window
+
+ Box-plots
+ Plot generated on the figure window
+
+ Violin plots
+ Plot generated on the figure window
+
+ Line plots
+ Plot generated on the figure window
+ 2. Build correlation matrix
+                car id       mpg  ...    weight  acceleration
+car id        1.000000  0.585131  ... -0.318869      0.287634
+mpg           0.585131  1.000000  ... -0.831741      0.420289
+displacement -0.386976 -0.804203  ...  0.932824     -0.543684
+horsepower   -0.422901 -0.778427  ...  0.864538     -0.689196
+weight       -0.318869 -0.831741  ...  1.000000     -0.417457
+acceleration  0.287634  0.420289  ... -0.417457      1.000000
+
+[6 rows x 6 columns]
+ 3. Show distribution of data
+ Plot generated on the figure window
+ 4. Describe different statistics of data
+           car id         mpg  ...       weight  acceleration
+count  398.000000  398.000000  ...   398.000000    398.000000
+mean   199.500000   23.514573  ...  2970.424623     15.568090
+std    115.036951    7.815984  ...   846.841774      2.757689
+min      1.000000    9.000000  ...  1613.000000      8.000000
+25%    100.250000   17.500000  ...  2223.750000     13.825000
+50%    199.500000   23.000000  ...  2803.500000     15.500000
+75%    298.750000   29.000000  ...  3608.000000     17.175000
+max    398.000000   46.600000  ...  5140.000000     24.800000
+
+[8 rows x 6 columns]
+Press any key to continue . . .
