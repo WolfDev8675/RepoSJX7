@@ -117,5 +117,5 @@ Solutions in folder Task6/ containing files
 
 Solutions in folder Task7/ containing files
 - Quest.txt  (question)
-- <jobs pending>
+- >jobs pending<
 - data// (folder for data and question)
