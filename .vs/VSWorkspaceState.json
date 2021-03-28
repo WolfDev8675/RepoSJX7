@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task2",
     "\\Task3",
     "\\Task3\\__pycache__",
     "\\Task4",
@@ -9,8 +8,10 @@
     "\\Task5",
     "\\Task5\\data",
     "\\Task6",
-    "\\Task6\\data"
+    "\\Task6\\data",
+    "\\Task7",
+    "\\Task7\\data"
   ],
-  "SelectedNode": "\\Task6\\Workfile_task6.py",
+  "SelectedNode": "\\Task7\\data\\Quest.txt",
   "PreviewInSolutionExplorer": false
 }
