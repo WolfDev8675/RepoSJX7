@@ -10,15 +10,23 @@ import pandas as PD
 import Cosmetics as CS
 import FileAssessment as FAS
 import Cleaners as CLNS
+import Interpretors as ITRS
+import random as RDS
 
 # Start of Code 
 
 generatorDFrame=PD.read_csv(CS.uiGetFile())
 CS.showTablehead(generatorDFrame,"Primary DataFrame")
-CS.showInformation("Primary DataFrame Information ",FAS.FileAssessment(generatorDFrame))
+#CS.showInformation("Primary DataFrame Information ",FAS.FileAssessment(generatorDFrame))
 
 resultOpDFrame=PD.read_csv(CS.uiGetFile())
 CS.showTablehead(resultOpDFrame,"Result DataFrame")
-CS.showInformation("Result DataFrame Information ",FAS.FileAssessment(resultOpDFrame))
+#CS.showInformation("Result DataFrame Information ",FAS.FileAssessment(resultOpDFrame))
 
-CLNS.cleanerPrimitive(generatorDFrame,{})
+#GenCleaned=CLNS.cleanerPrimitive(generatorDFrame,{})
+#ResCleaned=CLNS.cleanerPrimitive(resultOpDFrame,{})
+
+gdc=CLNS.fixDebris(generatorDFrame,'Holding_Policy_Duration','14+',RDS.random())
+CS.showTablehead(gdc,"** cleaned DataFrame")
+
+ITRS.Logistic(generatorDFrame,resultOpDFrame)

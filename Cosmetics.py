@@ -37,5 +37,6 @@ def showInformation(windowName,binderTexts):
     root.geometry("1200x600")
     tex=Text(root,width=500,height=1100)
     tex.pack()
-    tex.insert(END,binderTexts)
+    for components in binderTexts:
+        tex.insert(END,components)
     root.mainloop()
