@@ -13,8 +13,8 @@ import Cosmetics as CS
 # Start of Code 
 
 df1=PD.read_csv(CS.uiGetFile())
-print(df1.head())
 CS.showTablehead(df1,"datatable")
+
 
 #rt3=Tk()
 #rt3.wm_title('check3****')

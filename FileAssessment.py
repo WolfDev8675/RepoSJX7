@@ -25,4 +25,4 @@ def FileAssessment(dFrame):
         elif typer0[element][0].startswith('categ'): 
             typer1[element]='category'
 
-    print
+    yield typer1

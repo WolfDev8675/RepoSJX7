@@ -18,3 +18,7 @@ This file contains the exact submission format for the predictions. Please submi
 | Variable | Definition |
 | ID | Unique Identifier for a row |
 | Response | (Target) Probability of Customer showing interest (class 1) |
+
+
+> Startup point
+> FinalEngine.py
