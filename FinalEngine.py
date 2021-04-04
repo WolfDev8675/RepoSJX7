@@ -26,7 +26,7 @@ CS.showTablehead(resultOpDFrame,"Result DataFrame")
 #GenCleaned=CLNS.cleanerPrimitive(generatorDFrame,{})
 #ResCleaned=CLNS.cleanerPrimitive(resultOpDFrame,{})
 
-gdc=CLNS.fixDebris(generatorDFrame,'Holding_Policy_Duration','14+',RDS.random())
+gdc=CLNS.fixDebris(generatorDFrame,'Holding_Policy_Duration','14+','123')
 CS.showTablehead(gdc,"** cleaned DataFrame")
 
 ITRS.Logistic(generatorDFrame,resultOpDFrame)
