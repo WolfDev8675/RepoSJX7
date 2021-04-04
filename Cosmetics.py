@@ -37,6 +37,5 @@ def showInformation(windowName,binderTexts):
     root.geometry("1200x600")
     tex=Text(root,width=500,height=1100)
     tex.pack()
-    PD.set_option('display.max_columns', None)
-    tex.insert(END,dataFrame.head())
+    tex.insert(END,binderTexts)
     root.mainloop()

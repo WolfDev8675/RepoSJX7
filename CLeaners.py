@@ -13,4 +13,4 @@ import analytics as ALS
 
 def cleanerPrimitive(dFrame,columnDetail):
     """ function """
-
+    pass

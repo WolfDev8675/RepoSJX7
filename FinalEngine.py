@@ -6,18 +6,19 @@
 ##required to complete the task  properly
 
 # imports
-from tkinter import *
 import pandas as PD
 import Cosmetics as CS
+import FileAssessment as FAS
+import Cleaners as CLNS
 
 # Start of Code 
 
-df1=PD.read_csv(CS.uiGetFile())
-CS.showTablehead(df1,"datatable")
+generatorDFrame=PD.read_csv(CS.uiGetFile())
+CS.showTablehead(generatorDFrame,"Primary DataFrame")
+CS.showInformation("Primary DataFrame Information ",FAS.FileAssessment(generatorDFrame))
 
+resultOpDFrame=PD.read_csv(CS.uiGetFile())
+CS.showTablehead(resultOpDFrame,"Result DataFrame")
+CS.showInformation("Result DataFrame Information ",FAS.FileAssessment(resultOpDFrame))
 
-#rt3=Tk()
-#rt3.wm_title('check3****')
-#folds=fdgs.askdirectory()
-#print(folds)
-#rt3.mainloop()
+CLNS.cleanerPrimitive(generatorDFrame,{})
