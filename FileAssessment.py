@@ -7,6 +7,9 @@
 #**  record entries, null values
 #**  type of fields and the boxplots
 
+#imports 
+import pandas as PD
+import analytics as ALS
 
 def FileAssessment(dFrame):
     typer0={}  # empty dictionaries for recognising data nature 
