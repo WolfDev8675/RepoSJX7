@@ -29,4 +29,11 @@ CS.showTablehead(resultOpDFrame,"Result DataFrame")
 gdc=CLNS.fixDebris(generatorDFrame,'Holding_Policy_Duration','14+','123')
 CS.showTablehead(gdc,"** cleaned DataFrame")
 
-ITRS.Logistic(generatorDFrame,resultOpDFrame)
+mods=ITRS.Logistic()
+mods.SplitRatio=(7.0/3)
+mods.StudyData=generatorDFrame
+mods.predictors=[]
+mods.inferences=[Response]
+mods.generateModel()
+mods.generateMetrics()
+mods.prediction(resultOpDFrame)

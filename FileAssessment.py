@@ -25,4 +25,5 @@ def FileAssessment(dFrame):
         elif typer0[element][0].startswith('categ'): 
             typer1[element]='category'
 
-    yield typer1
+    #yield typer1
+    ALS.reset_columnData(dFrame,typer1)
