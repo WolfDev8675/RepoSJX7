@@ -11,12 +11,7 @@
 import pandas as PD
 import analytics as ALS
 
-def cleanerPrimitive(dFrame,columnDetail):
+def fixDebris(dFrame,columnDetail):
     """ function """
     pass
 
-def fixDebris(dFrame,column,find,replace):
-    """ function """
-    dCopy=dFrame
-    dCopy[column==find]=replace
-    return dCopy
