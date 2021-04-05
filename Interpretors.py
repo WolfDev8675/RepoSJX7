@@ -21,16 +21,16 @@ class Logistic():
     StudyData=None
     confMatrix=None
 
-    def __init__(self):
-        self.Model=LogisticRegression()
+    def __init__(self,*args):
+        self.Model=LogisticRegression(*args)
 
     
     def generateModel(self):
         """ function """
         R=self.SplitRatio
-        testfactor=abs(((1/R)-1)/(1/R)-R)
-        X=data[predictors]
-        Y=data[inferences]
+        testfactor=abs(((1/R)-1)/((1/R)-R))
+        X=self.StudyData[self.predictors]
+        Y=self.StudyData[self.inferences]
         X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=testfactor,random_state=0)
         self.Model.fit(X_train,y_train)
 
