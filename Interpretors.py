@@ -20,10 +20,14 @@ class Logistic():
     SplitRatio=None
     StudyData=None
     confMatrix=None
-
-    def __init__(self,*args):
-        self.Model=LogisticRegression(*args)
-
+    X_train=None;X_test=None;y_train=None;y_test=None
+    
+    def __init__(self,**kwargs):
+        self.Model=LogisticRegression()
+        for var in kwargs:
+            if hasattr(self.Model,var):
+                setattr(self.Model,var,kwargs[var])
+            
     
     def generateModel(self):
         """ function """
@@ -31,13 +35,13 @@ class Logistic():
         testfactor=abs(((1/R)-1)/((1/R)-R))
         X=self.StudyData[self.predictors]
         Y=self.StudyData[self.inferences]
-        X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=testfactor,random_state=0)
-        self.Model.fit(X_train,y_train)
+        self.X_train,self.X_test,self.y_train,self.y_test=train_test_split(X,Y,test_size=testfactor,random_state=0)
+        self.Model.fit(self.X_train,self.y_train)
 
     def generateMetrics(self):
         """function"""
-        y_pred=self.Model.predict(X_test)
-        self.confMatrix=confusion_matrix(y_test, y_pred)
+        y_pred=self.Model.predict(self.X_test)
+        self.confMatrix=confusion_matrix(self.y_test, y_pred)
 
     def prediction(self,data):
         """ function """

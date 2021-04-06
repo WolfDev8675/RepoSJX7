@@ -30,7 +30,7 @@ CS.showTablehead(generatorDFrame,"Primary DataFrame")
 #CS.showTablehead(gdc,"** cleaned DataFrame")
 
 
-mods=ITRS.Logistic()
+mods=ITRS.Logistic(solver='lbfgs',max_iter=100000)
 mods.SplitRatio=(7.0/3)
 mods.StudyData=generatorDFrame
 #mods.predictors=['City_Code','Region_Code','Accomodation_Type','Reco_Insurance_Type',
@@ -41,4 +41,5 @@ mods.predictors=['Pregnancies','Glucose','BloodPressure','SkinThickness','Insuli
 mods.inferences=['Outcome']
 mods.generateModel()
 mods.generateMetrics()
-results=mods.prediction(resultOpDFrame)
+#results=mods.prediction(resultOpDFrame)
+print(mods.confMatrix)
