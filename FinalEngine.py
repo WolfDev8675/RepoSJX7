@@ -8,7 +8,7 @@
 # imports
 import pandas as PD
 import Cosmetics as CS
-import FileAssessment as FAS
+import DataManager as FAS
 import Cleaners as CLNS
 import Interpretors as ITRS
 import random as RDS
@@ -32,14 +32,16 @@ CS.showTablehead(generatorDFrame,"Primary DataFrame")
 
 mods=ITRS.Logistic(solver='lbfgs',max_iter=100000)
 mods.SplitRatio=(7.0/3)
-mods.StudyData=generatorDFrame
+predict=['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
+infer=['Outcome']
+mods.pushData(generatorDFrame,predict,infer)
 #mods.predictors=['City_Code','Region_Code','Accomodation_Type','Reco_Insurance_Type',
 #                 'Upper_Age','Lower_Age','Is_Spouse','Health Indicator','Holding_Policy_Duration',
 #                 'Holding_Policy_Type','Reco_Policy_Cat','Reco_Policy_Premium']
 #mods.inferences=[Response]
-mods.predictors=['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
-mods.inferences=['Outcome']
+
 mods.generateModel()
 mods.generateMetrics()
-#results=mods.prediction(resultOpDFrame)
+results=mods.predictionApply(generatorDFrame[mods.predictors]) #numpy.ndarray
 print(mods.confMatrix)
+print(type(results))

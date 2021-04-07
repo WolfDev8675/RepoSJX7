@@ -11,7 +11,7 @@
 import pandas as PD
 import analytics as ALS
 
-def FileAssessment(dFrame):
+def FixDataByPopulation(dFrame):
     typer0={}  # empty dictionaries for recognising data nature 
     typer1={}
     #establishing character of dataset
@@ -27,3 +27,8 @@ def FileAssessment(dFrame):
 
     #yield typer1
     ALS.reset_columnData(dFrame,typer1)
+
+def matchResponse(dFrame,response):
+    """Function  """
+    dFrameResp=PD.Series(response)
+    dFrameKey=dFrame[ALS.detectKeys(dFrame)[0]]
