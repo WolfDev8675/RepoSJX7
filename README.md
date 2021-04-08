@@ -36,9 +36,10 @@ This file contains the exact submission format for the predictions. Please submi
 > - random
 > - scikit-learn
 > - sklearn
+> - time
 > - tkinter
 > 
-> Out of these packages python comes shipped with _tkinter_, _io_ and _random_ packages. 
+> Out of these packages python comes shipped with _**tkinter**_, _**io**_, _**time**_ and _**random**_ packages. 
 > If any issues is faced with packages it is suggested to 
 > run command _**`python -m pip install -r requirements.txt`**_ or _**`py -m pip install -r requirements.txt`**_ in the Developer Command prompt,
 > the [requirements.txt](https://github.com/WolfDev8675/RepoSJX7/blob/Assign3_1/requirements.txt) will install all packages that were live in the python library when this coding was being done.

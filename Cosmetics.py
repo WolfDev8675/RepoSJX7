@@ -20,6 +20,8 @@ def uiGetFile(paths=None):
     files=fBox.askopenfile()
     root.destroy()
     return files.name
+ #end of function
+
 
 def showTable(dataFrame,windowName):
     """ Function showTable:
@@ -32,6 +34,8 @@ def showTable(dataFrame,windowName):
     tb=PTS.Table(fR,dataframe=dataFrame)
     tb.show()
     root.mainloop()
+  #end of function
+
 
 def showInformation(windowName,binderTexts):
     """ Function  showInformation:
@@ -45,3 +49,4 @@ def showInformation(windowName,binderTexts):
     #    tex.insert(END,components)
     tex.insert(END,binderTexts)
     root.mainloop()
+  #end of function 

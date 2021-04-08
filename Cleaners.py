@@ -46,10 +46,11 @@ def removeNAN(dFrame=None):
         if type(dFrame[a_col].dtype) is PD.CategoricalDtype:
             positions=dFrame[dFrame[a_col].isnull()].index.tolist() # index list of changes
             for idx in positions: dFrame.loc[idx,a_col] = dFrame[a_col].mode().tolist()[0] #mode fill
-        elif type(dFrame[infos].dtype) is NP.dtype:
+        elif type(dFrame[a_col].dtype) is NP.dtype:
             positions=dFrame[dFrame[a_col].isnull()].index.tolist() # index list of changes
             for idx in positions: dFrame.loc[idx,a_col] = dFrame[a_col].median() #median fill
         else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case)
+    return dFrame
   #end of function 
         
 

@@ -7,8 +7,10 @@
 
 #imports 
 import pandas as PD
+import numpy as NP
 import io
 import analytics as ALS
+import matplotlib.pyplot as PLOT
 
 def FixDataByPopulation(dFrame):
     """ Function FixDataByPopulation:
@@ -51,3 +53,40 @@ def dataInfo(dFrame):
     buffer=io.StringIO()
     dFrame.info(buf=buffer)
     return buffer.getvalue()
+  #end of function 
+
+def showPlots(dFrame=None,fieldNames=None,winTitle='Plot Figure'):
+    """ Function  showPlots:
+        Operation: plot Boxplots or Histograms of the data fields 
+         Histograms are plotted for Categorical fields, while,
+         Boxplots are plotted for Numerical fields"""
+
+    fieldNames_refined=fieldNames
+    for field in fieldNames: 
+        if dFrame[field].dtype == NP.object : fieldNames_refined.remove(field)
+    nosFields=len(fieldNames_refined)
+    TmpNF=(nosFields-1) if (nosFields%3 and nosFields%4 and nosFields%5) else nosFields
+    axC=5 if not TmpNF%5 else 4 if not TmpNF%4 else 3 if not TmpNF%3 else None
+    axR=int(TmpNF/axC); axR= axR if TmpNF is nosFields else axR+1 
+    pos=1
+    PLOT.figure(figsize=(13,7.5)).canvas.set_window_title(winTitle)
+    for col in fieldNames:
+        PLOT.subplot(axR,axC,pos)
+        if dFrame[col].dtype == NP.int64 or dFrame[col].dtype == NP.float64:
+            dFrame.boxplot(column=col)
+        elif type(dFrame[col].dtype) == PD.CategoricalDtype:
+            dFrame[col].hist()
+        else: pass # non executable section 
+        pos+=1
+    PLOT.show()
+  #end of function 
+
+def encodeImpose(dFrame=None,fieldNames=None):
+    """ Function encodeImpose:
+        Operation: Encode categorical datatypes to number coded categories """
+    for field in fieldNames:
+        if type(dFrame[field].dtype) == PD.CategoricalDtype:
+            dFrame[field]=PD.Categorical(values=dFrame[field].cat.codes)
+        else: pass
+    return dFrame
+  #end of function 
