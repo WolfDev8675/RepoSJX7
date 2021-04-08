@@ -22,7 +22,7 @@ This file contains the exact submission format for the predictions. Please submi
 
 > Startup point: 
 >  _FinalEngine.py_
-- * 
+---
 > Requirements: The code for operating requires the following packages 
 > - matplotlib
 > - numpy
@@ -36,4 +36,4 @@ This file contains the exact submission format for the predictions. Please submi
 > Out of these packages python comes shipped with _tkinter_ and _random_ packages. 
 > If any issues is faced with packages it is recomended to 
 > run command _**`python -m pip install -r requirements.txt`**_ or _**`py -m pip install -r requirements.txt`**_ in the Developer Command prompt,
-> which will install all packages that were live in the python library when this coding was being done.
+> the [requirements.txt](https://github.com/WolfDev8675/RepoSJX7/blob/Assign3_1/requirements.txt) will install all packages that were live in the python library when this coding was being done.
