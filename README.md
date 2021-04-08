@@ -22,10 +22,11 @@ This file contains the exact submission format for the predictions. Please submi
 | Response | (Target) Probability of Customer showing interest (class 1) |
 
 ---
->__Startup point:__
+>__Startup point__:
 >  _FinalEngine.py_
 ---
->__Requirements:__ The code for operating properly requires the following packages, it is recomended to check their presence and update definitions if needed.
+>__Requirements__: The code for operating properly requires the following packages, it is recomended to check their presence and update definitions if needed.
+> 
 > Packages required 
 > - matplotlib
 > - numpy
