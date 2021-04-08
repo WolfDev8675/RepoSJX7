@@ -25,7 +25,8 @@ This file contains the exact submission format for the predictions. Please submi
 >__Startup point:__
 >  _FinalEngine.py_
 ---
->__Requirements:__ The code for operating properly requires the following packages, it is recomended to check their presence and update definitions if needed 
+>__Requirements:__ The code for operating properly requires the following packages, it is recomended to check their presence and update definitions if needed.
+> Packages required 
 > - matplotlib
 > - numpy
 > - pandas
