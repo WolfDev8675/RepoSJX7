@@ -1,4 +1,5 @@
 # RepoSJX7: branch Assign3_1
+>__Problem Statement__
 Project 1. Health Insurance Lead Prediction using Python
 
 Your Client FinMan is a financial services company that provides various financial services like loan, investment funds, insurance etc. to its customers. FinMan wishes to cross-sell health insurance to the existing customers who may or may not hold insurance policies with the company. The company recommend health insurance to it's customers based on their profile once these customers land on the website. Customers might browse the recommended health insurance policy and consequently fill up a form to apply. When these customers fill-up the form, their Response towards the policy is considered positive and they are classified as a lead.
@@ -19,11 +20,11 @@ This file contains the exact submission format for the predictions. Please submi
 | ID | Unique Identifier for a row |
 | Response | (Target) Probability of Customer showing interest (class 1) |
 
-
-> Startup point: 
+---
+>__Startup point:__
 >  _FinalEngine.py_
 ---
-> Requirements: The code for operating requires the following packages 
+>__Requirements:__ The code for operating requires the following packages 
 > - matplotlib
 > - numpy
 > - pandas
