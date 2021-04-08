@@ -24,4 +24,13 @@ This file contains the exact submission format for the predictions. Please submi
 >  _FinalEngine.py_
 - * 
 > Requirements: The code for operating requires the following packages 
-> - 
+> - matplotlib
+> - numpy
+> - pandas
+> - pandastable
+> - random
+> - scikit-learn
+> - sklearn
+> - tkinter
+> out of these python comes shipped with tkinter and random packages. 
+> If any issues is faced with packages it is recomended to run command __python -m pip install -r requirements.txt__ or __py -m pip install -r requirements.txt__
