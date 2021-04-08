@@ -124,6 +124,7 @@ def detectKeys(dFrame=None):
         tempColl=dFrame[a_column]
         if tempColl.to_list() == list(set(tempColl)): 
             keyable.append(a_column)
+    if not len(keyable): keyable=['index']
     return keyable
 # end of function
 

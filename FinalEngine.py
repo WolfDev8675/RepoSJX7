@@ -45,3 +45,4 @@ mods.generateMetrics()
 results=mods.predictionApply(generatorDFrame[mods.predictors]) #numpy.ndarray
 print(mods.confMatrix)
 print(type(results))
+CS.showTablehead(FAS.matchResponse(generatorDFrame,results,'Response'),"Required Result")

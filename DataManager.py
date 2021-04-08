@@ -1,11 +1,9 @@
 #!usr/bin/python
  
-#Code file: FileAssessment.py
+#Code file: DataManager.py
 #Task: 
-#**  Show the details of the file received
-#**  including the number of fields number of 
-#**  record entries, null values
-#**  type of fields and the boxplots
+#**  information and assimilation of the 
+#**  data content of a pandas.DataFrame object 
 
 #imports 
 import pandas as PD
@@ -25,10 +23,16 @@ def FixDataByPopulation(dFrame):
         elif typer0[element][0].startswith('categ'): 
             typer1[element]='category'
 
-    #yield typer1
-    ALS.reset_columnData(dFrame,typer1)
+    return ALS.reset_columnData(dFrame,typer1)
 
-def matchResponse(dFrame,response):
-    """Function  """
+def matchResponse(dFrame,response,responseName):
+    """Function  matchResponse 
+       Operation: match a response input to the 
+       corresponding dataframe using the key or 
+       hashable column of the dataframe """
     dFrameResp=PD.Series(response)
-    dFrameKey=dFrame[ALS.detectKeys(dFrame)[0]]
+    keyName=ALS.detectKeys(dFrame)[0]
+    if keyName is 'index': dFrameKey=dFrame.index
+    else: dFrameKey=dFrame[keyName]
+    return PD.DataFrame({keyName:dFrameKey,responseName:dFrameResp})
+

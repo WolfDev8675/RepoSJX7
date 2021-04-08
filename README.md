@@ -22,3 +22,6 @@ This file contains the exact submission format for the predictions. Please submi
 
 > Startup point: 
 >  _FinalEngine.py_
+- * 
+> Requirements: The code for operating requires the following packages 
+> - 
