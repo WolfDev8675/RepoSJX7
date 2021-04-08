@@ -16,8 +16,9 @@ import random as RDS
 # Start of Code 
 
 generatorDFrame=PD.read_csv(CS.uiGetFile())
-CS.showTablehead(generatorDFrame,"Primary DataFrame")
-#CS.showInformation("Primary DataFrame Information ",FAS.FileAssessment(generatorDFrame))
+CS.showTable(generatorDFrame,"Primary DataFrame")
+CS.showInformation("Primary DataFrame Information ",FAS.dataInfo(generatorDFrame)+'\n'+generatorDFrame.describe().to_string())
+
 #$$
 #resultOpDFrame=PD.read_csv(CS.uiGetFile())
 #CS.showTablehead(resultOpDFrame,"Result DataFrame")
@@ -45,4 +46,4 @@ mods.generateMetrics()
 results=mods.predictionApply(generatorDFrame[mods.predictors]) #numpy.ndarray
 print(mods.confMatrix)
 print(type(results))
-CS.showTablehead(FAS.matchResponse(generatorDFrame,results,'Response'),"Required Result")
+CS.showTable(FAS.matchResponse(generatorDFrame,results,'Response'),"Required Result")

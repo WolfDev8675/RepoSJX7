@@ -11,16 +11,19 @@ import pandas as PD
 import pandastable as PTS
 
 def uiGetFile(paths=None):
-    """ function"""
+    """ Function uiGetFile: 
+        Operation: receive file path from user using GUI functionality"""
     root=Tk()
     fBox=filedialog
     root.wm_title(" Get File: Native")
+    root.geometry("500x80")
     files=fBox.askopenfile()
     root.destroy()
     return files.name
 
-def showTablehead(dataFrame,windowName):
-    """ function """
+def showTable(dataFrame,windowName):
+    """ Function showTable:
+        Operation: use GUI to preview a dataframe in the form of a table """
     root=Tk()
     root.wm_title(windowName)
     root.geometry("1200x600")
@@ -31,7 +34,8 @@ def showTablehead(dataFrame,windowName):
     root.mainloop()
 
 def showInformation(windowName,binderTexts):
-    """ function """
+    """ Function  showInformation:
+        Operation: use GUI to show information in the form of text """
     root=Tk()
     root.wm_title(windowName)
     root.geometry("1200x600")

@@ -25,6 +25,8 @@ def find_Replace(dFrame=None,columnName=None,find=None,replace=None):
         as a result fails to find the respective data """
     positions=dFrame[dFrame[columnName]==find].index.tolist() # index list of changes
     for idx in positions: dFrame.loc[idx,columnName] = replace
+  #end of function 
+
 
 def removeNAN(dFrame=None):
     """ Function removeNAN:
@@ -48,6 +50,7 @@ def removeNAN(dFrame=None):
             positions=dFrame[dFrame[a_col].isnull()].index.tolist() # index list of changes
             for idx in positions: dFrame.loc[idx,a_col] = dFrame[a_col].median() #median fill
         else: pass   # no NULLs or NANs or NONEs ... code not supposed to execute (exclusive case)
+  #end of function 
         
 
 def imputeKNN(dFrame=None):
@@ -97,4 +100,4 @@ def imputeKNN(dFrame=None):
     
     #Return Changes
     return dFrame
-    
+  #end of function   
