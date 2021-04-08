@@ -32,7 +32,8 @@ This file contains the exact submission format for the predictions. Please submi
 > - scikit-learn
 > - sklearn
 > - tkinter
-> out of these python comes shipped with tkinter and random packages. 
+> 
+> Out of these packages python comes shipped with _tkinter_ and _random_ packages. 
 > If any issues is faced with packages it is recomended to 
-> run command _python -m pip install -r requirements.txt_ or _py -m pip install -r requirements.txt_ in the Developer Command prompt,
+> run command _`**python -m pip install -r [requirements.txt]**`_ or _`**py -m pip install -r [requirements.txt]**`_ in the Developer Command prompt,
 > which will install all packages that were live in the python library when this coding was being done.
