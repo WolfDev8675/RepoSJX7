@@ -93,10 +93,30 @@ print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 ## Train Logistic model
 print(" Training Model ... ",)
 mods.generateModel()
-mods.generateMetrics()
+mods.generateMetrics(metricType='plots')
+CS.showInformation(" Model Metrics ",mods.generateMetrics(metricType='infos'))
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
+## Retrain options
+retrain=True;attempt=0
+while(retrain):
+    print(" Retrain Model ")
+    retrain=CS.decisionMessage(" Retrain Options "," Retrain Model ? ....")
+    if retrain:
+        mods.retrainModel()
+        CS.showInformation(" Model Metrics ",mods.generateMetrics(metricType='infos'))
+        attempt+=1
+    print(" Attempts = ",attempt)
+    print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
 
 #print(mods.confMatrix)
 ##print(type(results))
-#results=mods.predictionApply(ResDFrame[mods.predictors]) #numpy.ndarray
-#CS.showTable(FAS.matchResponse(ResDFrame,results,'Response'),"Required Result")
+
+## Applying Trained Model to Unknown data
+print(" Applying Model to Unknown Data ")
+results=mods.predictionApply(ResDFrame[mods.predictors]) #numpy.ndarray
+CS.showTable(FAS.matchResponse(ResDFrame,results,'Response'),"Required Result")
+print(" Success. ... Process time (s) ",(PRT()-cT))
+
+#... End of codes

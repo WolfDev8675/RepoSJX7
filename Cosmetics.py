@@ -5,7 +5,7 @@ in a GUI manner using the Tkinter module of python native
 # code: BishalBiswas(https://github.com/WolfDev8675)
 
 #imports
-from tkinter import filedialog
+from tkinter import filedialog,messagebox
 from tkinter import *
 import pandas as PD
 import pandastable as PTS
@@ -45,8 +45,23 @@ def showInformation(windowName,binderTexts):
     root.geometry("1200x600")
     tex=Text(root,width=500,height=1100)
     tex.pack()
-    #for components in binderTexts:
-    #    tex.insert(END,components)
     tex.insert(END,binderTexts)
     root.mainloop()
   #end of function 
+
+def decisionMessage(windowName,message):
+    """ Function decisionMessage:
+        Operation: show a message to the screen and ask to select either
+        one of two options, by default command2 is selected """
+    decision=False
+    root=Tk()
+    MsgBox=messagebox
+    root.wm_title("Native Decision ")
+    root.geometry("500x80")
+    mbox=MsgBox.askquestion(windowName,message,icon='warning')
+    root.destroy()
+    if mbox=='yes': decision=True
+    return decision
+ #end of function 
+    
+    

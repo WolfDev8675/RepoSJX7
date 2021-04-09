@@ -9,7 +9,8 @@ import pandas as PD
 import numpy as NP
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix,plot_confusion_matrix
+from sklearn.metrics import plot_confusion_matrix, plot_roc_curve
+from sklearn.metrics import confusion_matrix,accuracy_score,precision_recall_fscore_support
 import matplotlib.pyplot as PLOT
 
 #start of codes
@@ -24,6 +25,12 @@ class Logistic():
     confMatrix=None
     TrainX=None;TestX=None;TrainY=None;TestY=None;PredictY=None
     Accuracy=None;
+    Precision=None
+    Recall=None
+    F_Score=None
+    Support=None
+    Specificity=None
+    TN=None;TP=None;FN=None;FP=None;
 
     
     def __init__(self,**kwargs):
@@ -55,15 +62,41 @@ class Logistic():
         self.Model.fit(self.TrainX,self.TrainY)
 
 
-    def generateMetrics(self):
+    def generateMetrics(self,metricType='infos'):
         """ Function generateMetrics
             Parent Class: Logistic 
-            Operation: Generate confusion matrix """
+            Operation: Generate Metrics of the model  """
         self.PredictY=self.Model.predict(self.TestX)
-        self.confMatrix=confusion_matrix(self.TestY,self.PredictY)
-        AXP=plot_confusion_matrix(self.Model,self.TestX,self.TestY)
-        AXP.figure_.canvas.set_window_title(" Confusion Matrix ")
-        PLOT.show()
+        if metricType == 'info':
+            self.confMatrix=confusion_matrix(self.TestY,self.PredictY)
+            self.Accuracy=accuracy_score(self.TestY,self.PredictY)
+            self.Precision,self.Recall,self.F_Score,self.Support=precision_recall_fscore_support(self.TestY,self.PredictY)
+            self.TN,self.FP,self.FN,self.TP=self.confMatrix.ravel()
+            self.Specificity=(self.TN*100)/(self.FP+self.TN)
+            returnStr=""
+            returnStr+= " True Positive Count : "+str(self.TP)+"\n"
+            returnStr+= " True Negative Count : "+str(self.TN)+"\n"
+            returnStr+= " False Positive Count : "+str(self.FP)+"\n"
+            returnStr+= " False Negative Count : "+str(self.FN)+"\n"
+            returnStr+= " Accuracy : "+str(self.Accuracy)+"\n"
+            returnStr+= " Precision : "+str(self.Precision)+"\n"
+            returnStr+= " Recall : "+str(self.Recall)+"\n"
+            returnStr+= " Specificity : "+str(self.Specificity)+"\n"
+            returnStr+= " Support : "+str(self.Support)+"\n"
+            returnStr+= " F - Score : "+str(self.F_Score)+"\n"
+            return returnStr
+
+        elif metricType == 'plots':
+            figure,(AXPCM,AXPROC)=PLOT.subplots(1,2,figsize=(13,7.5))
+            figure.canvas.set_window_title(" Model Metrics  ")
+            AXPCM=plot_confusion_matrix(self.Model,self.TestX,self.TestY)
+            #AXPCM.figure_.set_title(" Confusion Matrix ")
+            AXPROC=plot_roc_curve(self.Model,self.TestX,self.TestY)
+            #AXPROC.figure_.set_title(" Receiver Operating Charactistics (ROC) ")
+            #AXP.figure_.canvas.set_window_title(" Model Metrics  ")
+
+            PLOT.show()
+        
 
     def predictionApply(self,data):
         """ Function predictionApply
@@ -73,3 +106,9 @@ class Logistic():
         return self.Model.predict(data)
 
 
+    def retrainModel(self):
+        """ Function retrain
+            Parent Class: Logistic
+            Operation: Retrain the previously generated model """
+        self.generateModel()
+        self.generateMetrics(metricType='plots')
