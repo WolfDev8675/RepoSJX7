@@ -89,4 +89,7 @@ def encodeImpose(dFrame=None,fieldNames=None):
             dFrame[field]=PD.Categorical(values=dFrame[field].cat.codes)
         else: pass
     return dFrame
-  #end of function 
+  #end of function
+  
+  #** end of code 
+#END OF FILE 'DataManager.py' 

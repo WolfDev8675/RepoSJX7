@@ -5,12 +5,13 @@
 #**  Interpret the solution to the data
 
 #imports 
+import io
 import pandas as PD
 import numpy as NP
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import plot_confusion_matrix, plot_roc_curve
-from sklearn.metrics import confusion_matrix,accuracy_score,precision_recall_fscore_support
+from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,recall_score,f1_score
 import matplotlib.pyplot as PLOT
 
 #start of codes
@@ -28,7 +29,6 @@ class Logistic():
     Precision=None
     Recall=None
     F_Score=None
-    Support=None
     Specificity=None
     TN=None;TP=None;FN=None;FP=None;
 
@@ -40,6 +40,7 @@ class Logistic():
         for var in kwargs:
             if hasattr(self.Model,var):
                 setattr(self.Model,var,kwargs[var])
+      #end of iniitalizer function 
             
     def pushData(self,dFrame=None,XHeads=None,YHeads=None):
         """ Function pushData:
@@ -48,6 +49,7 @@ class Logistic():
         self.StudyData=dFrame
         self.predictors=XHeads
         self.inferences=YHeads
+     #end of function
 
     def generateModel(self):
         """ Function generateModel
@@ -60,43 +62,47 @@ class Logistic():
         Y=self.StudyData[self.inferences]
         self.TrainX,self.TestX,self.TrainY,self.TestY=train_test_split(X,Y,test_size=testfactor,random_state=0)
         self.Model.fit(self.TrainX,self.TrainY)
+      #end of function
 
 
-    def generateMetrics(self,metricType='infos'):
+    def generateMetricsInfo(self):
         """ Function generateMetrics
             Parent Class: Logistic 
-            Operation: Generate Metrics of the model  """
+            Operation: Generate Metrics informations of the model  """
+        buffer=io.StringIO()
         self.PredictY=self.Model.predict(self.TestX)
-        if metricType == 'info':
-            self.confMatrix=confusion_matrix(self.TestY,self.PredictY)
-            self.Accuracy=accuracy_score(self.TestY,self.PredictY)
-            self.Precision,self.Recall,self.F_Score,self.Support=precision_recall_fscore_support(self.TestY,self.PredictY)
-            self.TN,self.FP,self.FN,self.TP=self.confMatrix.ravel()
-            self.Specificity=(self.TN*100)/(self.FP+self.TN)
-            returnStr=""
-            returnStr+= " True Positive Count : "+str(self.TP)+"\n"
-            returnStr+= " True Negative Count : "+str(self.TN)+"\n"
-            returnStr+= " False Positive Count : "+str(self.FP)+"\n"
-            returnStr+= " False Negative Count : "+str(self.FN)+"\n"
-            returnStr+= " Accuracy : "+str(self.Accuracy)+"\n"
-            returnStr+= " Precision : "+str(self.Precision)+"\n"
-            returnStr+= " Recall : "+str(self.Recall)+"\n"
-            returnStr+= " Specificity : "+str(self.Specificity)+"\n"
-            returnStr+= " Support : "+str(self.Support)+"\n"
-            returnStr+= " F - Score : "+str(self.F_Score)+"\n"
-            return returnStr
+        self.confMatrix=confusion_matrix(self.TestY,self.PredictY)
+        self.Accuracy=accuracy_score(self.TestY,self.PredictY)*100
+        self.Precision=precision_score(self.TestY,self.PredictY)*100
+        self.Recall=recall_score(self.TestY,self.PredictY)*100
+        self.F_Score=f1_score(self.TestY,self.PredictY)*100
+        self.TN,self.FP,self.FN,self.TP=self.confMatrix.ravel()
+        self.Specificity=(self.TN*100)/(self.FP+self.TN)
+        buffer.write(" METRICS DETAILS \n")
+        buffer.write(" True Positive Count : "+str(self.TP)+"\n")
+        buffer.write(" True Negative Count : "+str(self.TN)+"\n")
+        buffer.write(" False Positive Count : "+str(self.FP)+"\n")
+        buffer.write(" False Negative Count : "+str(self.FN)+"\n")
+        buffer.write(" Accuracy : "+str(self.Accuracy)+"\n")
+        buffer.write(" Precision : "+str(self.Precision)+"\n")
+        buffer.write(" Recall : "+str(self.Recall)+"\n")
+        buffer.write(" Specificity : "+str(self.Specificity)+"\n")
+        buffer.write(" F - Score : "+str(self.F_Score)+"\n")
+        return buffer.getvalue()
+     #end of function 
 
-        elif metricType == 'plots':
-            figure,(AXPCM,AXPROC)=PLOT.subplots(1,2,figsize=(13,7.5))
-            figure.canvas.set_window_title(" Model Metrics  ")
-            AXPCM=plot_confusion_matrix(self.Model,self.TestX,self.TestY)
-            #AXPCM.figure_.set_title(" Confusion Matrix ")
-            AXPROC=plot_roc_curve(self.Model,self.TestX,self.TestY)
-            #AXPROC.figure_.set_title(" Receiver Operating Charactistics (ROC) ")
-            #AXP.figure_.canvas.set_window_title(" Model Metrics  ")
-
-            PLOT.show()
-        
+    def generateMetricsPlots(self):
+        """ Function generateMetrics
+            Parent Class: Logistic 
+            Operation: Generate Metrics informations of the model  """
+        figure,(AXPCM,AXPROC)=PLOT.subplots(1,2,figsize=(13,7.5))
+        figure.canvas.set_window_title(" Model Metrics  ")
+        plot_confusion_matrix(self.Model,self.TestX,self.TestY,ax=AXPCM)
+        AXPCM.set_title(" Confusion Matrix ")
+        plot_roc_curve(self.Model,self.TestX,self.TestY,ax=AXPROC)
+        AXPROC.set_title(" Receiver Operating Charactistics (ROC) ")
+        PLOT.show()
+      #end of function   
 
     def predictionApply(self,data):
         """ Function predictionApply
@@ -104,11 +110,16 @@ class Logistic():
             Operation:  Apply the trained Model on a different data 
             than on which it is trained or tested """
         return self.Model.predict(data)
-
+       #end of function
 
     def retrainModel(self):
         """ Function retrain
             Parent Class: Logistic
             Operation: Retrain the previously generated model """
         self.generateModel()
-        self.generateMetrics(metricType='plots')
+        self.generateMetricsPlots()
+    #end of function 
+
+ #end of class: Logistic
+
+ #END OF FILE 'Interpretors.py'

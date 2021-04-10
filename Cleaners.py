@@ -98,7 +98,8 @@ def imputeKNN(dFrame=None):
 
     knnIR.fit(dFrame[nan_cols])  #fitting
     dFrame[nan_cols]=knnIR.transform(dFrame[nan_cols]) # finalising imputation task
-    
-    #Return Changes
-    return dFrame
+    return dFrame #Return Changes
   #end of function   
+
+#**End of codes
+#END OF FILE 'Cleaners.py'

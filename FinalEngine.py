@@ -93,25 +93,22 @@ print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 ## Train Logistic model
 print(" Training Model ... ",)
 mods.generateModel()
-mods.generateMetrics(metricType='plots')
-CS.showInformation(" Model Metrics ",mods.generateMetrics(metricType='infos'))
+mods.generateMetricsPlots()
+CS.showInformation(" Model Metrics ",mods.generateMetricsInfo())
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Retrain options
 retrain=True;attempt=0
+print(" Retrain Model... ")
 while(retrain):
-    print(" Retrain Model ")
     retrain=CS.decisionMessage(" Retrain Options "," Retrain Model ? ....")
     if retrain:
         mods.retrainModel()
-        CS.showInformation(" Model Metrics ",mods.generateMetrics(metricType='infos'))
+        CS.showInformation(" Model Metrics ",mods.generateMetricsInfo())
         attempt+=1
-    print(" Attempts = ",attempt)
+        print(" Attempt = ",attempt)
     print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
-
-
-#print(mods.confMatrix)
-##print(type(results))
+print(" Retrain attempts = ",attempt)
 
 ## Applying Trained Model to Unknown data
 print(" Applying Model to Unknown Data ")
@@ -120,3 +117,4 @@ CS.showTable(FAS.matchResponse(ResDFrame,results,'Response'),"Required Result")
 print(" Success. ... Process time (s) ",(PRT()-cT))
 
 #... End of codes
+# END OF FILE: 'FinalEngine.py'

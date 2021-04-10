@@ -43,3 +43,8 @@ This file contains the exact submission format for the predictions. Please submi
 > If any issues is faced with packages it is suggested to 
 > run command _**`python -m pip install -r requirements.txt`**_ or _**`py -m pip install -r requirements.txt`**_ in the Developer Command prompt,
 > the [requirements.txt](https://github.com/WolfDev8675/RepoSJX7/blob/Assign3_1/requirements.txt) will install all packages that were live in the python library when this coding was being done.
+
+
+---
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_

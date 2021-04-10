@@ -1,5 +1,6 @@
 #!usr/bin/python
-""" Cosmetics packaging to help with locating a file or a folder 
+""" Cosmetics packaging to help with locating a file or a folder,
+showing data tables, important information, or taking decisions,
 in a GUI manner using the Tkinter module of python native 
 """
 # code: BishalBiswas(https://github.com/WolfDev8675)
@@ -64,4 +65,6 @@ def decisionMessage(windowName,message):
     return decision
  #end of function 
     
-    
+ #** End of codes
+
+#END OF FILE 'Cosmetics.py'
