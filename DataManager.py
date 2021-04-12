@@ -11,6 +11,7 @@ import numpy as NP
 import io
 import analytics as ALS
 import matplotlib.pyplot as PLOT
+from sklearn.preprocessing import *
 
 def FixDataByPopulation(dFrame):
     """ Function FixDataByPopulation:
@@ -90,6 +91,29 @@ def encodeImpose(dFrame=None,fieldNames=None):
         else: pass
     return dFrame
   #end of function
+
+def encodeDummy(dFrame=None,fieldNames=None):
+    """ Function encodeDummy:
+        Operation: Encode Categorical datatypes to dummy variables
+        and add them to dataframe """
+    for field in fieldNames:
+        if type(dFrame[field].dtype) == PD.CategoricalDtype:
+            oneDumbColumn=PD.get_dummies(dFrame[field])
+            #./ Fixing Dummies to Original
+            RetFrame=PD.concat([dFrame,oneDumbColumn],axis=1)
+    return RetFrame
+   #end of function
+
   
+def scaleData(data):
+    """ Function scaleData:
+        Operation: Use a standard scaler on the data and thereby 
+        standardise the data given 
+    """ 
+    scaler=StandardScaler()
+    return scaler.fit_transform(data)
+
+
+
   #** end of code 
 #END OF FILE 'DataManager.py' 

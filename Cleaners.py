@@ -11,7 +11,9 @@
 import numpy as NP
 import pandas as PD
 import analytics as ALS
+from DataManager import encodeImpose as EncIMP
 from sklearn.impute import KNNImputer as KNI
+from sklearn.preprocessing import StandardScaler as SSLC
 
 
 
@@ -66,6 +68,7 @@ def imputeKNN(dFrame=None):
     null_info= dict(dFrame.isnull().sum()) # information on the nulls 
     # Generating the Imputer Logic Object
     knnIR=KNI(n_neighbors=5,weights='uniform',metric='nan_euclidean')
+    stdSLR=SSLC()
     nan_cols=[]   # empty list to collect NANs or NULLs containing column names
     for cols in null_info:
         if(null_info[cols]):
@@ -78,7 +81,7 @@ def imputeKNN(dFrame=None):
 
     mapsOfChanges=dict.fromkeys(nonIntNULLS,{}) 
     for a_col in nonIntNULLS:
-        #Quintuple-Step Process
+        # Hex-Step Process
         #1: Pre Conversion Tag Listing
         pr_ctl=ALS.variety(dFrame[a_col],95)[0]
         #2: Conversion
@@ -95,11 +98,23 @@ def imputeKNN(dFrame=None):
         #5: Return Nulls
         ret_idxs=dFrame[dFrame[a_col] == -1 ].index.tolist() #since catgorical coding changed NULLS to (-1) 
         for idx in ret_idxs: dFrame.loc[idx,a_col]= NP.nan
-
+        #6: Scale fields
+    dFrame=EncIMP(dFrame,dFrame.columns.to_list())    
+    stdSLR.fit_transform(dFrame)
     knnIR.fit(dFrame[nan_cols])  #fitting
     dFrame[nan_cols]=knnIR.transform(dFrame[nan_cols]) # finalising imputation task
+    # ..End of imputation 
+
+    # Returning Mapping (Only for Categorical values)
+    for keys in mapsOfChanges:
+        dFrame[keys]=round(dFrame[keys]) # correcting non categorized Decimals 
+        dFrame[keys].map(mapsOfChanges[keys])
+        dFrame=ALS.reset_columnData(dFrame,{keys:'category'})
+
     return dFrame #Return Changes
   #end of function   
+
+
 
 #**End of codes
 #END OF FILE 'Cleaners.py'

@@ -64,7 +64,49 @@ def decisionMessage(windowName,message):
     if mbox=='yes': decision=True
     return decision
  #end of function 
+ 
+def selectFromLists(windowName,label1,listVAR1,label2=None,listVAR2=None):
+    """ Function selectFromLists:
+        Operation: select options from a list available ...    
+        section 1 of this function fills window with checkboxes
+        section 2 of this function fills window with radiobuttons
+        ...
+    """
+    root=Tk()
+    root.wm_title(windowName)
+    root.geometry("1200x600")
+    returns1=[];returns2=None;
+    dctVAR={}
+    dctVAR2=dict.fromkeys(listVAR1)
+    if label2 is not None: dctVAR3=dict.fromkeys(listVAR2)
+    for item in listVAR1:
+        dctVAR[item]=IntVar()
+    r=0
+    c=0
+    lb1=Label(root,text=label1).grid(row=r,columnspan=6,ipady=6);r+=1
+    for item in listVAR1:
+        dctVAR2[item]=Checkbutton(root,text=item,variable=dctVAR[item]).grid(row=r,column=c,ipadx=2)
+        if c<6: c+=1
+        else: c=0;r+=1
+    r+=2   
+    if label2 is not None:
+        c=0
+        lb2=Label(root,text=label2).grid(row=r,columnspan=6,ipady=6);r+=1
+        response=StringVar()   
+        for item in listVAR2:
+            Radiobutton(root,text=item,variable=response,value=item).grid(row=r,column=c,ipadx=2)
+            if c<6: c+=1
+            else: c=0;r+=1
+        returns2=response.get()
+    b=Button(root,text='Confirm',command=root.destroy).grid(sticky=SW)
+    root.mainloop()
+    for item in dctVAR:
+        dctVAR[item]=dctVAR[item].get()
+        if dctVAR[item]: returns1.append(item)
+    return [returns1,returns2]
     
+
+
  #** End of codes
 
 #END OF FILE 'Cosmetics.py'

@@ -47,6 +47,13 @@ GenDFrame=ALS.reset_columnData(GenDFrame,{'Holding_Policy_Duration':'numerical'}
 ResDFrame=ALS.reset_columnData(ResDFrame,{'Holding_Policy_Duration':'numerical'})
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
+### Scaling Data 
+#print(" Scaling operation... ")
+##scalables=CS.selectFromLists(" Scalable fields "," Select labels to scale ",GenDFrame.columns.to_list())[0]
+#GenDFrame=FAS.scaleData(GenDFrame)
+#ResDFrame=FAS.scaleData(ResDFrame)
+#print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
 ## Remove NAN values  ** Comment/Uncomment required section 
 print(" NaN Clean .... ",) 
 #print(" Conventional Median/Mode filler method ...... ",)
@@ -65,22 +72,35 @@ print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Setting the column names 
 print(" Parameter Set .... ",)
-predict=['City_Code','Region_Code','Accomodation_Type','Reco_Insurance_Type',
-                 'Upper_Age','Lower_Age','Is_Spouse','Health Indicator','Holding_Policy_Duration',
-                 'Holding_Policy_Type','Reco_Policy_Cat','Reco_Policy_Premium']
-infer=['Response']
+#predict=['City_Code','Region_Code','Accomodation_Type','Reco_Insurance_Type',
+#                 'Upper_Age','Lower_Age','Is_Spouse','Health Indicator','Holding_Policy_Duration',
+#                 'Holding_Policy_Type','Reco_Policy_Cat','Reco_Policy_Premium']
+#infer=['Response']
+plotLab=CS.selectFromLists(" Plot labels "," Select labels to plot ",GenDFrame.columns.to_list())[0]
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Plots of fields ** histogram or boxplot depending on failure criteria
 print(" Generating Plots.... ")
-FAS.showPlots(GenDFrame,predict,'Plots: Primary Data')
-FAS.showPlots(ResDFrame,predict,'Plots: Secondary Data')
+FAS.showPlots(GenDFrame,plotLab,'Plots: Primary Data')
+FAS.showPlots(ResDFrame,plotLab,'Plots: Secondary Data')
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-## Encode enforcement Categorical number coding
-print(" Fixing Categorical fields not handled while NAN Removal ..... ")
-FAS.encodeImpose(GenDFrame,predict)     #1
-FAS.encodeImpose(ResDFrame,predict)     #2
+## Encode enforcement Categorical number coding 
+#print(" Fixing Categorical fields not handled while NAN Removal ..... ")
+#FAS.encodeImpose(GenDFrame,predict)     #1
+#FAS.encodeImpose(ResDFrame,predict)     #2
+print(" Fixing Categorical fields not handled while NAN Removal ..... pushing Dummies ")
+GenDFrame=FAS.encodeDummy(GenDFrame,GenDFrame.columns.to_list())     #1
+ResDFrame=FAS.encodeDummy(ResDFrame,ResDFrame.columns.to_list())     #2
+print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
+CS.showInformation("Primary DataFrame Information ",FAS.dataInfo(GenDFrame)+'\n'+GenDFrame.describe().to_string())      #1
+CS.showInformation("Result DataFrame Information ",FAS.dataInfo(ResDFrame)+'\n'+ResDFrame.describe().to_string())       #2
+print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
+
+## Select predictors and infers for LogisticRegression
+[predict,infer]=CS.selectFromLists(" Predictables and Inferences  "," Select predictables  ",GenDFrame.columns.to_list()," Select inferences  ",GenDFrame.columns.to_list())
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Initiate Logistic Model
