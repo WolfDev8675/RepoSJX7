@@ -47,21 +47,14 @@ GenDFrame=ALS.reset_columnData(GenDFrame,{'Holding_Policy_Duration':'numerical'}
 ResDFrame=ALS.reset_columnData(ResDFrame,{'Holding_Policy_Duration':'numerical'})
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-### Scaling Data 
-#print(" Scaling operation... ")
-##scalables=CS.selectFromLists(" Scalable fields "," Select labels to scale ",GenDFrame.columns.to_list())[0]
-#GenDFrame=FAS.scaleData(GenDFrame)
-#ResDFrame=FAS.scaleData(ResDFrame)
-#print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
-
 ## Remove NAN values  ** Comment/Uncomment required section 
 print(" NaN Clean .... ",) 
-#print(" Conventional Median/Mode filler method ...... ",)
-#GenDFrame=CLNS.removeNAN(GenDFrame)     #1
-#ResDFrame=CLNS.removeNAN(ResDFrame)     #2 
-print(" K Nearest Neighbour Imputation method ...... ",)
-GenDFrame=CLNS.imputeKNN(GenDFrame)     #1
-ResDFrame=CLNS.imputeKNN(ResDFrame)     #2
+print(" Conventional Median/Mode filler method ...... ",)
+GenDFrame=CLNS.removeNAN(GenDFrame)     #1
+ResDFrame=CLNS.removeNAN(ResDFrame)     #2 
+#print(" K Nearest Neighbour Imputation method ...... ",)
+#GenDFrame=CLNS.imputeKNN(GenDFrame)     #1
+#ResDFrame=CLNS.imputeKNN(ResDFrame)     #2
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Reprint details : post cleaning
@@ -70,37 +63,27 @@ CS.showInformation("Primary DataFrame Information ",FAS.dataInfo(GenDFrame)+'\n'
 CS.showInformation("Result DataFrame Information ",FAS.dataInfo(ResDFrame)+'\n'+ResDFrame.describe().to_string())       #2
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-## Setting the column names 
+## Setting the predict and infer field headers 
 print(" Parameter Set .... ",)
-#predict=['City_Code','Region_Code','Accomodation_Type','Reco_Insurance_Type',
-#                 'Upper_Age','Lower_Age','Is_Spouse','Health Indicator','Holding_Policy_Duration',
-#                 'Holding_Policy_Type','Reco_Policy_Cat','Reco_Policy_Premium']
-#infer=['Response']
-plotLab=CS.selectFromLists(" Plot labels "," Select labels to plot ",GenDFrame.columns.to_list())[0]
+[predict,infer]=CS.selectFromLists(" Predictables and Inferences  "," Select predictables  ",GenDFrame.columns.to_list()," Select inferences  ",GenDFrame.columns.to_list())
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Plots of fields ** histogram or boxplot depending on failure criteria
 print(" Generating Plots.... ")
-FAS.showPlots(GenDFrame,plotLab,'Plots: Primary Data')
-FAS.showPlots(ResDFrame,plotLab,'Plots: Secondary Data')
+FAS.showPlots(GenDFrame,predict,'Plots: Primary Data')
+FAS.showPlots(ResDFrame,predict,'Plots: Secondary Data')
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-## Encode enforcement Categorical number coding 
-#print(" Fixing Categorical fields not handled while NAN Removal ..... ")
-#FAS.encodeImpose(GenDFrame,predict)     #1
-#FAS.encodeImpose(ResDFrame,predict)     #2
-print(" Fixing Categorical fields not handled while NAN Removal ..... pushing Dummies ")
-GenDFrame=FAS.encodeDummy(GenDFrame,GenDFrame.columns.to_list())     #1
-ResDFrame=FAS.encodeDummy(ResDFrame,ResDFrame.columns.to_list())     #2
+## Dummy Encoding the predicatables 
+print(" Dummy Encoding suitable predicatables....   ")
+[GenDFrame,DumbRems_G,DumbAppends_G]=FAS.encodeDummy(GenDFrame,predict)       #1
+[ResDFrame,DumbRems_R,DumbAppends_R]=FAS.encodeDummy(ResDFrame,predict)       #2
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-CS.showInformation("Primary DataFrame Information ",FAS.dataInfo(GenDFrame)+'\n'+GenDFrame.describe().to_string())      #1
-CS.showInformation("Result DataFrame Information ",FAS.dataInfo(ResDFrame)+'\n'+ResDFrame.describe().to_string())       #2
-print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
-
-
-## Select predictors and infers for LogisticRegression
-[predict,infer]=CS.selectFromLists(" Predictables and Inferences  "," Select predictables  ",GenDFrame.columns.to_list()," Select inferences  ",GenDFrame.columns.to_list())
+## Reset Predict field names ~ in effect to the dummy encoding
+print(" Resetting Predict field headers ")
+[predict.remove(cols) for col in DumbRems_G if col in predict]
+predict.extend(DumbAppends_G)
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Initiate Logistic Model

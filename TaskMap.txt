@@ -1,0 +1,18 @@
+# file: TaskMap.txt
+
+This is a task map of all the tasks in flow as followed in the file -FinalEngine.py
+
+1. Acquiring the data ( followed on both datasets ) :		** lines~  20-30
+2. Removing irregularities in the data ['14+' in numerical field ] ( followed on both datasets ):		** lines~  32-36
+3. Type fixing the dataset ( followed on both datasets ):		**lines~  38-42
+4. Revert fixing [overriding the typefix done by algorithm] ( followed on both datasets ):		**lines~  44-48
+5. NAN removals [conventional method or KNN ] ( followed on both datasets ):		**lines~  50-58
+6. Post Cleaning data review ( followed on both datasets ):		**lines~  60-64
+7. Set predict and infer fieldnames ( local for reference to both datasets pulled from one dataset ):		**lines~  66-69
+8. Plots of the primary data ( followed on both datasets ):		**lines~  71-75
+9. Dummy encoding of the categorical predicatables ( followed on both datasets ):		**lines~  77-81
+10. Reset Predict [removing original field names from predictors which are dummy encoded] ( local set for reference on both datasets ):		**lines~  83-87
+11. Logistic Regression instance create and dataset push( followed on a primary dataset ):		**lines~  89-94
+12. Train Model and Provide Metrics ( followed on the dataset used to train Logistic model ):		**lines~  96-101
+13. Retrain options ( followed on the dataset used to train Logistic model ):		**lines~  103-114
+14. Predict Result ( followed on the dataset for result functionality ):		**lines~  116-120

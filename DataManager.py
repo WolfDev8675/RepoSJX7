@@ -96,12 +96,17 @@ def encodeDummy(dFrame=None,fieldNames=None):
     """ Function encodeDummy:
         Operation: Encode Categorical datatypes to dummy variables
         and add them to dataframe """
+    RetFrame=dFrame
+    EncodedCols=[]
+    DumbColumns=[]
     for field in fieldNames:
         if type(dFrame[field].dtype) == PD.CategoricalDtype:
             oneDumbColumn=PD.get_dummies(dFrame[field])
+            EncodedCols.append(field)
             #./ Fixing Dummies to Original
-            RetFrame=PD.concat([dFrame,oneDumbColumn],axis=1)
-    return RetFrame
+            DumbColumns.extend(oneDumbColumn.columns.to_list())
+            RetFrame=PD.concat([RetFrame,oneDumbColumn],axis=1)
+    return [RetFrame,EncodedCols,DumbColumns]
    #end of function
 
   

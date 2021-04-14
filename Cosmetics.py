@@ -86,7 +86,7 @@ def selectFromLists(windowName,label1,listVAR1,label2=None,listVAR2=None):
     lb1=Label(root,text=label1).grid(row=r,columnspan=6,ipady=6);r+=1
     for item in listVAR1:
         dctVAR2[item]=Checkbutton(root,text=item,variable=dctVAR[item]).grid(row=r,column=c,ipadx=2)
-        if c<6: c+=1
+        if c<10: c+=1
         else: c=0;r+=1
     r+=2   
     if label2 is not None:
@@ -95,7 +95,7 @@ def selectFromLists(windowName,label1,listVAR1,label2=None,listVAR2=None):
         response=StringVar()   
         for item in listVAR2:
             Radiobutton(root,text=item,variable=response,value=item).grid(row=r,column=c,ipadx=2)
-            if c<6: c+=1
+            if c<10: c+=1
             else: c=0;r+=1
         returns2=response.get()
     b=Button(root,text='Confirm',command=root.destroy).grid(sticky=SW)
