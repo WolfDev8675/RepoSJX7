@@ -11,7 +11,6 @@
 import numpy as NP
 import pandas as PD
 import analytics as ALS
-from DataManager import encodeImpose as EncIMP
 from sklearn.impute import KNNImputer as KNI
 from sklearn.preprocessing import StandardScaler as SSLC
 
@@ -99,8 +98,8 @@ def imputeKNN(dFrame=None):
         ret_idxs=dFrame[dFrame[a_col] == -1 ].index.tolist() #since catgorical coding changed NULLS to (-1) 
         for idx in ret_idxs: dFrame.loc[idx,a_col]= NP.nan
         #6: Scale fields
-    dFrame=EncIMP(dFrame,dFrame.columns.to_list())    
-    stdSLR.fit_transform(dFrame)
+       
+    
     knnIR.fit(dFrame[nan_cols])  #fitting
     dFrame[nan_cols]=knnIR.transform(dFrame[nan_cols]) # finalising imputation task
     # ..End of imputation 

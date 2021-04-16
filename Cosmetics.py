@@ -94,15 +94,16 @@ def selectFromLists(windowName,label1,listVAR1,label2=None,listVAR2=None):
         lb2=Label(root,text=label2).grid(row=r,columnspan=6,ipady=6);r+=1
         response=StringVar()   
         for item in listVAR2:
-            Radiobutton(root,text=item,variable=response,value=item).grid(row=r,column=c,ipadx=2)
+            dctVAR3[item]=Radiobutton(root,text=item,variable=response,value=item).grid(row=r,column=c,ipadx=2)
             if c<10: c+=1
             else: c=0;r+=1
-        returns2=response.get()
+        
     b=Button(root,text='Confirm',command=root.destroy).grid(sticky=SW)
     root.mainloop()
     for item in dctVAR:
         dctVAR[item]=dctVAR[item].get()
         if dctVAR[item]: returns1.append(item)
+    returns2=response.get()
     return [returns1,returns2]
     
 

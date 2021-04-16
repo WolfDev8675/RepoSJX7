@@ -121,7 +121,7 @@ def detectKeys(dFrame=None):
     keyable=[]
     # searching Keyable columns 
     for a_column in allColumns:
-        tempColl=dFrame[a_column]
+        tempColl=PD.Series(dFrame[a_column])
         if tempColl.to_list() == list(set(tempColl)): 
             keyable.append(a_column)
     if not len(keyable): keyable=['index']

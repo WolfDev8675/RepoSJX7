@@ -8,15 +8,16 @@
 import io
 import pandas as PD
 import numpy as NP
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import plot_confusion_matrix, plot_roc_curve
-from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,recall_score,f1_score
+from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,recall_score,f1_score,roc_auc_score
 import matplotlib.pyplot as PLOT
 
 #start of codes
-class Logistic():
-    """ class Logistic  """
+class Learner():
+    """ class Learner  """
      
     Model=None
     predictors=None
@@ -31,12 +32,14 @@ class Logistic():
     F_Score=None
     Specificity=None
     TN=None;TP=None;FN=None;FP=None;
+    ROC_AUC_Score=None
 
     
-    def __init__(self,**kwargs):
-        """ Class Logistic 
-            Operation: create Logistic Regression Classifier Object """
-        self.Model=LogisticRegression()
+    def __init__(self,model,**kwargs):
+        """ Class Learner
+            Operation: create Machine Learning Classifier Object """
+
+        self.Model=model
         for var in kwargs:
             if hasattr(self.Model,var):
                 setattr(self.Model,var,kwargs[var])
@@ -78,16 +81,18 @@ class Logistic():
         self.F_Score=f1_score(self.TestY,self.PredictY)*100
         self.TN,self.FP,self.FN,self.TP=self.confMatrix.ravel()
         self.Specificity=(self.TN*100)/(self.FP+self.TN)
+        self.ROC_AUC_Score=roc_auc_score(self.TestY,self.PredictY)
         buffer.write(" METRICS DETAILS \n")
-        buffer.write(" True Positive Count : "+str(self.TP)+"\n")
-        buffer.write(" True Negative Count : "+str(self.TN)+"\n")
-        buffer.write(" False Positive Count : "+str(self.FP)+"\n")
-        buffer.write(" False Negative Count : "+str(self.FN)+"\n")
-        buffer.write(" Accuracy : "+str(self.Accuracy)+"\n")
-        buffer.write(" Precision : "+str(self.Precision)+"\n")
-        buffer.write(" Recall : "+str(self.Recall)+"\n")
-        buffer.write(" Specificity : "+str(self.Specificity)+"\n")
-        buffer.write(" F - Score : "+str(self.F_Score)+"\n")
+        buffer.write(" True Positive Count : "+str(self.TP)+"\n\n")
+        buffer.write(" True Negative Count : "+str(self.TN)+"\n\n")
+        buffer.write(" False Positive Count : "+str(self.FP)+"\n\n")
+        buffer.write(" False Negative Count : "+str(self.FN)+"\n\n\n\n")
+        buffer.write(" Accuracy : "+str(self.Accuracy)+"\n\n")
+        buffer.write(" Precision : "+str(self.Precision)+"\n\n")
+        buffer.write(" Recall : "+str(self.Recall)+"\n\n")
+        buffer.write(" Specificity : "+str(self.Specificity)+"\n\n")
+        buffer.write(" F - Score : "+str(self.F_Score)+"\n\n")
+        buffer.write(" ROC AUC Score : "+str(self.ROC_AUC_Score)+"\n\n")
         return buffer.getvalue()
      #end of function 
 

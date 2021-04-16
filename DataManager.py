@@ -110,13 +110,17 @@ def encodeDummy(dFrame=None,fieldNames=None):
    #end of function
 
   
-def scaleData(data):
+def scaleData(dFrame=None):
     """ Function scaleData:
-        Operation: Use a standard scaler on the data and thereby 
-        standardise the data given 
+        Operation: Use a standard scaler on the numerical fields of data
+        and thereby standardise the data given 
     """ 
     scaler=StandardScaler()
-    return scaler.fit_transform(data)
+    allCols=dFrame.columns.to_list();modified=dFrame
+    numerics=[]; [numerics.append(col) for col in allCols if (dFrame[col].dtype == NP.int64 or dFrame[col].dtype == NP.float64)]
+    scaled=PD.DataFrame(data=scaler.fit_transform(dFrame[numerics]),columns=numerics)
+    modified[numerics]=scaled
+    return modified
 
 
 

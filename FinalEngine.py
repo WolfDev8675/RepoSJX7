@@ -43,8 +43,8 @@ print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Fixing Specific field datatype shift *** field: Holding_Policy_Duration due to less variations gets categorized 
 print(" Fixing Specific field datatype shift ... ")
-GenDFrame=ALS.reset_columnData(GenDFrame,{'Holding_Policy_Duration':'numerical'})
-ResDFrame=ALS.reset_columnData(ResDFrame,{'Holding_Policy_Duration':'numerical'})
+GenDFrame=ALS.reset_columnData(GenDFrame,{'Holding_Policy_Duration':'numerical','Upper_Age':'numerical','Lower_Age':'numerical','Holding_Policy_Type':'category','Region_Code':'category'})
+ResDFrame=ALS.reset_columnData(ResDFrame,{'Holding_Policy_Duration':'numerical','Upper_Age':'numerical','Lower_Age':'numerical','Holding_Policy_Type':'category','Region_Code':'category'})
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Remove NAN values  ** Comment/Uncomment required section 
@@ -53,8 +53,8 @@ print(" Conventional Median/Mode filler method ...... ",)
 GenDFrame=CLNS.removeNAN(GenDFrame)     #1
 ResDFrame=CLNS.removeNAN(ResDFrame)     #2 
 #print(" K Nearest Neighbour Imputation method ...... ",)
-#GenDFrame=CLNS.imputeKNN(GenDFrame)     #1
-#ResDFrame=CLNS.imputeKNN(ResDFrame)     #2
+#GenDFrame=CLNS.imputeKNN(FAS.scaleData(GenDFrame))     #1
+#ResDFrame=CLNS.imputeKNN(FAS.scaleData(ResDFrame))     #2
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
 ## Reprint details : post cleaning
@@ -74,21 +74,28 @@ FAS.showPlots(GenDFrame,predict,'Plots: Primary Data')
 FAS.showPlots(ResDFrame,predict,'Plots: Secondary Data')
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-## Dummy Encoding the predicatables 
-print(" Dummy Encoding suitable predicatables....   ")
-[GenDFrame,DumbRems_G,DumbAppends_G]=FAS.encodeDummy(GenDFrame,predict)       #1
-[ResDFrame,DumbRems_R,DumbAppends_R]=FAS.encodeDummy(ResDFrame,predict)       #2
+### Dummy Encoding the predicatables   ...*** Suitable for Logistic Regression
+#print(" Dummy Encoding suitable predicatables....   ")
+#[GenDFrame,DumbRems_G,DumbAppends_G]=FAS.encodeDummy(GenDFrame,predict)       #1
+#[ResDFrame,DumbRems_R,DumbAppends_R]=FAS.encodeDummy(ResDFrame,predict)       #2
+#print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
+### Reset Predict field names ~ in effect to the dummy encoding  ...*** Suitable for Logistic Regression
+#print(" Resetting Predict field headers ")
+#[predict.remove(col) for col in DumbRems_G if col in predict]
+#predict.extend(DumbAppends_G)
+#print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
+
+## Numerical Encoding of the Categorical Predicatables ...*** Suitable for Decision Tree Classifiers
+print(" Numerical Encoding the Categorical Predictables ... ")
+GenDFrame=FAS.encodeImpose(GenDFrame,predict)       #1
+ResDFrame=FAS.encodeImpose(ResDFrame,predict)       #2
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
 
-## Reset Predict field names ~ in effect to the dummy encoding
-print(" Resetting Predict field headers ")
-[predict.remove(cols) for col in DumbRems_G if col in predict]
-predict.extend(DumbAppends_G)
-print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
-
-## Initiate Logistic Model
-print(" Initiating Logistic Model ... ",)
-mods=ITRS.Logistic(solver='lbfgs',max_iter=100000)
+## Initiate Machine Learning Model  ** uncomment specific lines as required 
+print(" Initiating Learner Model ... ",)
+#mods=ITRS.Learner(model=ITRS.LogisticRegression(solver='lbfgs',max_iter=100000))       #** Logistic Regression Model 
+mods=ITRS.Learner(model=ITRS.DecisionTreeClassifier())      #** Decision Tree Classifier Model 
 mods.SplitRatio=(7.0/3)
 mods.pushData(GenDFrame,predict,infer)
 print(" Success. ... Process time (s) ",(PRT()-cT));cT=PRT()
@@ -115,7 +122,7 @@ print(" Retrain attempts = ",attempt)
 
 ## Applying Trained Model to Unknown data
 print(" Applying Model to Unknown Data ")
-results=mods.predictionApply(ResDFrame[mods.predictors]) #numpy.ndarray
+results=mods.predictionApply(ResDFrame[predict]) #numpy.ndarray
 CS.showTable(FAS.matchResponse(ResDFrame,results,'Response'),"Required Result")
 print(" Success. ... Process time (s) ",(PRT()-cT))
 
