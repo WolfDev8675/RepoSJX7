@@ -100,7 +100,7 @@ Solutions in folder Task6/ containing files
 - _Line_Plots_.png	 (figure window of plots saved as PNG image)
 - _Overall_Distribution_.png	(figure window of plots saved as PNG image)
 - data//     ( folder of data and question )
->>briefed: 25-03-2021; initialized: 27-03-2021; submitted: pending
+>>briefed: 25-03-2021; initialized: 27-03-2021; submitted: task cancelled
 >
 >__Question:__ Use the IMDB Movie Dataset and perform the following steps :-
 >
