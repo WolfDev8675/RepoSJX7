@@ -27,8 +27,10 @@ for one_id in idx:
   try:
       if plc['city'] not in citydct: citydct[plc['city']]=1
       else: citydct[plc['city']]+=1
+      placeDF.loc[one_id,'city']=plc['city']
   except:
       citydct["Excepts"]+=1
       print(plc)
 
 print(citydct)
+placeDF.to_csv("e:\Source\Repos\WolfDev8675\RepoSJX7\EditedData\place details.csv") 
