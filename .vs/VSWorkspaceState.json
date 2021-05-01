@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Data"
+    "\\Data",
+    "\\EditedData"
   ],
-  "SelectedNode": "\\Data",
+  "SelectedNode": "\\planner.md",
   "PreviewInSolutionExplorer": false
 }
