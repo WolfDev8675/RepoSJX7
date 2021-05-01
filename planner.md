@@ -1,4 +1,4 @@
-# **File: planner.md**
+# **_File: planner.md_**
 
 >Planning file containing all sheet ID names to the references 
 > this is a mock of all the possible permutations that could be thought 
@@ -8,12 +8,12 @@
 
 
 ---
-##**file: user_profile.csv**
+## **file: user_profile.csv**
 
->	CR_Type=Map
+>	Chart_Type( Primary )=Map
 - UPr_Pac1		state vs count of users
 
->	CR_Type=bar chart
+>	Chart_Type( Primary )=bar chart
 - UPr_Pac2		city vs count of users
 - UPr_Pac3		city vs smoker
 - UPr_Pac4		city vs drink_level
@@ -29,20 +29,20 @@
 - UPr_Pac14		city vs color
 - Pr_Pac15		city vs budget
 	
->	CR_Type=histogram
+>	Chart_Type( Primary )=histogram
 
 - UPr_Pac16		city vs height
 - UPr_Pac17		city vs weight
 - UPr_Pac18		city vs birth_year
 
 --- 		
-##**file: userOrder_N_payments.csv**
+## **file: userOrder_N_payments.csv**
 
->	CR_Type=Map
+>	Chart_Type( Primary )=Map
 - UoPy_Pac1		state vs billing amount
 - UoPy_Pac2		state vs order quantity
 	
-	CR_Type=Bar Chart
+	Chart_Type( Primary )=Bar Chart
 - UoPy_Pac3		city vs billing amount
 - UoPy_Pac4		city vs order quantity
 - UoPy_Pac5		city vs upayment
@@ -52,9 +52,9 @@
 - UoPy_Pac9		Top 10 place id vs order quantity
 
 ---
-##**file: rating_final.csv**
+## **file: rating_final.csv**
 
->	CR_Type=Bar Chart
+>	Chart_Type( Primary )=Bar Chart
 - RtF_Pac1		Top 10 place id vs average rating
 - RtF_Pac2		Top 10 place id vs average food rating
 - RtF_Pac3		Top 10 place id vs average service rating
@@ -68,9 +68,9 @@
 - RtF_Pac11		marital_status vs average rating
 
 ---	
-##**file: place_details.csv**
+## **file: place_details.csv**
 
->	CR_Type=Bar chart
+>	Chart_Type( Primary )=Bar chart
 - PlD_Pac1		Price vs average billing amount
 - PlD_Pac2		Franchise vs average billing amount
 - PlD_Pac3		other services vs average billing amount
