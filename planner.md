@@ -27,7 +27,7 @@
 - UPr_Pac12:   city vs religion
 - UPr_Pac13:   city vs activity
 - UPr_Pac14:   city vs color
-- Pr_Pac15:   city vs budget
+- UPr_Pac15:   city vs budget
 	
 >	Chart_Type( Primary )=histogram
 
