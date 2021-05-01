@@ -10,9 +10,10 @@
 ---
 user_profile.csv
 
-	CR_Type=Map
+>	CR_Type=Map
 - UPr_Pac1		state vs count of users
-	CR_Type=bar chart
+
+>	CR_Type=bar chart
 - UPr_Pac2		city vs count of users
 - UPr_Pac3		city vs smoker
 - UPr_Pac4		city vs drink_level
@@ -28,16 +29,16 @@ user_profile.csv
 - UPr_Pac14		city vs color
 - Pr_Pac15		city vs budget
 	
-	CR_Type=histogram
+>	CR_Type=histogram
 
 - UPr_Pac16		city vs height
 - UPr_Pac17		city vs weight
 - UPr_Pac18		city vs birth_year
 
 --- 		
-## @userOrder_N_payments.csv
+userOrder_N_payments.csv
 
-	CR_Type=Map
+>	CR_Type=Map
 - UoPy_Pac1		state vs billing amount
 - UoPy_Pac2		state vs order quantity
 	
@@ -51,9 +52,9 @@ user_profile.csv
 - UoPy_Pac9		Top 10 place id vs order quantity
 
 ---
-## @rating_final.csv
+rating_final.csv
 
-	CR_Type=Bar Chart
+>	CR_Type=Bar Chart
 - RtF_Pac1		Top 10 place id vs average rating
 - RtF_Pac2		Top 10 place id vs average food rating
 - RtF_Pac3		Top 10 place id vs average service rating
@@ -67,9 +68,9 @@ user_profile.csv
 - RtF_Pac11		marital_status vs average rating
 
 ---	
-## @place_details.csv
+place_details.csv
 
-	CR_Type=Bar chart
+>	CR_Type=Bar chart
 - PlD_Pac1		Price vs average billing amount
 - PlD_Pac2		Franchise vs average billing amount
 - PlD_Pac3		other services vs average billing amount
@@ -91,4 +92,5 @@ user_profile.csv
 
 ---
 ## 
-[&copy] WolfDev8675
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_

@@ -15,3 +15,7 @@ Project 2. A story with charts and dashboard to prepare 360 degree view of custo
 > 
 
 Project readability requires tableau software for proper working 
+
+---
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_
