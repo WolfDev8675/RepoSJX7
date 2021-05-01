@@ -1,4 +1,4 @@
-userID,latitude,longitude,smoker,drink_level,dress_preference,ambience,transport,marital_status,hijos,birth_year,interest,personality,religion,activity,color,weight,budget,height
+UserID,latitude,longitude,smoker,drink_level,dress_preference,ambience,transport,marital_status,hijos,birth_year,interest,personality,religion,activity,color,weight,budget,height
 U1001,22.139997,-100.978803,FALSE,abstemious,Informal,family,on foot,single,independent,1989,variety,thrifty-protector,None,student,black,69,medium,1.77
 U1002,22.150087,-100.983325,FALSE,abstemious,Informal,family,public,single,independent,1990,technology,hunter-ostentatious,Catholic,student,red,40,low,1.87
 U1003,22.119847,-100.946527,FALSE,social drinker,Formal,family,public,single,independent,1989,none,hard-worker,Catholic,student,blue,60,low,1.69
