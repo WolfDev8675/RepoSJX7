@@ -8,7 +8,7 @@
 
 
 ---
-user_profile.csv
+**file: user_profile.csv**
 
 >	CR_Type=Map
 - UPr_Pac1		state vs count of users
@@ -36,7 +36,7 @@ user_profile.csv
 - UPr_Pac18		city vs birth_year
 
 --- 		
-userOrder_N_payments.csv
+**file: userOrder_N_payments.csv**
 
 >	CR_Type=Map
 - UoPy_Pac1		state vs billing amount
@@ -52,7 +52,7 @@ userOrder_N_payments.csv
 - UoPy_Pac9		Top 10 place id vs order quantity
 
 ---
-rating_final.csv
+**file: rating_final.csv**
 
 >	CR_Type=Bar Chart
 - RtF_Pac1		Top 10 place id vs average rating
@@ -68,7 +68,7 @@ rating_final.csv
 - RtF_Pac11		marital_status vs average rating
 
 ---	
-place_details.csv
+**file: place_details.csv**
 
 >	CR_Type=Bar chart
 - PlD_Pac1		Price vs average billing amount
