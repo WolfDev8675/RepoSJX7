@@ -18,7 +18,7 @@
 - UPr_Pac3:   city vs smoker
 - UPr_Pac4:   city vs drink_level
 - UPr_Pac5:   city vs dress_preference
-- UPr_Pac6:   city vs ambience
+- UPr_Pac6:   city vs ambience preference (personal)
 - UPr_Pac7:   city vs transport
 - UPr_Pac8:   city vs marital_status
 - UPr_Pac9:   city vs hijos
