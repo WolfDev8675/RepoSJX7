@@ -86,7 +86,7 @@
 - PlD_Pac13:   number of places vs franchise	
 - PlD_Pac14:   number of places vs area	
 - PlD_Pac15:   number of places vs other_services
-- PlD_Pac16:   price vs food rating
+- PlD_Pac16:   price vs average food rating
 - PlD_Pac17:   accessibility vs average rating
 - PlD_Pac18:   other services vs service rating
 
