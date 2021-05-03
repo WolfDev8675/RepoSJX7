@@ -2572,7 +2572,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run bold='true' fontname='Garamond' fontsize='18'>State vs Count of users</run>
+            <run bold='true' fontname='Garamond' fontsize='18'>City vs Count of users</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -3256,7 +3256,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run bold='true' fontname='Garamond' fontsize='18'>City vs Count of users</run>
+            <run bold='true' fontname='Garamond' fontsize='18'>State and City vs Count of users</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -4375,7 +4375,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' name='UPr_Pac1'>
+    <window class='worksheet' maximized='true' name='UPr_Pac1'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5259,7 +5259,7 @@
       </viewpoint>
       <simple-id uuid='{82AD9A49-B920-4B27-8546-99E2474C1C1F}' />
     </window>
-    <window class='worksheet' maximized='true' name='UPr_Pac18'>
+    <window class='worksheet' name='UPr_Pac18'>
       <cards>
         <edge name='left'>
           <strip size='160'>
