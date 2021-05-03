@@ -58,7 +58,7 @@
 - RtF_Pac1:   Top 10 place id vs average rating
 - RtF_Pac2:   Top 10 place id vs average food rating
 - RtF_Pac3:   Top 10 place id vs average service rating
-- RtF_Pac4:   Top 10 place id vs overall rating(rating+food rating+service rating)
+- RtF_Pac4:   Top 10 place id vs average overall rating(rating+food rating+service rating)
 - RtF_Pac5:   single vs average rating
 - RtF_Pac6:   religion vs average rating
 - RtF_Pac7:   smoker vs average rating
