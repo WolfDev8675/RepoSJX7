@@ -91,6 +91,19 @@
 - PlD_Pac18:   other services vs service rating
 
 ---
+## **Dashboards**
+
+>	 Dashboards under **file: user_profile.csv**
+- UPr_dsh1:	UPr_Pac1, UPr_Pac3, UPr_Pac4, UPr_Pac6, UPr_Pac10, UPr_Pac15
+- UPr_dsh2:	ds1
+
+>	Dashboards under **file: userOrder_N_payments.csv**
+- UoPy_dsh1: ds1
+>	Dashboards under **file: rating_final.csv**
+- RtF_dsh1:	ds1
+>	Dashboards under **file: place_details.csv**
+- PlD_dsh1:	ds1
+--- 
 ## 
 &copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
 _(b.biswas_94587@ieee.org)_
