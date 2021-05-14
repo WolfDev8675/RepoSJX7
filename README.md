@@ -3,7 +3,7 @@
 
 Project 2. A story with charts and dashboard to prepare 360° view of customer in tableau.
  
- Use Tableau as a base to visualize from a customer database of an establishment based in Mexico and spannig across the country with data entries from different states of the country
+ Use Tableau as a base to visualize from a customer database of an establishment based in Mexico and spanning across the country with data entries from different states of the country
  
  Task Targets:
  1. Clean Data and Process if possible (EDA tasks)
