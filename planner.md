@@ -67,7 +67,7 @@
 - RtF_Pac8:   ambiance(personal) vs average rating
 - RtF_Pac9:   budget vs average rating
 - RtF_Pac10:   activity vs average rating
-- RtF_Pac11:   marital_status vs average rating
+- RtF_Pac11:   marital_status vs average overall rating
 
 ---	
 ## **file: place_details.csv**
