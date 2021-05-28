@@ -42,9 +42,11 @@
 - UoPy_Pac1:   state vs billing amount
 - UoPy_Pac2:   state vs order quantity
 	
->	Chart_Type( Primary )=Bar Chart
+>	Chart_Type( Primary )=Pie Chart
 - UoPy_Pac3:   city vs billing amount
 - UoPy_Pac4:   city vs order quantity
+	
+>	Chart_Type( Primary )=Bar Chart
 - UoPy_Pac5:   city vs upayment
 - UoPy_Pac6:   upayment vs order
 - UoPy_Pac7:   upayment vs billing amount
