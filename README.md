@@ -24,3 +24,6 @@ Contains files for miscellaneous tasks as was shared with folder links
 * Workbook file https://github.com/WolfDev8675/RepoSJX7/blob/Assign4_miscellaneous/Task3/Asg3.twb
 ---
 > ..
+
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_
