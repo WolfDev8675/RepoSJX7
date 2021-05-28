@@ -11,7 +11,7 @@
 ## **file: user_profile.csv**
 
 >	Chart_Type( Primary )=Map
-- UPr_Pac1:   city vs count of users
+- UPr_Pac1:   state vs count of users
 
 >	Chart_Type( Primary )=bar chart
 - UPr_Pac2:   state and city vs count of users
