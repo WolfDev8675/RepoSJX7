@@ -12,28 +12,29 @@
 
 >	Chart_Type( Primary )=Map
 - UPr_Pac1:   state vs count of users
+- UPr_Pac2:   state and city vs count of users
 
 >	Chart_Type( Primary )=bar chart
-- UPr_Pac2:   state and city vs count of users
-- UPr_Pac3:   city vs smoker
-- UPr_Pac4:   city vs drink_level
-- UPr_Pac5:   city vs dress_preference
-- UPr_Pac6:   city vs ambience preference (personal)
-- UPr_Pac7:   city vs transport
-- UPr_Pac8:   city vs marital_status
-- UPr_Pac9:   city vs hijos
-- UPr_Pac10:   city vs interest
-- UPr_Pac11:   city vs personality
-- UPr_Pac12:   city vs religion
-- UPr_Pac13:   city vs activity
-- UPr_Pac14:   city vs color
-- UPr_Pac15:   city vs budget
+- UPr_Pac3:   state and city vs count of users
+- UPr_Pac4:   city vs smoker
+- UPr_Pac5:   city vs drink_level
+- UPr_Pac6:   city vs dress_preference
+- UPr_Pac7:   city vs ambience preference (personal)
+- UPr_Pac8:   city vs transport
+- UPr_Pac9:   city vs marital_status
+- UPr_Pac10:   city vs hijos
+- UPr_Pac11:   city vs interest
+- UPr_Pac12:   city vs personality
+- UPr_Pac13:   city vs religion
+- UPr_Pac14:   city vs activity
+- UPr_Pac15:   city vs color
+- UPr_Pac16:   city vs budget
 	
 >	Chart_Type( Primary )=histogram
 
-- UPr_Pac16:   city vs height
-- UPr_Pac17:   city vs weight
-- UPr_Pac18:   city vs birth_year
+- UPr_Pac17:   city vs height
+- UPr_Pac18:   city vs weight
+- UPr_Pac19:   city vs birth_year
 
 ---    
 ## **file: userOrder_N_payments.csv**
