@@ -1,8 +1,5 @@
-# RepoSJX7
-DataScience assignments (BSE+MAKAUT)
+# RepoSJX7 : branch main5
+Machine Learning assignments (BSE+MAKAUT)
 #
-Repository head containing branches and files for various projects and tasks given during the life cycle of the course
-
-__Post Graduate Diploma in Data Science from BSE in collaboration with MAKAUT__
->Module headers are kept as main names 
-#
+Parent branch for Assign5_miscellaneous
+Files for the assigments in collection and coded in language of python 
