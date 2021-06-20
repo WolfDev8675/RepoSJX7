@@ -8,6 +8,8 @@ import copy as CP
 from sklearn.model_selection import train_test_split as tr_te_sp
 from sklearn.linear_model import LinearRegression as LinReg
 from sklearn import metrics 
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
 
 # Code ....
 # 
@@ -37,17 +39,23 @@ dataset['State']=dataset['State'].astype('int')
 
 # segmenting
 X=dataset.iloc[:,:-1].values
-Y=dataset.iloc[:-1].values
+Y=dataset.iloc[:,-1].values
 
 #check 
 print("X: \n",X)
 print("Y: \n",Y)
 
+## Transformer for categoricals
+#ct=ColumnTransformer(transformers=[('encoder',OneHotEncoder(),[3])],remainder='passthrough')
+#X=NP.array(ct.fit_transform(X))
+
 # Dataset spliting 
-X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=1/3, random_state=0)
+X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=0.2, random_state=0)
 
 # Training Simple Linear Regression on training set 
 regressor=LinReg()
 regressor.fit(X_train,y_train)
 
 y_pred=regressor.predict(X_test)
+NP.set_printoptions(precision=2)
+print(NP.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
