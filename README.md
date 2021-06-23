@@ -1,5 +1,4 @@
-# RepoSJX7 : branch main4
-Data Visualization assignments (BSE+MAKAUT)
+# RepoSJX7 : branch Assign4_1
+Data Visualization Project1 (BSE+MAKAUT)
 #
-Assignments of various tasks worked in Tableau software.
-
+Tableau based project on Napoleaon's Russian Campaign
