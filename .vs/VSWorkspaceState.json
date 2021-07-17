@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task1"
+    "\\Task1",
+    "\\Task2",
+    "\\Task3"
   ],
-  "SelectedNode": "\\Task1\\Salary_Data.csv",
+  "SelectedNode": "\\Task3\\Code3.py",
   "PreviewInSolutionExplorer": false
 }
