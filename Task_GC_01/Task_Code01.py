@@ -21,7 +21,7 @@ print(" Description ",data_B.describe())
 SNS.jointplot(x="Yearly Amount Spent",y="Time on Website",data=data_B);
 SNS.jointplot(x="Yearly Amount Spent",y="Length of Membership",data=data_B);
 SNS.pairplot(data_B)
-A=data_B(data_B("Yearly Amount Spent","Length of Membership"))
+A=data_B(data_B("Yearly Amount Spent"),round(data_B("Length of Membership")))
 g=SNS.FacetGrid(data=A,row="Yearly Amount Spent",col="Length of Membership");
 g.map(SNS.scatterplot," Data details ")
 PLT.show();
@@ -29,4 +29,4 @@ PLT.show();
 # Training and Testing Data
 X=data_B.iloc[: -1:-1]
 Y=data_B.iloc[:,-1]
-X_train, X_test, y_train, y_test= tr_te_sp( test_size=0.3, random_state=101)
+X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=0.3, random_state=101)
