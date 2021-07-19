@@ -6,7 +6,7 @@ import pandas as PD
 import matplotlib.pyplot as PLT
 from sklearn.model_selection import train_test_split as tr_te_sp
 from sklearn.linear_model import LinearRegression as LinReg
-from sklearn import metrics 
+from sklearn import metrics
 
 # Code ....
 # 
