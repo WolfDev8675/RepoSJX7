@@ -62,3 +62,9 @@ print(" Time on App  ",coeffs[1])
 print(" Time on Website ",coeffs[2])
 print(" Length of Membership ",coeffs[3])
 
+
+
+
+#..
+# End of Code 
+#..
