@@ -22,7 +22,7 @@ y=dbs.iloc[:-1]
 
 # One Hot Encoding to fit data 
 ohec=OHEnc()
-X_enc=ohec.fit(X)
+X_enc=ohec.fit_transform(X)
 Y_enc=ohec.fit(y)
 
 # Decisions 
