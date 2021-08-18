@@ -26,6 +26,9 @@ for one_id in idx:
   except:
       placeDF.loc[one_id,'city']=plc['county'] # since counties are found to be city equivalent matching state outlines perfectly in this case
       # the classical case of city regions being shared between city municipality and another smaller neighbouring municipality
-  
-#push to secondary source 
-placeDF.to_csv("e:\Source\Repos\WolfDev8675\RepoSJX7\EditedData\place details.csv", encoding='latin-1', index=False)
+
+# push to secondary source 
+placeDF.to_csv("e:\Source\Repos\WolfDev8675\RepoSJX7\EditedData\place_details.csv", encoding='latin-1', index=False)
+
+
+#end of code 
