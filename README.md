@@ -1,4 +1,4 @@
-# RepoSJX7 : branch main5
+# RepoSJX7 : branch Assign5_1
 Machine Learning assignments (BSE+MAKAUT)
 #
 Parent branch for Assign5_miscellaneous
