@@ -12,7 +12,7 @@ import matplotlib.pyplot as plots
 
 BrentCrude=yf.Ticker("BZ=F")
 print(BrentCrude.info)
-DTX_BrentC=BrentCrude.history(period="5y")
+DTX_BrentC=BrentCrude.history(period="10y")
 print(DTX_BrentC)
 print(DTX_BrentC.info())
 
