@@ -22,9 +22,9 @@ from sklearn import metrics as mtcs
 data_B= PD.read_csv("https://raw.githubusercontent.com/WolfDev8675/RepoSJX7/Assign5_miscellaneous/Task_GC_01/Ecommerce%20Customers.csv%20-%20Ecommerce%20Customers.csv.csv")
 
 #data _informations
-print(" Dataset Head  ",data_B.head())
-print(" Information ",data_B.info())
-print(" Description ",data_B.describe())
+print(" Dataset Head  \n",data_B.head())
+print("\n\n Information \n");data_B.info()
+print("\n\n Description \n",data_B.describe())
 
 # Exploratory Data analysis 
 
@@ -58,9 +58,10 @@ y_pred=lm.predict(X_test)
 
 #Visual of Prediction 
 print("\n\n Predicted Values vs True Values ")
-SNS.scatterplot(y_pred,y_test);PLT.show();print("\n\n")
+SNS.scatterplot(y_pred,y_test);PLT.ylabel(" Predicted ");PLT.xlabel(" True ");PLT.title(" Yearly Amount Spent ");PLT.show();print("\n\n")
 
 #Evaluation of the Model
+print(" Error Evaluation ")
 print(" Mean Absolute Error :: ",mtcs.mean_absolute_error(y_test,y_pred))
 print(" Mean Squared Error  :: ",mtcs.mean_squared_error(y_test,y_pred))
 print(" Root Mean Squared Error :: ",NP.sqrt(mtcs.mean_squared_error(y_test,y_pred)))
