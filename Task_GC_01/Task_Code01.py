@@ -10,15 +10,16 @@
 # imports
 import numpy as NP
 import pandas as PD
+%matplotlib inline
 import matplotlib.pyplot as PLT
 import seaborn as SNS
 from sklearn.model_selection import train_test_split as tr_te_sp
-from sklearn.linear_model import LinearRegression 
+from sklearn.linear_model import LinearRegression as LineReg
 from sklearn import metrics as mtcs
 
 
 # import data 
-data_B= PD.read_csv("e:\Source\Repos\WolfDev8675\RepoSJX7\Task_GC_01\Ecommerce Customers.csv - Ecommerce Customers.csv.csv")
+data_B= PD.read_csv("https://raw.githubusercontent.com/WolfDev8675/RepoSJX7/Assign5_miscellaneous/Task_GC_01/Ecommerce%20Customers.csv%20-%20Ecommerce%20Customers.csv.csv")
 
 #data _informations
 print(" Dataset Head  ",data_B.head())
@@ -27,32 +28,37 @@ print(" Description ",data_B.describe())
 
 # Exploratory Data analysis 
 
-SNS.jointplot(x="Yearly Amount Spent",y="Time on Website",data=data_B);PLT.show();
-SNS.jointplot(x="Yearly Amount Spent",y="Length of Membership",data=data_B);PLT.show();
+print("\n\nYearly Amount Spent vs. Time on Website")
+SNS.jointplot(y="Yearly Amount Spent",x="Time on Website",data=data_B);PLT.show();
+print("\n\nYearly Amount Spent vs. Time on App")
+SNS.jointplot(y="Yearly Amount Spent",x="Time on App",data=data_B);PLT.show();
+print("\n\nTime on App vs. Length of Membership")
+SNS.jointplot(x="Time on App",y="Length of Membership",data=data_B,kind="hex");PLT.show();
+print("\n\n Pair Plots of data correlations ")
 SNS.pairplot(data_B);PLT.show();
-#data_B("Length of Membership")=round(data_B("Length of Membership"))
-#g=SNS.FacetGrid(data_B,row="Yearly Amount Spent");
-#g.map(SNS.scatterplot," Data details ")
-#PLT.show();
+print("\n\nYearly Amount Spent vs. Length of Membership")
+SNS.lmplot(y="Yearly Amount Spent",x="Length of Membership",data=data_B);PLT.show();
+
 
 # Training and Testing Data
-X=data_B.iloc[: -1:-1]
-Y=data_B.iloc[:,-1]
+X=data_B[['Avg. Session Length','Time on App','Time on Website','Length of Membership']]
+Y=data_B['Yearly Amount Spent']
 X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=0.3, random_state=101)
 
 #Model creation 
-module=LinearRegression
-module.fit(X_train,y_train)
+lm=LineReg()
+lm.fit(X_train,y_train)
 
 #Coefficients
-coeffs=module.coef_
-print("Coefficients: ",coeffs)
+coeffs=lm.coef_
+print("\n\nCoefficients: ",coeffs)
 
 #Predict Test results 
-y_pred=module.predict(X_test)
+y_pred=lm.predict(X_test)
 
 #Visual of Prediction 
-SNS.scatterplot(y_pred,y_test);PLT.show()
+print("\n\n Predicted Values vs True Values ")
+SNS.scatterplot(y_pred,y_test);PLT.show();print("\n\n")
 
 #Evaluation of the Model
 print(" Mean Absolute Error :: ",mtcs.mean_absolute_error(y_test,y_pred))
@@ -60,10 +66,13 @@ print(" Mean Squared Error  :: ",mtcs.mean_squared_error(y_test,y_pred))
 print(" Root Mean Squared Error :: ",NP.sqrt(mtcs.mean_squared_error(y_test,y_pred)))
 
 #Residuals 
-SNS.displot(data_B)
+residuals=y_test - y_pred;
+print("\n\n Residuals ")
+SNS.displot(residuals,kde=True);PLT.show()
+
 
 #Conclusion 
-print(" \t \t Coefficients ")
+print("\n\n \t \t Coefficients ")
 print(" Avg. Session Length ",coeffs[0])
 print(" Time on App  ",coeffs[1])
 print(" Time on Website ",coeffs[2])
