@@ -24,6 +24,7 @@ import numpy as NP
 import pandas as PD
 import matplotlib.pyplot as PLT
 import seaborn as SNS
+import scipy.stats as STAT
 from sklearn.model_selection import train_test_split as tr_te_sp
 from sklearn.preprocessing import StandardScaler as Std_Sc
 from sklearn.linear_model import LogisticRegression as Log_Reg 
@@ -32,20 +33,25 @@ from sklearn.model_selection import cross_val_score
 
 
 # import data 
-data_B= PD.read_csv(r"e:\Source\Repos\WolfDev8675\RepoSJX7\Task_GC_02\advertising.csv")
+data_B= PD.read_csv("https://raw.githubusercontent.com/WolfDev8675/RepoSJX7/Assign5_miscellaneous/Task_GC_02/advertising.csv")
 
 #data _informations
-print(" Dataset Head  ",data_B.head())
-print(" Information ",data_B.info())
-print(" Description ",data_B.describe())
+print("\n\n Dataset Head  \n",data_B.head())
+print("\n\n Information \n");data_B.info()
+print("\n\n Description \n",data_B.describe())
 
 # Exploratory Data analysis 
 
-SNS.histplot(data_B,x='Age')
+print("\n\n Number of user to the Age ")
+SNS.histplot(data_B,x='Age');PLT.show();
+print("\n\n Area Income vs Age ")
 SNS.jointplot(x="Age",y="Area Income",data=data_B,kind='scatter');PLT.show();
-SNS.jointplot(x="Age",y="Daily Time Spent on Site",data=data_B,kind='kde',color='r');PLT.show();
+print("\n\n  Daily Time Spent on Site vs Age ")
+SNS.jointplot(x="Age",y="Daily Time Spent on Site",data=data_B,kind='kde',color='r',fill=True);PLT.show();
+print("\n\n  Daily Internet Usage vs Daily Time Spent on Site ")
 SNS.jointplot(y="Daily Internet Usage",x="Daily Time Spent on Site",data=data_B,kind='scatter',color='g');PLT.show();
-SNS.pairplot(data_B);PLT.show();
+print("\n\n  Clicked on Ad field's comparison with other fields ")
+SNS.pairplot(data=data_B,hue='Clicked on Ad',diag_kind="hist");PLT.show();
 
 #Parititioning the data into componenets 
 X=data_B[['Daily Time Spent on Site', 'Age', 'Area Income','Daily Internet Usage', 'Male']]
@@ -55,7 +61,10 @@ y=data_B['Clicked on Ad']
 X_train, X_test, y_train, y_test= tr_te_sp(X,y, test_size=0.25, random_state=0)
 
 #Logistic Modeling 
-model=Log_Reg(solver='lbfgs')
+model=Log_Reg(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
 model.fit(X_train,y_train)
 
 #Predictions
@@ -63,17 +72,17 @@ y_pred=model.predict(X_test)
 
 # Metics study 
 cnf_mat=confusion_matrix(y_test,y_pred)
-print("Confusion Matix : \n",cnf_mat)
+print("\n\n Confusion Matix : \n",cnf_mat)
 acc_sc=accuracy_score(y_test,y_pred)
-print(" Accuracy Score : ",acc_sc)
+print("\n\n Accuracy Score : ",acc_sc)
 
 #Predicted Probabilities 
 y_score=model.predict_proba(X_test)[:,1]
 
 # Classification Report
-print(classification_report(y_test,y_pred))
+print("\n\n Classification Report  \n ",classification_report(y_test,y_pred))
 
 
 #..
 # End of Code 
-#.. 
+#..
