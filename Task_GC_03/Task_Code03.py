@@ -34,13 +34,14 @@ X=db[["size","year"]].values #independent variables
 Y=db[["price"]].values  #dependent variables 
 X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=0.2, random_state=0)
 
-#Model creation 
+#Model creation
+print("\n\n Creating and Training Model .... ") 
 module=LinReg()
 module.fit(X_train,y_train)
 
 #Coefficients
 coeffs=module.coef_
-print("Coefficients: ",coeffs)
+print("\n\n Coefficients: ",coeffs)
 print("\n Equation of model: \n price=",coeffs[0,0],"* size + ",coeffs[0,1],"* year.")
 
 #Predict Test results 
