@@ -21,31 +21,40 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split as tr_te_sp
 from sklearn.linear_model import LinearRegression as LinReg
 from sklearn.metrics import confusion_matrix,accuracy_score
+from sklearn import metrics as mtcs
 
 #Loading the data
-db=pd.read_csv(r"e:\Source\Repos\WolfDev8675\RepoSJX7\Task_GC_03\real_estate_price_size_year.csv")
-print("Head of the database \n",db.head())
-print(" Information :\n",db.info())
-print(" Description :\n",db.describe())
+db=pd.read_csv("https://raw.githubusercontent.com/WolfDev8675/RepoSJX7/Assign5_miscellaneous/Task_GC_03/real_estate_price_size_year.csv")
+print("\n\n Head of the database \n",db.head())
+print("\n\n Information :\n");db.info();
+print("\n\n Description :\n",db.describe())
 
 #Data division 
-X=db(["size","year"]).values
-Y=db(["price"]).values
+X=db[["size","year"]].values #independent variables
+Y=db[["price"]].values  #dependent variables 
 X_train, X_test, y_train, y_test= tr_te_sp(X,Y, test_size=0.2, random_state=0)
 
 #Model creation 
-module=LinearRegression
+module=LinReg()
 module.fit(X_train,y_train)
 
 #Coefficients
 coeffs=module.coef_
 print("Coefficients: ",coeffs)
+print("\n Equation of model: \n price=",coeffs[0,0],"* size + ",coeffs[0,1],"* year.")
 
 #Predict Test results 
 y_pred=module.predict(X_test)
+#np.set_printoptions(precision=2)
+#print(np.concatenate((y_pred.reshape(len(y_pred),1),y_test.reshape(len(y_test),1)),1))
 
-# Metics study 
-cnf_mat=confusion_matrix(y_test,y_pred)
-print("Confusion Matix : \n",cnf_mat)
-acc_sc=accuracy_score(y_test,y_pred)
-print(" Accuracy Score : ",acc_sc)
+#Evaluation of the Model
+print("\n\n Error Evaluation ")
+print(" Mean Absolute Error :: ",mtcs.mean_absolute_error(y_test,y_pred))
+print(" Mean Squared Error  :: ",mtcs.mean_squared_error(y_test,y_pred))
+print(" Root Mean Squared Error :: ",np.sqrt(mtcs.mean_squared_error(y_test,y_pred)))
+
+
+#**
+# ** End of code 
+#** 
