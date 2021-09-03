@@ -1,5 +1,5 @@
 # RepoSJX7 : branch main5
-Machine Learning assignments (BSE+MAKAUT)
+### Machine Learning assignments (BSE+MAKAUT)
 ## Parent branch for various Machine Learning tasks and assignments given in Module 5.
 All assignments and projects are coded in python language (Python 3.7).
 ---
