@@ -10,6 +10,6 @@ Files for the assigments in collection and coded in language of python
 ---
 Assignment2: Project 2 : A story with charts and dashboard to prepare 360° view of customer in tableau. 
 - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign3_2_
-* ->https://github.com/WolfDev8675/RepoSJX7/blob/main3/EDAnVisual_Cust360_project_doc.pdf
-#
-path to miscellaneous tasks as was given : https://github.com/WolfDev8675/RepoSJX7/tree/Assign3_miscellaneous
+- Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main3/EDAnVisual_Cust360_project_doc.pdf_
+---
+Path to miscellaneous tasks as was given : _https://github.com/WolfDev8675/RepoSJX7/tree/Assign3_miscellaneous_
