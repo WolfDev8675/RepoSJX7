@@ -1,8 +1,9 @@
 # RepoSJX7 : branch main5
 ### Machine Learning assignments (BSE+MAKAUT)
 ---
-## Parent branch for various Machine Learning tasks and assignments given in Module 5.
-## All assignments and projects are coded in python language (Python 3.7).
+## 
+Parent branch for various Machine Learning tasks and assignments given in Module 5.
+All assignments and projects are coded in python language (Python 3.7).
 ---
 > **Project 1: Prediction of Board Game Review.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_1_
