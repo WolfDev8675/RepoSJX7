@@ -8,11 +8,11 @@ Parent branch for all Data Visualization Assignments as was given in Module 4
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_1_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main4/Project1_final.pdf_
 ---
-> **Project 2: **
+> **Project 2: Pandemic Outbreak Map of SARS-COVID19 in India.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_2_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main4/Dash_final_p.pdf_
 ---
-> **Project 3: **
+> **Project 3: Interactive Map of the Distribution of Languages of India**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_3_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main4/proj3_final.pdf_
 ---
@@ -21,3 +21,6 @@ Parent branch for all Data Visualization Assignments as was given in Module 4
 - Assignment 1: https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_miscellaneous/Task1
 - Assignment 2: https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_miscellaneous/Task2
 - Assignment 3: https://github.com/WolfDev8675/RepoSJX7/tree/Assign4_miscellaneous/Task3
+
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_
