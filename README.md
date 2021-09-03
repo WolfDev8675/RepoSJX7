@@ -1,7 +1,7 @@
 # RepoSJX7 : branch Assign5_miscellaneous
-__Machine Learning assignments (BSE+MAKAUT)__
+_Machine Learning assignments (BSE+MAKAUT)_
 ---
-Machine Learning (practical) tasks and assignments
+Machine Learning (practical) tasks and assignments. 
 Files for the assigments in collection and coded in language of python 
 ---
 > Task 1: _given and initiated on 13-06-2021._
