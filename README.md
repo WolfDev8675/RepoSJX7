@@ -2,7 +2,7 @@
 _Machine Learning assignments (BSE+MAKAUT)_
 ---
 Machine Learning (practical) tasks and assignments. 
-Files for the assigments in collection and coded in language of python 
+Collection for assignments and tasks coded in Python Language (Python 3.7) 
 ---
 > Task 1: _given and initiated on 13-06-2021._
 > - Objective: Classwork (Non-Markable)
