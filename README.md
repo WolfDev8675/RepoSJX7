@@ -13,3 +13,6 @@ Files for the assigments in collection and coded in language of python
 - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main3/EDAnVisual_Cust360_project_doc.pdf_
 ---
 Path to miscellaneous tasks as was given : _https://github.com/WolfDev8675/RepoSJX7/tree/Assign3_miscellaneous_
+
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_
