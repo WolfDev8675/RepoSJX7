@@ -2,7 +2,6 @@
 Data Visualization assignments (BSE+MAKAUT)
 ---
 Assignments of various tasks worked in Tableau software.
-
 Parent branch for all Data Visualization Assignments as was given in Module 4.
 ---
 > **Project 1: Napoleon's Russian Campaign Visualization.**
