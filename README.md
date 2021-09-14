@@ -1,8 +1,7 @@
-# RepoSJX7 : branch main5
-Machine Learning assignments (BSE+MAKAUT)
+# RepoSJX7 : branch Assign5_2
+Machine Learning Project 2 (BSE+MAKAUT)
 ---
-Parent branch for various Machine Learning tasks and assignments as was given in Module 5.
-Files for the assigments in collection and coded in language of python.
+Removing hate speech Twitter tweets 
 ---
 
 
