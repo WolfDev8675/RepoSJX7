@@ -1,7 +1,7 @@
 # RepoSJX7 : branch Assign5_2
 Machine Learning Project 2 (BSE+MAKAUT)
 ---
-> Removing hate speech Twitter tweets 
+Removing hate speech Twitter tweets 
 ---
 
 
