@@ -49,6 +49,11 @@ print('\n');input('Press any key to continue . . .');print('x'.center(70,'*'))
 # Exploration of the data
 print(" Exploration of the data ");print('_'.center(70,'_'));
 # EDA:#1
+print(' Unique values in Dataset : \n',d_set_f0.nunique());print('_'.center(70,'_'));
+#  "type" field is purely categorical with only two categories. More exploration gives us the following.
+# unique values of 'type' field
+print(' Unique values of "type" field : ',d_set_f0['type'].unique());print('_'.center(70,'_'));
+# EDA:#2
 fig_1=plts.figure(figsize=(13,6.5));fig_1.canvas.set_window_title('EDA plot(1): Average rating histogram')
 sns.histplot(d_set_f0['average_rating']);
 plts.xlabel('Average Rating');plts.title('Variation of average rating received');
@@ -76,6 +81,9 @@ plts.show();
 # ---- info determined: average rating is the target variable for determination of a game quality.
 #            Secondarily, the name, type and id fields have no contribution. 
 #               Also bayes rating and publishing year have very low correlation to the determining factors.
+print(' Unique values in Dataset : \n',d_set_f1.nunique());print('_'.center(70,'_'));
+d_set_f1.sort_values(['average_rating'], ascending=False)[['name','average_rating']].head(10)
+d_set_f1.sort_values(['average_rating'], ascending=False)[['name','average_rating']].tail(10)
 # EDA decision #2 (EDA#3 & EDA#4)
 contributors=[a_column for a_column in d_set_f1.columns.tolist() if a_column not in ['id','name','type','bayes_average_rating','yearpublished']]
 affectors='average_rating'
@@ -130,5 +138,11 @@ for key in models:
     models[key].fit(trainX,trainY)
     print("Trained Model : ",key)
 print('_'.center(70,'_'));
-
-
+#Part:4 Prediction tests from the Trained Models
+predicts=dict.fromkeys(models.keys())
+print(' Prediction Generation Status : ')
+for key in models:
+    predicts[key]=models[key].predict(testX)
+    print('Prediction generated for : ',key)
+print('_'.center(70,'_'));
+print('\n');input('Press any key to continue . . .');print('x'.center(70,'*'))
