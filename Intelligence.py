@@ -1,6 +1,6 @@
 #!usr/bin/python
 
-""" Module for all Machine Learning models used in this Project """
+""" Module for handling all Machine Learning models used in this Project """
 
 # imports
 import pandas as pd
@@ -105,3 +105,7 @@ class Forecaster():
             verticalalignment='center', transform=ax.transAxes)
         plots.title(title)
         plots.show()
+
+    def grad_decent(self):
+        """ Use Gradient Decent method to purify model """
+        pass
