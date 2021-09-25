@@ -1,1 +1,1 @@
-| |MAE|MSE|RMSE|
+|  | MAE | MSE | RMSE |
