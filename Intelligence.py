@@ -90,16 +90,18 @@ class Forecaster():
         """ Trains the model on given data """
         self.model.fit(self.split_data['Train']['x'],self.split_data['Train']['y'])
 
-    def plotMetrics(self,title="Model: unspecified"):
+    def plotMetrics(self,data,title="Model: unspecified"):
         """ Plots variation of the trained data """
-        anotStr1='\n'.join((r"Mean Absolute Error: %f"%metrics.mean_absolute_error(self.YData,self.model.predict(self.XData)),
-        r" Mean Squared Error:  %f"%metrics.mean_squared_error(self.YData,self.model.predict(self.XData)),
-        r" Root Mean Squared Error:  %f"%np.sqrt(metrics.mean_squared_error(self.YData,self.model.predict(self.XData)))))
-        predLR=self.model.predict(self.data[['Open','High','Low']])
-        Fig1=plots.figure(figsize=(15,7.5));ax1=Fig1.add_subplot(111);
-        plots.plot(self.data.index,self.data[[self.infers]])
-        plots.plot_date(self.data.index,predLR,'g.-')
-        plots.text(0.12,0.95,anotStr1,horizontalalignment='center',
-            verticalalignment='center', transform=ax1.transAxes)
+        XData=data[self.predicts]
+        YData=data[self.infers]
+        anotStr='\n'.join((r"Mean Absolute Error: %f"%metrics.mean_absolute_error(YData,self.model.predict(XData)),
+        r" Mean Squared Error:  %f"%metrics.mean_squared_error(YData,self.model.predict(XData)),
+        r" Root Mean Squared Error:  %f"%np.sqrt(metrics.mean_squared_error(YData,self.model.predict(XData)))))
+        predLR=self.model.predict(data[['Open','High','Low']])
+        Fig=plots.figure(figsize=(15,7.5));ax=Fig.add_subplot(111);
+        plots.plot(data.index,data[[self.infers]])
+        plots.plot_date(data.index,predLR,'g.-')
+        plots.text(0.12,0.95,anotStr,horizontalalignment='center',
+            verticalalignment='center', transform=ax.transAxes)
         plots.title(title)
         plots.show()

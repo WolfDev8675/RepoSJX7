@@ -14,6 +14,7 @@ from sklearn.linear_model import LinearRegression as LinReg  #@intellligence
 from sklearn.ensemble import RandomForestRegressor as RnForReg  #@intelligence
 from sklearn.svm import SVR #@intelligence
 from sklearn.linear_model import BayesianRidge as BayesR   #@intelligence
+from copy import deepcopy
 
 
 # historic data access
@@ -30,10 +31,10 @@ plots.show()
 #plots.boxplot(dHs[['Open','High','Low','Close']],labels=['Open','High','Low','Close']);plots.show()
 
 #1: Linear Regression
-frCst1=Forecaster(model=LinReg())
-frCst1.pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
-frCst1.normal_split()
-frCst1.train()
+#frCst1=Forecaster(model=LinReg())
+#frCst1.pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
+#frCst1.normal_split()
+#frCst1.train()
 #anotStr1='\n'.join((r"Mean Absolute Error: %f"%metrics.mean_absolute_error(frCst1.YData,frCst1.model.predict(frCst1.XData)),
 #r" Mean Squared Error:  %f"%metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData)),
 #r" Root Mean Squared Error:  %f"%np.sqrt(metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData)))))
@@ -45,18 +46,18 @@ frCst1.train()
 #     verticalalignment='center', transform=ax1.transAxes)
 #plots.title("model: Linear Regression ")
 #plots.show()
-frCst1.plotMetrics(title='Model: Linear Regression ')
+#frCst1.plotMetrics(data=dhs2,title='Model: Linear Regression ')
 
-frCst2=Forecaster(model=LinReg())
-frCst2.pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
-frCst2.crossval_KF_split(n_splits=5,random_state=None,shuffle=False)
-frCst2.train()
-frCst2.plotMetrics(title='Model: Linear Regression ')
+#frCst2=Forecaster(model=LinReg())
+#frCst2.pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
+#frCst2.crossval_KF_split(n_splits=5,random_state=None,shuffle=False)
+#frCst2.train()
+#frCst2.plotMetrics(data=dhs2,title='Model: Linear Regression ')
 
-print("\n\n Linear Regression metrics ")
-print(" Mean Absolute Error %f"%metrics.mean_absolute_error(frCst1.YData,frCst1.model.predict(frCst1.XData)))
-print(" Mean Squared Error  %f"%metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData)))
-print(" Root Mean Squared Error  %f"%np.sqrt(metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData))))
+#print("\n\n Linear Regression metrics ")
+#print(" Mean Absolute Error %f"%metrics.mean_absolute_error(frCst1.YData,frCst1.model.predict(frCst1.XData)))
+#print(" Mean Squared Error  %f"%metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData)))
+#print(" Root Mean Squared Error  %f"%np.sqrt(metrics.mean_squared_error(frCst1.YData,frCst1.model.predict(frCst1.XData))))
 
 ##2: Random Forest 
 #frCst2=Forecaster(model=RnForReg())
@@ -104,3 +105,25 @@ print(" Root Mean Squared Error  %f"%np.sqrt(metrics.mean_squared_error(frCst1.Y
 #print(" Root Mean Squared Error  %f"%np.sqrt(metrics.mean_squared_error(frCst4.YData,frCst4.model.predict(frCst4.XData))))
 
 
+models_name={'LR':"Linear Regression",
+             'RF':"Random Forest",
+             'SV':"Support Vector",
+             'BR':"Bayesian Ridge"};
+models_mods_norm={'LR':Forecaster(model=LinReg()),
+                  'RF':Forecaster(model=RnForReg()),
+                  'SV':Forecaster(model=SVR()),
+                  'BR':Forecaster(model=BayesR())};
+models_mods_CVKF=deepcopy(models_mods_norm);
+
+# Train and Test 
+for mod_key in models_mods_norm:
+    models_mods_norm[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
+    models_mods_norm[mod_key].normal_split()
+    models_mods_norm[mod_key].train()
+    models_mods_norm[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key])
+
+for mod_key in models_mods_CVKF:
+    models_mods_CVKF[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
+    models_mods_CVKF[mod_key].crossval_KF_split(n_splits=5,random_state=None,shuffle=False)
+    models_mods_CVKF[mod_key].train()
+    models_mods_CVKF[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key]+" Cross Validated ")
