@@ -23,7 +23,10 @@ from copy import deepcopy
 # dHs=data_Prestored("https://raw.githubusercontent.com/WolfDev8675/RepoSJX7/CaseStudy_backend/Data_static/BrentOilPrices.csv")
 
 dHs=data_FixedTimeLine("BZ=F",start="2017-10-01",end="2019-10-01")  #for prediction
-dhs2=data_Live(period='5mo')                                        #for result comparison    
+dhs2=data_Live(period='5mo')                                        #for result comparison   
+
+#Stock data show
+stockCandle(dHs)
 
 # Season @analysis
 trendNseasonality(dHs[['Close']],model='additive',period=30)

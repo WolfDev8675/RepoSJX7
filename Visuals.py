@@ -8,6 +8,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plts
 import warnings as warns
+import plotly.graph_objects as gr_objs
 
 def manipulators(count,duplicated=True,repeated=True):
     """ Sets up permutation pairs """
@@ -107,3 +108,23 @@ def fullDataPlots(data,method=sns.pairplot,title=None,window_dim=(15,10)):
     Fig.suptitle(title)
     plts.subplots_adjust(0.064,0.06,0.983,0.938)
     return plts.show()
+
+def stockCandle(data):
+    """ Create a Candlestick chart for stock market like data 
+    *********************
+    Variables
+    ---------------------
+    data : pandas.DataFrame object with specified definition type 
+    
+    Dataframe definition type must follow
+    1. Date must be indexed 
+    2. Date index must be a datetime object
+    3. Must have 'Open','High','Low','Close' columns of data 
+    _________________________
+    returns a plotted candlestick chart with sliders 
+    """
+    fig = gr_objs.Figure(data=[gr_objs.Candlestick(x=data.index,
+                open=data.Open, high=data.High,
+                low=data.Low, close=data.Close)])
+    print(type(fig))
+    fig.show()
