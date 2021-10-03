@@ -129,7 +129,12 @@ class Forecaster():
         """ Variable boosting for model improvement """
         pass
     def accuracy(self):
-        pass
+        """ Calculate the Accuracy of the Regression Model """
+        predict=self.model.predict(self.split_data['Test']['x'])
+        errs=abs(predict-self.split_data['Test']['y'])
+        MAE_P=100*np.mean(errs/self.split_data['Test']['y'])
+        return 100- MAE_P
+
     def regression_report(self):
         """ Regression report collection """
         y_true,y_predic=self.split_data['Test']['y'],self.model.predict(self.split_data['Test']['x'])
@@ -144,7 +149,7 @@ class Forecaster():
             ('Mean Squared Log Error',metrics.mean_squared_log_error(y_true,y_predic)),
             ('Median Absolute Error',metrics.median_absolute_error(y_true,y_predic)),
             (' R{:} '.format('\xb2'),metrics.r2_score(y_true,y_predic)),
-            (' Adjusted R{:} : '.format('\xb2'),(1-(1-metrics.r2_score(y_true,y_predic))*(len(y_true)-1)/(len(y_true)-self.split_data['Test']['x'].shape[1]-1))),
+            (' Adjusted R{:} '.format('\xb2'),(1-(1-metrics.r2_score(y_true,y_predic))*(len(y_true)-1)/(len(y_true)-self.split_data['Test']['x'].shape[1]-1))),
             ('Mean Poisson Deviance',metrics.mean_poisson_deviance(y_true,y_predic)),
             ('Mean Gamma Deviance',metrics.mean_gamma_deviance(y_true,y_predic)),
             ('Max Error',metrics.max_error(y_true,y_predic)),

@@ -11,7 +11,7 @@ from DataAccess import pd,dt
 def trendNseasonality(data,model='additive',period=30):
     """ Visually discuss trend and seasonality of data """
 
-    model_TS=seasonal_decompose(data,model='additive',period=30)
+    model_TS=seasonal_decompose(data,model=model,period=period)
     #Fig=plts.figure(figsize=(15,7.5))
     Fig=model_TS.plot()
     Fig.suptitle(" Trend and Seasonality in the Data ")

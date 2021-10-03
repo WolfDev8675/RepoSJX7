@@ -24,12 +24,9 @@ from copy import deepcopy
 
 dHs=data_FixedTimeLine("BZ=F",start="2017-10-01",end="2019-10-01")  #for prediction
 dhs2=data_Live(period='5mo')                                        #for result comparison    
-# Season @analysis
-#model_TS=seasonal_decompose(dHs[['Close']],model='additive',period=30)
-#model_TS.plot()
-#plots.show() 
-trendNseasonality(dHs[['Close']],model='additive',period=30)
 
+# Season @analysis
+trendNseasonality(dHs[['Close']],model='additive',period=30)
 
 # EDA 
 fullDataPlots(dHs[['Open','High','Low','Close']],title=" Pairplot of %s"%str(['Open','High','Low','Close'])[2:-2]) # pairplot 
@@ -40,9 +37,6 @@ for year in set(dHs.index.year):
     yearVariation(dHs[['Close']],year)
     yearVariation(dHs[['Open']],year)
     
-
-# 
-
 #Model Creation and study
 models_name={'LR':"Linear Regression",
              'RF':"Random Forest",
@@ -59,13 +53,13 @@ for mod_key in models_mods_norm:
     models_mods_norm[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
     models_mods_norm[mod_key].normal_split()
     models_mods_norm[mod_key].train()
-    models_mods_norm[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key])
+    #models_mods_norm[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key])
 
 for mod_key in models_mods_CVKF:
     models_mods_CVKF[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
     models_mods_CVKF[mod_key].crossval_KF_split(n_splits=5,random_state=None,shuffle=False)
     models_mods_CVKF[mod_key].train()
-    models_mods_CVKF[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key]+" Cross Validated ")
+    #models_mods_CVKF[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key]+" Cross Validated ")
 
 #Report on models 
 for mod_key in models_mods_CVKF:
