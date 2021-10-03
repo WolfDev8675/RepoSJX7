@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["ipython>=6", "nbformat>=4", "nbconvert>=5", "requests>=2",'Analysis.py','DataAccess.py','Intelligence.py','Visuals.py']
+requirements = ["ipython>=6", "nbformat>=4", "nbconvert>=5", "requests>=2",'Analysis','DataAccess','Intelligence','Visuals']
 
 setup(
     name="CaseStudy_Backend",
