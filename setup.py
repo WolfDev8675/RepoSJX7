@@ -17,6 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/WolfDev8675/RepoSJX7/tree/CaseStudy_backend",
     packages=find_packages(),
+    data_files=[('libexec',['Analysis.py','DataAccess.py','Intelligence.py','Visuals.py'])]
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.7",
