@@ -13,3 +13,7 @@ seasonal rise or fall, the nature of rise or fall, predicting to the nearest val
 * At the final conclusion of the study the codework when executed will be able to determine and tell to the perfect zero the price of the open of the new day's share.
 
 #
+
+
+&copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
+_(b.biswas_94587@ieee.org)_
