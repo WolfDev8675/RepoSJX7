@@ -128,7 +128,7 @@ class Forecaster():
     def boost(self):
         """ Variable boosting for model improvement """
         pass
-
+    def accuracy(self,)
     def regression_report(self):
         """ Regression report collection """
         y_true,y_predic=self.split_data['Test']['y'],self.model.predict(self.split_data['Test']['x'])
@@ -158,3 +158,18 @@ class Forecaster():
         print(' Percentiles ')
         for per,vals in zip(percentiles,perc_vals):
             print(f'{per:>15d}: {vals: >15.6f}')
+
+def improvement(oldVAL,newVAL,title_text=''):
+    """ Calculate improvement of a value over its old self 
+     ******************
+     Variables 
+    -------------------
+    oldVAL : old value of the variable 
+    newVAL : new value of the variable 
+    ____________________
+    prints improvement percentage 
+    returns improvement in percentage (float) """
+    imprv=100*(newVAL-oldVAL)/oldVAL
+    print(title_text)
+    print(' Improved by {:0.3f}%'.format(imprv))
+    return imprv
