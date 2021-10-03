@@ -7,7 +7,7 @@
 from DataAccess import *
 from Intelligence import * 
 from Visuals import *
-from Analysis import *
+from StatAnsys import *
 import matplotlib.pyplot as plots  #@visuals
 from statsmodels.tsa.seasonal import seasonal_decompose  #@pre-analysis
 from sklearn.model_selection import train_test_split  #@intelligence
