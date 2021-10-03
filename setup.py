@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["ipython>=6", "nbformat>=4", "nbconvert>=5", "requests>=2"]
+requirements = ["ipython>=6", "nbformat>=4", "nbconvert>=5", "requests>=2",'Analysis.py','DataAccess.py','Intelligence.py','Visuals.py']
 
 setup(
     name="CaseStudy_Backend",
@@ -17,7 +17,6 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/WolfDev8675/RepoSJX7/tree/CaseStudy_backend",
     packages=find_packages(),
-    data_files=[('libexec',['Analysis.py','DataAccess.py','Intelligence.py','Visuals.py'])]
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.7",
