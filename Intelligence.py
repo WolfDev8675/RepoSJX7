@@ -128,7 +128,7 @@ class Forecaster():
     def boost(self):
         """ Variable boosting for model improvement """
         pass
-    def accuracy(self,):
+    def accuracy(self):
         pass
     def regression_report(self):
         """ Regression report collection """
