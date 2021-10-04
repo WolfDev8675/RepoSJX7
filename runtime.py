@@ -26,7 +26,7 @@ dHs=data_FixedTimeLine("BZ=F",start="2017-10-01",end="2019-10-01")  #for predict
 dhs2=data_Live(period='5mo')                                        #for result comparison   
 
 #Stock data show
-stockCandle(dHs)
+stockCandle(dHs,title=" Brent Oil Price Fluctuations (BZ=F) ")
 
 # Season @analysis
 trendNseasonality(dHs[['Close']],model='additive',period=30)

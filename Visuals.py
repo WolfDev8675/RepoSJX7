@@ -126,5 +126,6 @@ def stockCandle(data,title=''):
     """
     Fig = gr_objs.Figure(data=[gr_objs.Candlestick(x=data.index,
                 open=data.Open, high=data.High,
-                low=data.Low, close=data.Close)],title=title)
+                low=data.Low, close=data.Close)],
+                layout=gr_objs.Layout(title=gr_objs.layout.Title(text=title)))
     return Fig.show()
