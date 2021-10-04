@@ -109,12 +109,13 @@ def fullDataPlots(data,method=sns.pairplot,title=None,window_dim=(15,10)):
     plts.subplots_adjust(0.064,0.06,0.983,0.938)
     return plts.show()
 
-def stockCandle(data):
+def stockCandle(data,title):
     """ Create a Candlestick chart for stock market like data 
     *********************
     Variables
     ---------------------
     data : pandas.DataFrame object with specified definition type 
+    title: title to the chart 
     
     Dataframe definition type must follow
     1. Date must be indexed 
@@ -123,8 +124,7 @@ def stockCandle(data):
     _________________________
     returns a plotted candlestick chart with sliders 
     """
-    fig = gr_objs.Figure(data=[gr_objs.Candlestick(x=data.index,
+    Fig = gr_objs.Figure(data=[gr_objs.Candlestick(x=data.index,
                 open=data.Open, high=data.High,
-                low=data.Low, close=data.Close)])
-    print(type(fig))
-    fig.show()
+                low=data.Low, close=data.Close)],title=title)
+    return Fig.show()
