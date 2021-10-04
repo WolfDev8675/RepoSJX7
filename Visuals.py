@@ -109,7 +109,7 @@ def fullDataPlots(data,method=sns.pairplot,title=None,window_dim=(15,10)):
     plts.subplots_adjust(0.064,0.06,0.983,0.938)
     return plts.show()
 
-def stockCandle(data,title):
+def stockCandle(data,title=''):
     """ Create a Candlestick chart for stock market like data 
     *********************
     Variables
