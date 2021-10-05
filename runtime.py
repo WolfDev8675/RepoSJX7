@@ -56,13 +56,19 @@ for mod_key in models_mods_norm:
     models_mods_norm[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
     models_mods_norm[mod_key].normal_split()
     models_mods_norm[mod_key].train()
-    #models_mods_norm[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key])
+    models_mods_norm[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key])
 
 for mod_key in models_mods_CVKF:
     models_mods_CVKF[mod_key].pushData(data=dHs,predicts=['Open','High','Low'],infers="Close")
     models_mods_CVKF[mod_key].crossval_KF_split(n_splits=5,random_state=None,shuffle=False)
     models_mods_CVKF[mod_key].train()
-    #models_mods_CVKF[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key]+" Cross Validated ")
+    models_mods_CVKF[mod_key].plotMetrics(data=dhs2,title="Model: "+models_name[mod_key]+" Cross Validated ")
+
+#@check
+for mod_key in models_mods_CVKF:
+    print(models_name[mod_key])
+    if mod_key is not 'RF' and  mod_key is not 'SV': print(models_mods_CVKF[mod_key].model.coef_)
+    else: print(models_mods_CVKF[mod_key].model.get_params()) 
 
 #Report on models 
 for mod_key in models_mods_CVKF:
@@ -75,11 +81,7 @@ for mod_key in models_mods_CVKF:
         models_mods_CVKF[mod_key].ensemble_grading()
         models_mods_CVKF[mod_key].boost()
         models_mods_CVKF[mod_key].regression_report()
-#@check
-for mod_key in models_mods_CVKF:
-    print(models_name[mod_key])
-    if mod_key is not 'RF': print(models_mods_CVKF[mod_key].model.coef_)
-    else: print(models_mods_CVKF[mod_key].model.get_params())
+
 # Report on train vs test vs predicted
 #  predicted vs test plot report  @visuals 
 #  kind of residuals plots  

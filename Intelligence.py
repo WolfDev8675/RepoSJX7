@@ -5,12 +5,12 @@
 # imports
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split, KFold
-from sklearn import metrics #@post-analysis
-import matplotlib.pyplot as plots  #@visuals
+from sklearn.model_selection import train_test_split, KFold, GridSearchCV, RandomizedSearchCV 
+from sklearn import metrics 
+import matplotlib.pyplot as plots  
 
 
-
+# Class definition for handling 
 class Forecaster():
     """ Class Forecaster 
     target operation: Forcast with machine learning models,
@@ -125,9 +125,28 @@ class Forecaster():
         """ Operate ensemble gradation on data to improve model """
         pass
 
-    def boost(self):
-        """ Variable boosting for model improvement """
-        pass
+    def hyperboost(self,evaluator=GridSearchCV,**kwargs):
+        """ Variable boosting for model improvement using 
+        process of Hyperparameter Boost 
+        this is applicable for only the Vector Machines and Ensemble Forest methods 
+        *********************
+        Variables 
+        ---------------------
+        evaluator : GridSearchCV (default) also usable is RandomizedSearchCV 
+        **kwargs : all settings that are applicable to be used in the evaluator algorithm 
+        -----------------------
+        returns estimator model 
+        (Created specifically with RandomForestRegressor and SupportVectorRegressor 
+         other algorithms may be used if behaviour matches similar patterns)
+        _______________________
+        """
+        worker=evaluator(estimator=self.model);
+        for var in kwargs:
+            if hasattr(worker,var):
+                setattr(worker,var,kwargs[var])
+        worker.fit(self.split_data['Train']['x'],self.split_data['Train']['y'])
+        return worker.best_estimator_
+        
     def accuracy(self):
         """ Calculate the Accuracy of the Regression Model """
         predict=self.model.predict(self.split_data['Test']['x'])
