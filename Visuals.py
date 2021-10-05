@@ -129,3 +129,4 @@ def stockCandle(data,title=''):
                 low=data.Low, close=data.Close)],
                 layout=gr_objs.Layout(title=gr_objs.layout.Title(text=title)))
     return Fig.show()
+
