@@ -1,3 +1,10 @@
-plotly==5.3.1
-statsmodels==0.12.2
-yfinance==0.1.63
+matplotlib
+matplotlib-inline
+numpy
+pandas
+plotly
+scikit-learn
+scipy
+seaborn
+statsmodels
+yfinance
