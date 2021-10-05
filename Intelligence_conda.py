@@ -164,14 +164,15 @@ class Forecaster():
         print(' Percentiles ')
         for per,vals in zip(percentiles,perc_vals):
             print(f'{per:>15d}: {vals: >15.6f}')
-def mean_absolute_percentage_error(self,y_true,y_predic):
-    """ Function emulates the function of the same name as is
+    
+    def mean_absolute_percentage_error(self,y_true,y_predic):
+        """ Function emulates the function of the same name as is
         in sklearn.metrics of sklearn.__version__==0.24
         this is done for conda/anaconda related environment where sklearn.__version__==0.23.x 
         """
-    errs=abs(y_predic-y_true)
-    MAE_P=100*np.mean(errs/y_true)
-    return MAE_P
+        errs=abs(y_predic-y_true)
+        MAE_P=100*np.mean(errs/y_true)
+        return MAE_P
 
 def improvement(oldVAL,newVAL,title_text=''):
     """ Calculate improvement of a value over its old self 
