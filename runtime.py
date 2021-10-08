@@ -7,7 +7,7 @@
 from DataAccess import *
 from Intelligence import * 
 from Visuals import *
-from StatAnsys import *
+from StatAnalysis import *
 import matplotlib.pyplot as plots  #@visuals
 from statsmodels.tsa.seasonal import seasonal_decompose  #@pre-analysis
 from sklearn.model_selection import train_test_split  #@intelligence
@@ -32,7 +32,7 @@ stockCandle(dHs,title=" Brent Oil Price Fluctuations (BZ=F) ")
 trendNseasonality(dHs[['Close']],model='additive',period=30)
 
 # EDA 
-fullDataPlots(dHs[['Open','High','Low','Close']],title=" Pairplot of %s"%str(['Open','High','Low','Close'])[2:-2]) # pairplot 
+fullDataPlots(dHs[['Open','High','Low','Close']],title=" Pairplot of %s"%str(['Open','High','Low','Close'])[1:-1]) # pairplot 
 fullDataPlots(dHs[['Open','High','Low','Close']],method=sns.boxplot,title='Box and Whiskers') # boxplot 
 multiPlots(dHs[['Open','High','Low','Close']])  # individual plots paired to each other 
 ## per year open and close line curves 

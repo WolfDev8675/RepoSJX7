@@ -130,3 +130,21 @@ def stockCandle(data,title=''):
                 layout=gr_objs.Layout(title=gr_objs.layout.Title(text=title)))
     return Fig.show()
 
+def residualsPlot(X,Y_t,Y_p,title,linefmt):
+    """ Function plots for generating StemPlot natured residual plot
+    *******************
+    Variables 
+    ----------------------
+    X  : x axis values (array like)
+    Y_t : y variable considered true (array like)
+    y_p : y variable considered as predicted (array like)
+        residuals are calculated as for each x the residue is calculated as (Y_t-Y_p) 
+    title : the title to the corresponding plot 
+    linefmt : the line format respective to the chart plotted 
+    -------------------------
+    returns matplotlib.container.StemContainer object 
+    _____________________________
+    """
+    residuals=Y_t-Y_p;
+    stems=plts.stem(X,residuals,linefmt=linefmt);plts.title(title);
+    return stems 

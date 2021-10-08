@@ -113,17 +113,57 @@ class Forecaster():
         plots.title(title)
         plots.show()
 
-    def cost_function(self):
-        """ Calculate the Cost incurred of Error """
-        pass
+    def getThetas(self):
+        """ Return the set of coefficients or thetas governing the model """
+        C0=self.model.intercept_
+        CN=self.model.coef_
+        params=np.concatenate((np.array([C0]),CN))
+        return params
 
-    def grad_decent(self):
+    def cost_function(self,Xjs=None,Yjs=None,thetas=None):
+        """ Calculate the Cost incurred of Error residues """
+        if Xjs==None and Yjs==None and thetas==None:
+            hypo=self.model.predict(self.XData)
+            delta=hypo-self.YData
+        else:
+            phi_thetas=Yjs
+            psi_theta=np.dot(Xjs,thetas)
+            deltas=psi_theta-phi_thetas
+        m=len(self.YData)
+        cost=np.sum(np.square(deltas))*0.5/m
+        return cost
+
+    def grad_decent(self,alpha=0.01,iters=100):
         """ Use Gradient Decent method to purify model """
-        pass
-
-    def ensemble_grading(self):
-        """ Operate ensemble gradation on data to improve model """
-        pass
+        m=len(self.YData)
+        Xjs=np.c_[np.ones((len(self.XData),1)),self.XData]
+        phi_thetas=self.YData
+        thetas=self.model.getThetas()
+        History={}
+        for steps in range(iters):
+            psi_theta=np.dot(Xjs,thetas)
+            deltas=psi_theta-phi_thetas
+            del_J_del_theta=Xjs.T.dot(deltas)/m
+            thetas=thetas-alpha*del_J_del_theta
+            History['Costs'][steps]=self.cost_function(Xjs=Xjs,Yjs=phi_thetas,thetas=thetas)
+            History['Thetas'][steps]=thetas
+        return History
+        
+    
+    def gradientEnhanced(self,alpha=0.01,iters=100):
+        """ Use Gradient descent functionality to provide an improved model"""
+        History=self.grad_decent(alpha=alpha,iters=iters)
+        minDeltaCost=min(History['Costs'].values)
+        best_cost=0
+        best_theta=0
+        for i in iters:
+            if History['Costs'][i]==minDeltaCost: 
+                best_cost=History['Costs'][i]
+                best_theta=History['Thetas'][i]
+        self.model.intercept_=best_theta[0]
+        self.model.coef_=best_theta[1:]
+        self.metric={'ModelClass':type(self.model),'Best cost found':best_cost}
+        return self.model
 
     def hyperboost(self,evaluator=GridSearchCV,**kwargs):
         """ Variable boosting for model improvement using 

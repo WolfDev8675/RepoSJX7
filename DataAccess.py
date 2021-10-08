@@ -8,6 +8,7 @@ import pandas as pd
 import yfinance as yf
 import numpy as np
 import warnings as warns
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, normalize 
 from datetime import datetime as dt
 
 def data_Prestored(location):
@@ -36,3 +37,18 @@ def data_FixedTimeLine(ticker="BZ=F",start=None,end=None):
     else:
         dataRaw=yf.download(ticker,start=start,end=end)
     return dataRaw
+
+def standardize(data,class_=StandardScaler):
+    """ Standardize the Data given """
+    cols=data.columns
+    indexes=data.index
+    scaler=class_()
+    scaled=scaler.fit_transform(data)
+    return pd.DataFrame(data=scaled,columns=cols,index=indexes)
+
+def normalization(data,func_=normalize):
+    """ Normalize the given data """
+    cols=data.columns
+    indexes=data.index
+    normed=func_(data)
+    return pd.DataFrame(data=normed,columns=cols,index=indexes)
