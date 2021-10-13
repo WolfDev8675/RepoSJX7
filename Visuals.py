@@ -100,6 +100,7 @@ def fullDataPlots(data,method=sns.pairplot,title=None,window_dim=(15,10)):
     ------------------------
     returns figure object  
     """
+    warns.filterwarnings('ignore')
     figHandler=method(data=data);
     try:  figHandler=method(data=data,annot=True);
     except: figHandler=method(data=data);
