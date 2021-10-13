@@ -6,9 +6,9 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split, KFold, GridSearchCV, RandomizedSearchCV
-from sklearn import metrics #@post-analysis
-import matplotlib.pyplot as plots  #@visuals
-
+from sklearn import metrics 
+import matplotlib.pyplot as plots  
+from Visuals import residualsPlot
 
 
 class Forecaster():
@@ -232,6 +232,17 @@ class Forecaster():
         errs=abs(y_predic-y_true)
         MAE_P=100*np.mean(errs/y_true)
         return MAE_P
+    
+    def residualTest(self,title,lineformat='C0:'):
+        """ Plot Residual plot on Test Data"""
+        Fig=plots.figure(figsize=(9,7.5));
+        ax1=Fig.add_subplot(111);
+        X=self.split_data["Test"]['x']
+        X_lines=X.index
+        YTrue=self.split_data["Test"]['y']
+        YPred=self.model.predict(X)
+        residualsPlot(X_lines,YTrue,YPred,title=title,linefmt=lineformat)
+        plots.show()
 
 def improvement(oldVAL,newVAL,title_text=''):
     """ Calculate improvement of a value over its old self 

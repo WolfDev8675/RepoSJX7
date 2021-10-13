@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Data_static"
   ],
-  "SelectedNode": "\\LICENSE",
+  "SelectedNode": "\\Intelligence_conda.py",
   "PreviewInSolutionExplorer": false
 }

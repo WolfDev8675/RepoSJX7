@@ -7,7 +7,8 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split, KFold, GridSearchCV, RandomizedSearchCV 
 from sklearn import metrics 
-import matplotlib.pyplot as plots  
+import matplotlib.pyplot as plots
+from Visuals import residualsPlot
 
 
 # Class definition for handling 
@@ -223,6 +224,18 @@ class Forecaster():
         print(' Percentiles ')
         for per,vals in zip(percentiles,perc_vals):
             print(f'{per:>15d}: {vals: >15.6f}')
+
+    def residualTest(self,title,lineformat='C0:'):
+        """ Plot Residual plot on Test Data"""
+        Fig=plots.figure(figsize=(9,7.5));
+        ax1=Fig.add_subplot(111);
+        X=self.split_data["Test"]['x']
+        X_lines=X.index
+        YTrue=self.split_data["Test"]['y']
+        YPred=self.model.predict(X)
+        residualsPlot(X_lines,YTrue,YPred,title=title,linefmt=lineformat)
+        plots.show()
+
 
 def improvement(oldVAL,newVAL,title_text=''):
     """ Calculate improvement of a value over its old self 
