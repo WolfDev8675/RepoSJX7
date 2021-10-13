@@ -235,7 +235,7 @@ class Forecaster():
     
     def residualTest(self,title,lineformat='C0:'):
         """ Plot Residual plot on Test Data"""
-        Fig=plots.figure(figsize=(9,7.5));
+        Fig=plots.figure(figsize=(9,5.5));
         ax1=Fig.add_subplot(111);
         X=self.split_data["Test"]['x']
         X_lines=X.index

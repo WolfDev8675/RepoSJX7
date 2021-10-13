@@ -100,11 +100,12 @@ def fullDataPlots(data,method=sns.pairplot,title=None,window_dim=(15,10)):
     ------------------------
     returns figure object  
     """
-    #Fig=plts.figure(figsize=window_dim);#ax=Fig.add_subplot(111);
-    figHandler=method(data=data);Fig=plts.gcf()
+    figHandler=method(data=data);
+    try:  figHandler=method(data=data,annot=True);
+    except: figHandler=method(data=data);
+    Fig=plts.gcf()
     Fig.set_figwidth(15)
     Fig.set_figheight(7.5)
-    #Fig.resize(window_dim[0],window_dim[1])
     Fig.suptitle(title)
     plts.subplots_adjust(0.064,0.06,0.983,0.938)
     return plts.show()
