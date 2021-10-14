@@ -138,7 +138,7 @@ class Forecaster():
         m=len(self.YData)
         Xjs=np.c_[np.ones((len(self.XData),1)),self.XData]
         phi_thetas=self.YData
-        thetas=self.model.getThetas()
+        thetas=self.getThetas()
         History={}
         for steps in range(iters):
             psi_theta=np.dot(Xjs,thetas)
