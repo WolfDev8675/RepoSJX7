@@ -122,7 +122,7 @@ class Forecaster():
 
     def cost_function(self,Xjs=None,Yjs=None,thetas=None):
         """ Calculate the Cost incurred of Error residues """
-        if (Xjs==None) and (Yjs==None) and (thetas==None):
+        if (Xjs is None) and (Yjs is None) and (thetas is None):
             hypo=self.model.predict(self.XData)
             delta=hypo-self.YData
         else:
