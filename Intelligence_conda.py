@@ -120,15 +120,12 @@ class Forecaster():
         params=np.concatenate((np.array([C0]),CN))
         return params
 
-    def cost_function(self,Xjs=None,Yjs=None,thetas=None):
+    def cost_function(self,Xjs,Yjs,thetas):
         """ Calculate the Cost incurred of Error residues """
-        if (Xjs is None) and (Yjs is None) and (thetas is None):
-            hypo=self.model.predict(self.XData)
-            delta=hypo-self.YData
-        else:
-            phi_thetas=Yjs
-            psi_theta=np.dot(Xjs,thetas)
-            deltas=psi_theta-phi_thetas
+        
+        phi_thetas=Yjs
+        psi_theta=np.dot(Xjs,thetas)
+        deltas=psi_theta-phi_thetas
         m=len(self.YData)
         cost=np.sum(np.square(deltas))*0.5/m
         return cost
