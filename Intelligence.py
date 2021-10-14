@@ -154,7 +154,7 @@ class Forecaster():
         minDeltaCost=min(History['Costs'].values())
         best_cost=0
         best_theta=0
-        for i in iters:
+        for i in range(iters):
             if History['Costs'][i]==minDeltaCost: 
                 best_cost=History['Costs'][i]
                 best_theta=History['Thetas'][i]
