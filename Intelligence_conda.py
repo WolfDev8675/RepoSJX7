@@ -150,7 +150,7 @@ class Forecaster():
     def gradientEnhanced(self,alpha=0.01,iters=100):
         """ Use Gradient descent functionality to provide an improved model"""
         History=self.grad_decent(alpha=alpha,iters=iters)
-        minDeltaCost=min(History['Costs'].values)
+        minDeltaCost=min(History['Costs'].values())
         best_cost=0
         best_theta=0
         for i in iters:
