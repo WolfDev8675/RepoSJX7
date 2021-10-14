@@ -163,7 +163,7 @@ class Forecaster():
         self.metric={'ModelClass':type(self.model),'Best cost found':best_cost}
         return self.model
 
-    def hyperboost(self,evaluator=GridSearchCV,**kwargs):
+    def hyperboost(self,evaluator=GridSearchCV,param_grid={},**kwargs):
         """ Variable boosting for model improvement using 
         process of Hyperparameter Boost 
         this is applicable for only the Vector Machines and Ensemble Forest methods 
@@ -178,7 +178,7 @@ class Forecaster():
          other algorithms may be used if behaviour matches similar patterns)
         _______________________
         """
-        worker=evaluator(estimator=self.model);
+        worker=evaluator(estimator=self.model,param_grid=param_grid);
         for var in kwargs:
             if hasattr(worker,var):
                 setattr(worker,var,kwargs[var])
