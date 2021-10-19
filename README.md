@@ -43,7 +43,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_01_
 - Target: _**Linear Regression**_
-- Question: _<ghdk>_
+- Question: _> Perform Linear Regression on a given data and determine the results_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_01/Ecommerce%20Customers.csv%20-%20Ecommerce%20Customers.csv.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_01/Task_Code01.py_ 
 ---
