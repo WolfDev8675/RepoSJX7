@@ -74,7 +74,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > Assignment 5: _given and initiated on 04-07-2021; primary corrections on 21-07-2021; secondary corrections on 01-09-2021._
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_05_
-- Target: _**Conversion to Random Forests**_
+- Target: _**Conversion to Linear Classification and Random Forests**_
 - Question: _<>_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/data.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05.py_
