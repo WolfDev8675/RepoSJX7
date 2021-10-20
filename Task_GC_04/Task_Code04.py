@@ -38,6 +38,7 @@ clfTree.fit(X_enc,y)
 
 # Tree Details
 print("\n\n Plot of the Finalized tree ")
+fig=plt.figure();sbs=fig.add_subplot(111);
 plot_tree(clfTree,class_names=['C0','C1'])
 plt.show()
 
