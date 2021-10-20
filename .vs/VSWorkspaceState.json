@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task_GC_04",
-    "\\Task_GC_05"
+    "\\Task_GC_01",
+    "\\Task_GC_02",
+    "\\Task_GC_03",
+    "\\Task_GC_04"
   ],
-  "SelectedNode": "\\Task_GC_04\\Task_Code04.ipynb",
+  "SelectedNode": "\\Task_GC_04\\Task_Code04.py",
   "PreviewInSolutionExplorer": false
 }
