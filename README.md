@@ -43,7 +43,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_01_
 - Target: _**Linear Regression**_
-- Question: _> Perform Linear Regression on a given data and determine the results_
+- Question: _**Perform Linear Regression on a given data and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_01/Ecommerce%20Customers.csv%20-%20Ecommerce%20Customers.csv.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_01/Task_Code01.py_ 
 ---
@@ -51,7 +51,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_02_
 - Target: _**Logistic Regression**_
-- Question: _<>_
+- Question: _**Perform Logistic Regression on a given data and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_02/advertising.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_02/Task_Code02.py_
 ---
@@ -59,7 +59,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_03_
 - Target: _**Multi-Linear Regression**_
-- Question: _<>_
+- Question: _**Perform Multi-Linear Regression on a given data and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_03/real_estate_price_size_year.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_03/Task_Code03.py_
 ---
@@ -67,7 +67,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_04_
 - Target: _**Decision Trees Classifier**_
-- Question: _<>_
+- Question: _**Perform Decision Tree Classification on a given data and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_04/data.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_04/Task_Code04.py_
 ---
@@ -75,7 +75,7 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 > - Objective: Assignment (Markable) 
 - Directory: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous/Task_GC_05_
 - Target: _**Conversion to Linear Classification and Random Forests**_
-- Question: _<>_
+- Question: _**Convert the Program made on the Decision Trees in the Last question and make code it use Linear Classification and Random Forests instead. Conversely perform Linear Classification and Random Forest Classification on a given data of the Decision Tree Assignment (:Assignment 4) and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/data.csv_
 - Code: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05.py_
 
