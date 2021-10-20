@@ -78,8 +78,8 @@ Collection for assignments and tasks coded in Python Language (Python 3.7)
 - Question: _**Convert the Program made on the Decision Trees in the Last question and make code it use Linear Classification and Random Forests instead. Conversely perform Linear Classification and Random Forest Classification on a given data of the Decision Tree Assignment (:Assignment 4) and determine the results**_
 - Data: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/data.csv_
 - Code: 
-  1. Perceptron Linear Classification Model _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05_A_.py_
-  2. Random Forest Classification Model _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05_B_.py_
+  1. Perceptron Linear Classification Model <br> _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05_A_.py_
+  2. Random Forest Classification Model <br> _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_miscellaneous/Task_GC_05/Task_Code05_B_.py_
 
 
 &copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
