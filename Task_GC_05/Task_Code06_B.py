@@ -1,7 +1,7 @@
 #!usr/bin/python
 
 #Problem Statement:
-#Convert the decision tree program to model Linear calcification and Random Forest and report  your observation
+#Convert the decision tree program to model Linear classification and Random Forest and report  your observation
 # Part problem: Using Random Forest Classification model 
 
 #imports
@@ -31,11 +31,11 @@ print("\n Encoding ....")
 ohec=OHEnc()
 X_enc=ohec.fit_transform(X)
 
-# Perceptrons 
-print("\n Creating the Perceptron Linear model and training .... ")
+# Random Forest Classifier 
+print("\n Creating the Random Forest model and training .... ")
 Jungle=RFC()
 Jungle.fit(X_enc,y) 
 
 # Results
-print("\n Score level achieved of the Perceptron Linear model ")
+print("\n Score level achieved of the Random Forest model ")
 print("Score : ",Jungle.score(X_enc,y))

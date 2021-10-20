@@ -1,7 +1,7 @@
 #!usr/bin/python
 
 #Problem Statement:
-#Convert the decision tree program to model Linear calcification and Random Forest and report  your observation
+#Convert the decision tree program to model Linear classification and Random Forest and report  your observation
 # Part problem: Using Perceptron Linear Classification model 
 
 #imports
