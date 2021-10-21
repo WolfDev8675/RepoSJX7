@@ -7,14 +7,17 @@ Parent branch for various Machine Learning tasks and assignments given in Module
 > **Project 1: Prediction of Board Game Review.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_1_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj1.pdf_
+> - Jupyter Notebook: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_1/Code_proj1.ipynb_
 ---
 > **Project 2: Help Twitter in combating hate speech in the tweets.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_2_
 > - Documentation: _<>_
+> - Jupyter Notebook: _<>_
 ---
 > **Project 3: Help E-Commerce sites Predict ratings of a product from reviews.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_3_
 > - Documentation: _<>_
+> - Jupyter Notebook: _<>_
 ---
 > **Path to miscellaneous tasks as was given ( Assignments ):**
 - Collection: https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_miscellaneous
