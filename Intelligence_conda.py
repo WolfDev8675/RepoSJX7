@@ -201,7 +201,7 @@ class Forecaster():
         reports=[
             ('Mean Absolute Error',metrics.mean_absolute_error(y_true,y_predic)),
             ('Mean Squared Error',metrics.mean_squared_error(y_true,y_predic)),
-            ('Root Mean Squared Error',metrics.mean_squared_error(y_true,y_predic)),
+            ('Root Mean Squared Error',np.sqrt(metrics.mean_squared_error(y_true,y_predic))),
             ('Mean Squared Log Error',metrics.mean_squared_log_error(y_true,y_predic)),
             ('Median Absolute Error',metrics.median_absolute_error(y_true,y_predic)),
             (' R{:} '.format('\xb2'),metrics.r2_score(y_true,y_predic)),
