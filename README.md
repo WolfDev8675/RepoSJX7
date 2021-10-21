@@ -6,7 +6,7 @@ Parent branch for various Machine Learning tasks and assignments given in Module
 ---
 > **Project 1: Prediction of Board Game Review.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_1_
-> - Documentation: _<>_
+> - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj1.pdf_
 ---
 > **Project 2: Help Twitter in combating hate speech in the tweets.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_2_
