@@ -16,6 +16,7 @@ from sklearn.linear_model import BayesianRidge as BR2
 from sklearn.svm import SVR 
 from sklearn.tree import DecisionTreeRegressor as DTR
 from sklearn.ensemble import RandomForestRegressor as RFT
+from sklearn.metrics import mean_squared_error,mean_absolute_error,median_absolute_error,r2_score
 
 # Presetting viewer 
 pd.set_option('display.max_columns', None)
@@ -146,3 +147,19 @@ for key in models:
     print('Prediction generated for : ',key)
 print('_'.center(70,'_'));
 print('\n');input('Press any key to continue . . .');print('x'.center(70,'*'))
+#Part:5 Determining accuracy levels of models from the predictions
+for key in models:
+    print("Score for %s :: "%key,models[key].score(testX,predicts[key]))
+print('_'.center(70,'_'));
+# Error Study
+print("Model\t|\tMean Squared Error\t|\tMean Absolute Error\t|\tRoot Mean Squared Error\t|\tMedian Absolute Error\t|\t\tR\xb2\t\t|\tAdjusted R\xb2");
+print('-'.center(200,'-'))
+for key in models:
+    print(key,mean_squared_error(predicts[key],testY),
+          mean_absolute_error(predicts[key],testY),np.sqrt(mean_squared_error(predicts[key],testY)),
+          median_absolute_error(predicts[key],testY),r2_score(predicts[key],testY),
+          (1-(1-r2_score(predicts[key],testY))*(len(testY)-1)/(len(testY)-testX.shape[1]-1)),sep='\t|\t')
+    
+print('_'.center(70,'_'));print('\n');input('Press any key to continue . . .');
+print('x'.center(70,'*'))
+# END OF CODE
