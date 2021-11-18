@@ -13,13 +13,13 @@ Parent branch for various Machine Learning tasks and assignments given in Module
 > **Project 2: Help Twitter in combating hate speech in the tweets.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_2_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj2.pdf_
-> - HTML Documentation: _https://htmlpreview.github.io/?https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj2.html
+> - HTML Documentation: _https://htmlpreview.github.io/?https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj2.html_
 > - Jupyter Notebook: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_2/Code_proj2.ipynb_
 ---
 > **Project 3: Help E-Commerce sites Predict ratings of a product from reviews.**
 > - Collection: _https://github.com/WolfDev8675/RepoSJX7/tree/Assign5_3_
 > - Documentation: _https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj3.pdf_
-> - HTML Documentation: _https://htmlpreview.github.io/?https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj3.html
+> - HTML Documentation: _https://htmlpreview.github.io/?https://github.com/WolfDev8675/RepoSJX7/blob/main5/Code_proj3.html_
 > - Jupyter Notebook: _https://github.com/WolfDev8675/RepoSJX7/blob/Assign5_3/Code_proj3.ipynb_
 ---
 > **Path to miscellaneous tasks as was given ( Assignments ):**
