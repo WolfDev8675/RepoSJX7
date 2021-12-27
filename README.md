@@ -11,6 +11,7 @@ __Post Graduate Diploma in Data Science from BSE in collaboration with MAKAUT__
 * [Module 3: Data Preparation and Cleaning](https://github.com/WolfDev8675/RepoSJX7/tree/main3)
 * [Module 4: Data Visualization](https://github.com/WolfDev8675/RepoSJX7/tree/main4)
 * [Module 5: Machine Learning](https://github.com/WolfDev8675/RepoSJX7/tree/main5)
+* [Case Study: Brent Oil Price Prediction](https://www.kaggle.com/wolfdev8675/brentoilpriceprediction)
 ---
 &copy;[Bishal Biswas(@WolfDev8675)](https://github.com/WolfDev8675)
 _(b.biswas_94587@ieee.org)_
