@@ -5,7 +5,7 @@ Repository head containing branches and files for various projects and tasks giv
 
 __Post Graduate Diploma in Data Science from BSE in collaboration with MAKAUT__
 > Module headers are kept as main names 
-# links:
+## Modules:
 * [Module 1: BigData Concepts](https://github.com/WolfDev8675/RepoSJX7/tree/main1)
 * [Module 2: Data Analytics](https://github.com/WolfDev8675/RepoSJX7/tree/main2)
 * [Module 3: Data Preparation and Cleaning](https://github.com/WolfDev8675/RepoSJX7/tree/main3)
