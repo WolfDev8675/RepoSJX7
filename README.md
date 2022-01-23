@@ -5,7 +5,9 @@ Job specified on 'OnlineRetail.txt' file.. file is not uploadable to Git since f
 Retail Sales Analytic
 Overview:
   The objective of the project to illustrate retail analytics using an online retail dataset containing transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail. This dataset is used to demonstrate an end-to-end retail analytic use case on the Hadoop Data Platform distribution: 
-*Data ingestion and cleansing using Apache Pig/Hive/Map Reduce(pyhthon)/Spark/HBASE*
+  
+*Data ingestion and cleansing using Apache Pig/Hive/Map Reduce(pyhthon)/Spark/HBASE* 
+
   *5 hrs*
 #
 Data set:
